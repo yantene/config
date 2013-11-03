@@ -4,7 +4,7 @@ alias ls="ls --color=auto"
 alias vi="vim"
 
 # 環境変数
-export EDITOR=vim
+export EDITOR="vim"
 
 # 補完機能
 autoload -U compinit
@@ -13,20 +13,29 @@ compinit
 # プロンプト
 case ${UID} in
 0)
-	PROMPT="%{[31m%}%n%%%{[m%} "
-	RPROMPT="[%~]"
-	PROMPT2="%B%{[31m%}%_#%{[m%}%b "
-	SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b "
+	PROMPT="%{[32;01m%}%n%%%{[m%} " # 平常時のプロンプト
+	RPROMPT="[%~]" # 右プロンプト 
+	PROMPT2="%B%{[32;01m%}%_#%{[m%}%b " # コマンドの続き
+	SPROMPT="%B%{[32;01m%}%r? [n,y,a,e]:%{[m%}%b " # 合ってる？
 	[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-		PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
+		PROMPT="%{[31;01m%}${HOST%%.*} ${PROMPT}"
 	;;
 *)
-	PROMPT="%{[31m%}%n%%%{[m%} "
+	PROMPT="%{[32;01m%}%n%%%{[m%} "
 	RPROMPT="[%~]"
-	PROMPT2="%{[31m%}%_%%%{[m%} "
-	SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
+	PROMPT2="%{[32;01m%}%_%%%{[m%} "
+	SPROMPT="%{[32;01m%}%r? [n,y,a,e]:%{[m%} "
 	[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-		PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
+		PROMPT="%{[31;01m%}${HOST%%.*} ${PROMPT}"
+	;;
+esac
+
+# ターミナルタイトル
+case "${TERM}" in
+kterm*|xterm)
+	precmd() {
+		echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+	}
 	;;
 esac
 

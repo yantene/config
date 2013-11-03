@@ -14,6 +14,9 @@ fi
 #キーマップの変更
 xmodmap $HOME/.xmodmaprc
 
+#マウスカーソルの指定
+xsetroot -cursor_name left_ptr
+
 #ibus-mozc
 ibus-daemon -drx
 export GTK_IM_MODULE=ibus
@@ -22,14 +25,8 @@ export QT_IM_MODULE=ibus
 
 #スタートアップアプリケーション
 syndaemon -i 0.5 &
-nm-applet --sm-disable &
-gvtray &
-batti &
-blueman-applet &
-mikutter &
-skype &
 
-exec awesome
+exec xmonad
 # exec gnome-session
 # exec startkde
 # exec startxfce4
