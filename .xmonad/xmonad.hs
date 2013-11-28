@@ -16,8 +16,8 @@ myTerminal = "terminator"
 --ウィンドウ調整
 myLayoutHook = avoidStruts $ layoutHook defaultConfig
 myManageHook = composeAll [
-	manageDocks <+> manageHook defaultConfig,
-	className =? "Xfce4-notifyd" --> doF W.focusDown <+> doF copyToAll
+  manageDocks <+> manageHook defaultConfig,
+  className =? "Xfce4-notifyd" --> doF W.focusDown <+> doF copyToAll
  ]
 
 --modキー
@@ -28,27 +28,32 @@ myHandleEventHook = fullscreenEventHook
 
 --XMobar
 myLogHook h = dynamicLogWithPP xmobarPP {
-	ppOutput = hPutStrLn h
+  ppOutput = hPutStrLn h
 }
 
 --キーバインド設定
 myKeys = [
-	--dmenu
-	("M-p", spawn "dmenu_run -b -fn \"Sans-12\""),
+  --dmenu
+  ("M-p", spawn "dmenu_run -b -fn \"Sans-12\""),
 
-	--ワークスペースを転がす
-	("M-d", moveTo Next NonEmptyWS),
-	("M-a", moveTo Prev NonEmptyWS)
+  --音量調整
+  ("<XF86AudioMute>", spawn "amixer sset Master off"),
+  ("<XF86AudioLowerVolume>", spawn "exec amixer sset Master on 10%-"),
+  ("<XF86AudioRaiseVolume>", spawn "exec amixer sset Master on 10%+"),
+
+  --ワークスペースを転がす
+  ("M-d", moveTo Next NonEmptyWS),
+  ("M-a", moveTo Prev NonEmptyWS)
  ]
 
 --main
 main = do
-	myStatusBar <- spawnPipe "xmobar"
-	xmonad $ defaultConfig {
-		terminal = myTerminal,
-		modMask = myModMask,
-		handleEventHook = myHandleEventHook,
-		layoutHook = myLayoutHook,
-		manageHook = myManageHook,
-		logHook = myLogHook myStatusBar
-	} `additionalKeysP` myKeys
+  myStatusBar <- spawnPipe "xmobar"
+  xmonad $ defaultConfig {
+    terminal = myTerminal,
+    modMask = myModMask,
+    handleEventHook = myHandleEventHook,
+    layoutHook = myLayoutHook,
+    manageHook = myManageHook,
+    logHook = myLogHook myStatusBar
+  } `additionalKeysP` myKeys

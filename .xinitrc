@@ -23,8 +23,10 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
+#タッチパッド誤動作防止
+syndaemon -i 0.2 -d
+
 #スタートアップアプリケーション
-syndaemon -i 0.5 &
 
 exec xmonad
 # exec gnome-session

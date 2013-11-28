@@ -7,7 +7,7 @@ set shiftwidth=2  "インデント幅
 set list  "Tabや改行の可視化
 
 "ヤンクをクリップボードに
-set clipboard=unnamed,autoselect
+set clipboard=unnamedplus,autoselect
 
 "その他の設定
 set number

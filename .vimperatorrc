@@ -1,0 +1,8 @@
+" ブラウザタイトルをFirefoxに
+set titlestring=Firefox
+" GUIを非表示
+set ignorecase
+" C-aを有効化
+imap <C-a> <Insert><C-a><Insert>
+" 読み込みを出力
+"echo .vimperatorrc sourced
