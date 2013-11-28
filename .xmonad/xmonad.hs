@@ -38,8 +38,8 @@ myKeys = [
 
   --音量調整
   ("<XF86AudioMute>", spawn "amixer sset Master off"),
-  ("<XF86AudioLowerVolume>", spawn "exec amixer sset Master on 10%-"),
-  ("<XF86AudioRaiseVolume>", spawn "exec amixer sset Master on 10%+"),
+  ("<XF86AudioLowerVolume>", spawn "amixer sset Master on 10%-"),
+  ("<XF86AudioRaiseVolume>", spawn "amixer sset Master on 10%+"),
 
   --ワークスペースを転がす
   ("M-d", moveTo Next NonEmptyWS),
