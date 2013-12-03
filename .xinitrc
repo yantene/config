@@ -24,7 +24,7 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
 #タッチパッド誤動作防止
-syndaemon -i 0.2 -d
+syndaemon -i 0.5 -d
 
 #スタートアップアプリケーション
 
