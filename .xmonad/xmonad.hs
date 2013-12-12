@@ -2,9 +2,10 @@ import System.IO
 import XMonad
 import XMonad.Actions.CopyWindow
 import XMonad.Actions.CycleWS
-import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.SetWMName
 import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig(additionalKeys, additionalKeysP)
 import XMonad.Util.WorkspaceCompare
@@ -12,6 +13,9 @@ import XMonad.Util.Run
 
 --ターミナル
 myTerminal = "terminator"
+
+--Swingグレイ対策
+myStartupHook = setWMName "LG3D"
 
 --ウィンドウ調整
 myLayoutHook = avoidStruts $ layoutHook defaultConfig
@@ -51,6 +55,7 @@ main = do
   myStatusBar <- spawnPipe "xmobar"
   xmonad $ defaultConfig {
     terminal = myTerminal,
+    startupHook = myStartupHook,
     modMask = myModMask,
     handleEventHook = myHandleEventHook,
     layoutHook = myLayoutHook,
