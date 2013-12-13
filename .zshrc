@@ -58,4 +58,3 @@ setopt auto_pushd	# 移動履歴(cd -[Tab])
 setopt correct	# コマンド訂正
 setopt list_packed	# 補完候補の詰め詰め
 setopt nolistbeep # ビープ消す
-bindkey -v
