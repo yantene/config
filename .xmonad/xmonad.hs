@@ -12,7 +12,7 @@ import XMonad.Util.WorkspaceCompare
 import XMonad.Util.Run
 
 --ターミナル
-myTerminal = "terminator"
+myTerminal = "evilvte"
 
 --Swingグレイ対策
 myStartupHook = setWMName "LG3D"

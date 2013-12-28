@@ -2,6 +2,7 @@
 setopt complete_aliases
 alias ls="ls --color=auto"
 alias vi="vim"
+alias tmux="tmux -2"
 
 # 環境変数
 export EDITOR="vim"
