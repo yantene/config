@@ -1,14 +1,43 @@
-"NeoBundle
+"neobundle
 set nocompatible
 filetype off
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#rc(expand('~/.vim/bundle'))
 endif
-NeoBundle 'Shougo/neocomplcache.vim'
+NeoBundle 'Shougo/neocomplete'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'Shougo/vimproc', {
+\ 'build': {
+\   'windows': 'make -f make_mingw32.mak',
+\   'cygwin': 'make -f make_cygwin.mak',
+\   'mac': 'make -f make_mac.mak',
+\   'unix': 'make -f make_unix.mak',
+\ },
+\}
 NeoBundle 'tomasr/molokai'
 filetype plugin on
 filetype indent on
+
+"neocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_ignore_case = 1
+let g:neocomplete#enable_smart_case = 1
+if !exists('g:neocomplete#keyboard_patterns')
+  let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns._ = '\h\w*'
+
+"quickrun
+let g:quickrun_config = {
+\ "_": {
+\   "runner": "vimproc",
+\   "runner/vimproc/updatetime": 60
+\ },
+\ "cpp/clang++": {
+\   "cmdopt": "-std=c++11"
+\ },
+\}
 
 "インデント関連の設定
 set autoindent
@@ -21,40 +50,12 @@ set list  "Tabや改行の可視化
 "ヤンクをクリップボードに
 set clipboard=unnamedplus,autoselect
 
+"Syntax Highlighting
+syntax on
+colorscheme molokai
+
 "その他の設定
 set number
 set cursorline
 set t_Co=256
 set showmatch
-
-"SyntaxHighlighting
-syntax on
-colorscheme molokai
-
-"バイナリエディタ
-augroup BinaryXXD
-  autocmd!
-  autocmd BufReadPre *.bin let &binary = 1
-  autocmd BufReadPost * call BinReadPost()
-  autocmd BufWritePre * call BinWritePre()
-  autocmd BufWritePost * call BinWritePost()
-  function! BinReadPost()
-    if &binary
-      silent %!xxd -g 1
-      set ft=xxd
-    endif
-  endfunction
-  function! BinWritePre()
-    if &binary
-      let s:saved_pos = getpos( '.' )
-      silent %!xxd -r
-    endif
-  endfunction
-  function! BinWritePost()
-    if &binary
-      silent %!xxd -g 1
-      call setpos( '.', s:saved_pos )
-      set nomod
-    endif
-  endfunction
-augroup END
