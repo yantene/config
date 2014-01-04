@@ -1,8 +1,24 @@
 " ブラウザタイトルをFirefoxに
 set titlestring=Firefox
-" GUIを非表示
+
+" 検索で大文字小文字を無視
 set ignorecase
+
+" アドオンとナビゲーションを非表示
+set toolbars=noaddons,nonavigation,nomenu
+
+" 履歴の非表示
+set complete=s
+
+" j/kでのスクロール幅
+map j 3<C-e>
+map k 3<C-y>
+
 " C-aを有効化
 imap <C-a> <Insert><C-a><Insert>
+
+" C-cを有効化
+map <C-c> :echo Yank!<CR>Y
+
 " 読み込みを出力
-"echo .vimperatorrc sourced
+echo ".vimperatorrc was loaded!"
