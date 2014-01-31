@@ -17,6 +17,8 @@ NeoBundle 'tyru/caw.vim'
 NeoBundle 'jceb/vim-hier'
 NeoBundle 'osyo-manga/vim-watchdogs'
 NeoBundle 'osyo-manga/unite-quickrun_config.git'
+NeoBundle 'osyo-manga/vim-reunions'
+NeoBundle 'osyo-manga/vim-marching'
 NeoBundle 'tomasr/molokai'
 filetype plugin on
 filetype indent on
@@ -33,9 +35,8 @@ endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
 
 "-------------------------------------------------
-"        quickrun
+"        quickrun & watchdogs
 "-------------------------------------------------
-let g:watchdogs_check_BufWritePost_enable = 1
 let g:quickrun_config = {
 \ "_": {
 \   "hook/close_unite_quickfix/enable_hook_loaded": 1,
@@ -59,14 +60,14 @@ let g:quickrun_config = {
 \ 'cpp/clang++11': {
 \   'command': 'clang++',
 \   'exec': ['%c %o %s -o %s:p:r', '%s:p:r %a'],
-\   "cmdopt": "-std=c++11 -Wall",
+\   "cmdopt": "-std=gnu++11 -Wall",
 \   'tempfile': '%{tempname()}.cpp',
 \   'hook/sweep/files': ['%S:p:r'],
 \ },
 \ 'cpp/g++11': {
 \   'command': 'g++',
 \   'exec': ['%c %o %s -o %s:p:r', '%s:p:r %a'],
-\   "cmdopt": "-std=c++11 -Wall",
+\   "cmdopt": "-std=gnu++11 -Wall",
 \   'tempfile': '%{tempname()}.cpp',
 \   'hook/sweep/files': '%S:p:r',
 \ },
@@ -76,6 +77,9 @@ let g:quickrun_config = {
 \ "cpp/g++": {
 \   "cmdopt": "-Wall",
 \ },
+\ "watchdogs_checker/_": {
+\   "hook/close_unite_quickfix/enable_exit": 1,
+\ },
 \ "cpp/watchdogs_checker": {
 \   "type": "watchdogs_checker/clang++",
 \ },
@@ -83,6 +87,9 @@ let g:quickrun_config = {
 \   "cmdopt": "-Wall",
 \ },
 \}
+let g:watchdogs_check_BufWritePost_enable = 1 "書き込み後のシンタックスチェック
+let g:watchdogs_check_CursorHold_enable = 1 "キー入力のない場合のシンタックスチェック
+call watchdogs#setup(g:quickrun_config)
 
 "-------------------------------------------------
 "        コメントアウト・アンコメント
@@ -93,23 +100,63 @@ nmap \C <Plug>(caw:I:uncomment)
 vmap \C <Plug>(caw:I:uncommnet)
 
 "-------------------------------------------------
-"        C++に関する設定
+"        C++の補完
 "-------------------------------------------------
+let g:marching_clang_command = "/usr/bin/clang"
+let g:marching_clang_command_option = "-std=gnu++11"
+let g:marching_include_paths = [
+\ "/usr/include/c++/4.8.2",
+\ "/usr/include/boost"
+\ ]
+let g:marching_enable_neocomplete = 1
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.cpp = 
+      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+set updatetime=200
+
+"-------------------------------------------------
+"        言語ごとの設定
+"-------------------------------------------------
+" C++の設定
 function! s:cpp()
-  setlocal path+=/usr/include/c++/4.8.2,/usr/include/boost
-  setlocal tabstop=2
-  setlocal shiftwidth=2
+  "setlocal path+=/usr/include,/usr/include/c++/4.8.2,/usr/include/boost
   setlocal expandtab
+  setlocal tabstop=2
+  setlocal softtabstop=2
+  setlocal shiftwidth=2
   setlocal matchpairs+=<:>
 endfunction
+
+"Javaの設定
+function! s:java()
+  setlocal expandtab
+  setlocal tabstop=4
+  setlocal softtabstop=4
+  setlocal shiftwidth=4
+endfunction
+
+augroup vimrc-lang
+  autocmd!
+  autocmd FileType cpp call s:cpp()
+  autocmd FileType java call s:java()
+augroup END
+
+"-------------------------------------------------
+"        gvimの設定
+"-------------------------------------------------
+" フォント設定
+set guifont=Ricty\ 11
+set guifontwide=Ricty\ 11
 
 "-------------------------------------------------
 "        vimの設定
 "-------------------------------------------------
 " インデント関連の設定
 set autoindent
-set tabstop=2  "Tabの幅
 set expandtab  "Tabキーでスペース挿入
+set tabstop=2  "Tabの幅
 set softtabstop=2  "Tabキーによるカーソル移動幅
 set shiftwidth=2  "インデント幅
 set list  "Tabや改行の可視化

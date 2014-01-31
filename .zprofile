@@ -1,5 +1,5 @@
 if [ -d "$HOME/.fhs/bin" ] ; then
-	PATH="$PATH:$HOME/.fhs/bin"
+	PATH="$PATH:$HOME/.scripts"
 fi
 
 mkdir -p /tmp/{yantene-desktop,yantene-temporary}

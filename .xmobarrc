@@ -10,9 +10,9 @@ Config{
 		Run Memory ["-t", "Mem: <usedratio>%"] 10,
 		Run Network "wlp1s0" ["-L", "0", "-H", "32", "--normal", "green", "--high", "red"] 10,
 		Run BatteryP ["BAT0"] ["-t", "Batt: <left>%", "-L", "10", "-H", "80", "-l", "red", "-h", "green"] 60,
-		Run Date "%Y/%m/%d %H:%M" "date" 10
+		Run Date "%Y-%m-%d %H:%M" "date" 10
 	],
 	sepChar = "%",
 	alignSep = "}{",
-	template = "%StdinReader% }{ %cpu% * %memory% * %wlp1s0% * %battery%   %date%"
+	template = "%StdinReader% }{ %cpu% / %memory% / %wlp1s0% / %battery%      %date%"
 }
