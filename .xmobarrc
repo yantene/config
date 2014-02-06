@@ -8,6 +8,7 @@ Config{
 		Run StdinReader,
 		Run Cpu ["-t", "Cpu: <total>%", "-L", "3", "-H", "50", "--normal", "green", "--high", "red"] 10,
 		Run Memory ["-t", "Mem: <usedratio>%"] 10,
+    --Run Com "/home/yantene/.scripts/getvolume" "volume" 36000
 		Run Network "wlp1s0" ["-L", "0", "-H", "32", "--normal", "green", "--high", "red"] 10,
 		Run BatteryP ["BAT0"] ["-t", "Batt: <left>%", "-L", "10", "-H", "80", "-l", "red", "-h", "green"] 60,
 		Run Date "%Y-%m-%d %H:%M" "date" 10

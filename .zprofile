@@ -1,4 +1,4 @@
-if [ -d "$HOME/.fhs/bin" ] ; then
+if [ -d "$HOME/.scripts" ] ; then
 	PATH="$PATH:$HOME/.scripts"
 fi
 
