@@ -38,7 +38,7 @@ myLogHook h = dynamicLogWithPP xmobarPP {
 --キーバインド設定
 myKeys = [
   --dmenu
-  ("M-p", spawn "dmenu_run -b -fn \"Sans-12\""),
+  ("M-d", spawn "dmenu_run -b -fn \"Sans-12\""),
 
   --音量調整
   ("<XF86AudioMute>", spawn "amixer sset Master off"),
@@ -46,8 +46,8 @@ myKeys = [
   ("<XF86AudioRaiseVolume>", spawn "amixer sset Master on 10%+"),
 
   --ワークスペースを転がす
-  ("M-d", moveTo Next NonEmptyWS),
-  ("M-a", moveTo Prev NonEmptyWS)
+  ("M-f", moveTo Next NonEmptyWS),
+  ("M-s", moveTo Prev NonEmptyWS)
  ]
 
 --main
