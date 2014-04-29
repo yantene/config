@@ -15,10 +15,8 @@ PROMPT="
 %B%F{yellow}%n@%M:%f %~
 %(?.%F{green}%#%f.%F{red}%#%f)%b " # 平常時のプロンプト
 RPROMPT="" # 右プロンプト
-PROMPT2="%B%{[32;01m%}%_#%{[m%}%b " # コマンドの続き
-SPROMPT="%B%{[32;01m%}%r? [n,y,a,e]:%{[m%}%b " # 合ってる？
-[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-PROMPT="%{[31;01m%}${HOST%%.*} ${PROMPT}"
+PROMPT2=" " # コマンドの続き
+SPROMPT=" %F{green}%r?%f " # 合ってる？
 
 # ターミナルタイトル
 case "${TERM}" in
