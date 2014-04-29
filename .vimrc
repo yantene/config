@@ -17,16 +17,6 @@ endif
 filetype plugin on
 filetype indent on
 
-" vimprocの設定
-NeoBundle 'Shougo/vimproc', {
-\ 'build': {
-\   'windows': 'make -f make_mingw32.mak',
-\   'cygwin': 'make -f make_cygwin.mak',
-\   'mac': 'make -f make_mac.mak',
-\   'unix': 'make -f make_unix.mak',
-\ },
-\}
-
 "===============================================================================
 "        言語ごとの設定
 "===============================================================================
@@ -65,21 +55,16 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#skip_auto_completion_time = ''
 
 "===============================================================================
-"         marching.vim
+"         vim-endwise
 "===============================================================================
 
-NeoBundle 'Shougo/vimproc.vim'
-NeoBundle 'osyo-manga/vim-reunions'
-NeoBundle 'osyo-manga/vim-marching'
+NeoBundle 'Shougo/neosnippet.vim'
 
-let g:marching_clang_command_option = '-std=gnu++11' "clang
-let g:marching_enable_neocomplete = 1
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.cpp =
-    \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+"===============================================================================
+"         vim-endwise
+"===============================================================================
 
+NeoBundle 'tpope/vim-endwise'
 
 "===============================================================================
 "         vimの設定
@@ -106,6 +91,9 @@ set number "行番号
 set list "特殊文字の可視化
 set cursorline
 set showmatch
+
+" キーバインドに関する設定
+imap <C-c> <C-x><C-o>
 
 " gvimの設定
 set guifont=Ricty\ 11

@@ -15,7 +15,7 @@ fi
 xmodmap $HOME/.xmodmaprc
 
 #マウスカーソルの指定
-xsetroot -cursor_name left_ptr
+#xsetroot -cursor_name left_ptr
 
 #ibus-mozc
 ibus-daemon -drx
@@ -32,4 +32,3 @@ exec xmonad
 # exec gnome-session
 # exec startkde
 # exec startxfce4
-# ...or the Window Manager of your choice
