@@ -23,6 +23,7 @@ filetype indent on
 
 augroup vimrc-lang
   autocmd!
+  autocmd FileType c call s:cpp()
   autocmd FileType cpp call s:cpp()
   autocmd FileType java call s:java()
 augroup END
@@ -55,16 +56,25 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#skip_auto_completion_time = ''
 
 "===============================================================================
-"         vim-endwise
+"         neosnippet
 "===============================================================================
 
 NeoBundle 'Shougo/neosnippet.vim'
 
 "===============================================================================
-"         vim-endwise
+"         vim-smartinput
 "===============================================================================
 
-NeoBundle 'tpope/vim-endwise'
+NeoBundle "kana/vim-smartinput"
+NeoBundle "cohama/vim-smartinput-endwise"
+
+call smartinput_endwise#define_default_rules()
+
+"===============================================================================
+"         vimwiki
+"===============================================================================
+
+:let g:vimwiki_list = [{'path': '~/others/wiki/', 'path_html': '~/others/wiki/html/'}]
 
 "===============================================================================
 "         vimの設定
@@ -91,9 +101,16 @@ set number "行番号
 set list "特殊文字の可視化
 set cursorline
 set showmatch
+set ambiwidth=double "記号フォント幅の修正
 
 " キーバインドに関する設定
 imap <C-c> <C-x><C-o>
+noremap <Up>    <Nop>
+noremap <Down>  <Nop>
+noremap <Left>  <Nop>
+noremap <Right> <Nop>
+nnoremap <c-j> <C-f>
+nnoremap <c-k> <C-b>
 
 " gvimの設定
 set guifont=Ricty\ 11
