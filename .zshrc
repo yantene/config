@@ -3,6 +3,7 @@ alias ls="ls --color=auto"
 alias vi="vim"
 alias tmux="tmux -2"
 alias chrome="google-chrome-stable"
+alias rm="trash"
 
 # 環境変数
 export EDITOR="vim"
@@ -15,7 +16,7 @@ compinit
 PROMPT="
 %B%F{yellow}%n@%M:%f %~
 %(?.%F{green}%#%f.%F{red}%#%f)%b " # 平常時のプロンプト
-RPROMPT="%B%F{cyan}%D %T%f%b" # 右プロンプト
+RPROMPT="%B[%F{cyan}%D %T%f]%b" # 右プロンプト
 PROMPT2=" " # コマンドの続き
 SPROMPT=" %F{green}%r?%f " # 合ってる？
 

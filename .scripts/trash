@@ -1,2 +1,11 @@
-#!/bin/bash
-mv $@ ~/trash
+#!/bin/ruby
+require 'fileutils'
+
+ARGV.each do |path|
+  files = Dir.glob(path)
+  files.each do |file|
+    puts "Removing #{file}"
+  end
+  FileUtils.mv(files, '/home/yantene/trash')
+end
+
