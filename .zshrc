@@ -2,8 +2,6 @@
 alias ls="ls --color=auto"
 alias vi="vim"
 alias tmux="tmux -2"
-alias chrome="google-chrome-stable"
-alias rm="trash"
 
 # 環境変数
 export EDITOR="vim"
