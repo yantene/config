@@ -62,13 +62,10 @@ let g:neocomplete#skip_auto_completion_time = ''
 NeoBundle 'Shougo/neosnippet.vim'
 
 "===============================================================================
-"         vim-smartinput
+"         vim-rsense
 "===============================================================================
 
-NeoBundle "kana/vim-smartinput"
-NeoBundle "cohama/vim-smartinput-endwise"
-
-call smartinput_endwise#define_default_rules()
+NeoBundle 'taichouchou2/vim-rsense'
 
 "===============================================================================
 "         vimwiki

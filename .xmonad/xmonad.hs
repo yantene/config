@@ -12,7 +12,7 @@ import XMonad.Util.WorkspaceCompare
 import XMonad.Util.Run
 
 --ターミナル
-myTerminal = "gnome-terminal"
+myTerminal = "urxvt"
 
 --Swingグレイ対策
 myStartupHook = setWMName "LG3D"

@@ -18,10 +18,10 @@ xmodmap $HOME/.xmodmaprc
 #xsetroot -cursor_name left_ptr
 
 #ibus-mozc
-ibus-daemon -drx
-export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
+export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
+ibus-daemon -drx
 
 #タッチパッド誤動作防止
 syndaemon -i 0.5 -d
