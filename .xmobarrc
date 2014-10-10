@@ -1,5 +1,5 @@
 Config{
-	font = "xft:Sans-12:bold",
+	font = "xft:sans-serif:bold:size=12:antialias=true",
 	bgColor = "black",
 	fgColor = "grey",
 	position = Top,

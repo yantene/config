@@ -62,12 +62,6 @@ let g:neocomplete#skip_auto_completion_time = ''
 NeoBundle 'Shougo/neosnippet.vim'
 
 "===============================================================================
-"         vim-rsense
-"===============================================================================
-
-NeoBundle 'taichouchou2/vim-rsense'
-
-"===============================================================================
 "         vimwiki
 "===============================================================================
 
@@ -108,7 +102,3 @@ noremap <Left>  <Nop>
 noremap <Right> <Nop>
 nnoremap <c-j> <C-f>
 nnoremap <c-k> <C-b>
-
-" gvimの設定
-set guifont=Ricty\ 11
-set guifontwide=Ricty\ 11
