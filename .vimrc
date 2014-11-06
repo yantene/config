@@ -56,19 +56,38 @@ function! s:java()
 endfunction
 
 "===============================================================================
-"         neocomplete.vim
+"         neocomplete/neocomplcache
 "===============================================================================
 
-NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#skip_auto_completion_time = ''
+if neobundle#is_installed('neocomplete')
+  " neocompleteの設定
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#skip_auto_completion_time = ''
+
+elseif neobundle#is_installed('neocomplcache')
+  " neocomplcacheの設定
+  
+endif
 
 "===============================================================================
 "         neosnippet
 "===============================================================================
 
 NeoBundle 'Shougo/neosnippet.vim'
+
+"===============================================================================
+"         molokai
+"===============================================================================
+
+NeoBundle 'tomasr/molokai'
+
+"===============================================================================
+"         vimwiki
+"===============================================================================
+
+:let g:vimwiki_list = [{'path': '~/others/wiki/', 'path_html': '~/others/wiki/html/'}]
 
 "===============================================================================
 "         NeoBundleInstall
@@ -81,12 +100,6 @@ if(!empty(neobundle#get_not_installed_bundle_names()))
     source ~/.vimrc
   endif
 end
-
-"===============================================================================
-"         vimwiki
-"===============================================================================
-
-:let g:vimwiki_list = [{'path': '~/others/wiki/', 'path_html': '~/others/wiki/html/'}]
 
 "===============================================================================
 "         vimの設定
@@ -104,7 +117,6 @@ set clipboard=unnamedplus,autoselect "ヤンクをクリップボードに
 
 " Syntax Highlightに関する設定
 syntax on
-NeoBundle 'tomasr/molokai'
 colorscheme molokai
 set t_Co=256
 
