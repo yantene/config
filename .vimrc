@@ -7,13 +7,22 @@ set nocompatible "vi互換の無効化
 "===============================================================================
 "         neobundleの設定
 "===============================================================================
-
+"
 " neobundle本体の設定
 filetype off
 if has('vim_starting')
+  " neobundleがインストールされていなかった場合，インストール
+  if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
+    echo "install neobundle..."
+    :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
+  endif
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle'))
 endif
+
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+call neobundle#end()
+
 filetype plugin on
 filetype indent on
 
@@ -60,6 +69,18 @@ let g:neocomplete#skip_auto_completion_time = ''
 "===============================================================================
 
 NeoBundle 'Shougo/neosnippet.vim'
+
+"===============================================================================
+"         NeoBundleInstall
+"===============================================================================
+if(!empty(neobundle#get_not_installed_bundle_names()))
+  echomsg 'Not installed bundles: '
+        \ string(neobundle#get_not_installed_bundle_names())
+  if confirm('Install bundles now?', "yes\nNo", 2) == 1
+    NeoBundleInstall
+    source ~/.vimrc
+  endif
+end
 
 "===============================================================================
 "         vimwiki
