@@ -50,4 +50,4 @@ setopt nolistbeep # ビープ消す
 setopt hist_ignore_space # 先頭が空白のコマンドを履歴に残さない
 
 # その他
-source ./.netcmdgipsrc
+source ~/.netcmdgipsrc
