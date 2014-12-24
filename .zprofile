@@ -1,5 +1,5 @@
 if [ -d "$HOME/.scripts" ] ; then
-  PATH="$PATH:$HOME/.scripts"
+  PATH="$PATH:$HOME/others/scripts"
 fi
 if [ -d "$HOME/.gem/ruby/2.1.0/bin" ] ; then
   PATH="$PATH:$HOME/.gem/ruby/2.1.0/bin"
