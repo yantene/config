@@ -1,4 +1,4 @@
-if [ -d "$HOME/.scripts" ] ; then
+if [ -d "$HOME/others/scripts" ] ; then
   PATH="$PATH:$HOME/others/scripts"
 fi
 if [ -d "$HOME/.gem/ruby/2.1.0/bin" ] ; then
