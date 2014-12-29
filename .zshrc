@@ -1,10 +1,30 @@
 # エイリアス
 alias ls="ls --color=auto"
-alias vi="vim"
-alias tmux="tmux -2"
+eval $(dircolors -b)
+
+alias grep='grep -n --color=auto'
+alias tmux='tmux -2'
+
+if [[ -x `which vim` ]]; then
+  alias vi="vim"
+fi
+
+if [[ -x `which colordiff` ]]; then
+  alias diff='colordiff -u'
+else
+  alias diff='diff -u'
+fi
 
 # 環境変数
 export EDITOR="vim"
+export LESS=-R
+export LESS_TERMCAP_me=$(printf '\e[0m')
+export LESS_TERMCAP_se=$(printf '\e[0m')
+export LESS_TERMCAP_ue=$(printf '\e[0m')
+export LESS_TERMCAP_mb=$(printf '\e[1;32m')
+export LESS_TERMCAP_md=$(printf '\e[1;34m')
+export LESS_TERMCAP_us=$(printf '\e[1;32m')
+export LESS_TERMCAP_so=$(printf '\e[1;44;1m')
 
 # 補完機能
 autoload -U compinit
