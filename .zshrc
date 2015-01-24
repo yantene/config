@@ -9,6 +9,10 @@ if [[ -x `which vim` ]]; then
   alias vi="vim"
 fi
 
+if [[ -x `which hub` ]]; then
+  alias git="hub"
+fi
+
 if [[ -x `which colordiff` ]]; then
   alias diff='colordiff -u'
 else
