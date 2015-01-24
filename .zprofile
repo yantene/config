@@ -1,8 +1,8 @@
 if [ -d "$HOME/others/scripts" ] ; then
   PATH="$PATH:$HOME/others/scripts"
 fi
-if [ -d "$HOME/.gem/ruby/2.1.0/bin" ] ; then
-  PATH="$PATH:$HOME/.gem/ruby/2.1.0/bin"
+if [ -d "$HOME/.gem/ruby/2.2.0/bin" ] ; then
+  PATH="$PATH:$HOME/.gem/ruby/2.2.0/bin"
 fi
 
 mkdir -p /tmp/yantene-temporary
