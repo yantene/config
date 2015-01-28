@@ -51,6 +51,9 @@ myKeys = [
   ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 5"),
   ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 5"),
 
+  --デュアルスクリーン
+  ("<XF86Display>", spawn "dscreen toggle"),
+
   --ワークスペースを転がす
   ("M-f", moveTo Next NonEmptyWS),
   ("M-s", moveTo Prev NonEmptyWS)
