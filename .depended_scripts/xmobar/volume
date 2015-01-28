@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo `ponymix | head -1 | sed -e 's/:.*//'`": "`ponymix get-volume`"%"`ponymix is-muted && echo " (x)"`
