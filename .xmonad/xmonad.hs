@@ -48,8 +48,8 @@ myKeys = [
   ("<XF86AudioRaiseVolume>", spawn "amixer sset Master on 10%+"),
 
   --輝度調整
-  ("<XF86MonBrightnessDown>", spawn "blight -10%"),
-  ("<XF86MonBrightnessUp>", spawn "blight +10%"),
+  ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 5"),
+  ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 5"),
 
   --ワークスペースを転がす
   ("M-f", moveTo Next NonEmptyWS),
