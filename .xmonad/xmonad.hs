@@ -40,10 +40,16 @@ myKeys = [
   --dmenu
   ("M-d", spawn "dmenu_run -b -fn \"Sans-12\""),
 
+  --`xmodmap -pke | grep XF86`でキーの名前が取れるっぽい
+
   --音量調整
   ("<XF86AudioMute>", spawn "amixer sset Master off"),
   ("<XF86AudioLowerVolume>", spawn "amixer sset Master on 10%-"),
   ("<XF86AudioRaiseVolume>", spawn "amixer sset Master on 10%+"),
+
+  --輝度調整
+  ("<XF86MonBrightnessDown>", spawn "blight -10%"),
+  ("<XF86MonBrightnessUp>", spawn "blight +10%"),
 
   --ワークスペースを転がす
   ("M-f", moveTo Next NonEmptyWS),
