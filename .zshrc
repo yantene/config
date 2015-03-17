@@ -39,7 +39,7 @@ PROMPT="
 %B%F{yellow}%n@%M:%f %~
 %(?.%F{green}%#%f.%F{red}%#%f)%b " # 平常時のプロンプト
 RPROMPT="%B[%F{cyan}%D %T%f]%b" # 右プロンプト
-PROMPT2=" " # コマンドの続き
+PROMPT2="  " # コマンドの続き
 SPROMPT=" %F{green}%r?%f " # 合ってる？
 
 # ターミナルタイトル
