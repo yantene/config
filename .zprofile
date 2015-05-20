@@ -1,8 +1,8 @@
 if [ -d "$HOME/others/scripts" ] ; then
   PATH="$PATH:$HOME/others/scripts"
 fi
-if [ -d "$HOME/.gem/ruby" ] ; then
-  PATH="$PATH:"`ls -d ~/.gem/ruby/* | sort | tail -n 1`"/bin"
+if [ `which ruby` ] ; then
+  PATH="$PATH:"`ruby -rubygems -e "puts Gem.user_dir"`"/bin"
 fi
 
 mkdir -p /tmp/yantene-temporary
