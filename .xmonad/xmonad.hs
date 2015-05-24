@@ -48,8 +48,9 @@ myKeys = [
   ("<XF86AudioRaiseVolume>", spawn "amixer sset Master on 10%+"),
 
   --輝度調整
-  ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 5"),
-  ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 5"),
+  ("<XF86MonBrightnessDown>",
+    spawn "xbacklight -dec 2; [ \"$(echo \"`xbacklight -get` == 0\" | bc)\" -eq 1 ] && xbacklight -set 2"),
+  ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 2"),
 
   --デュアルスクリーン
   ("<XF86Display>", spawn "dscreen toggle"),
