@@ -72,6 +72,42 @@ elseif neobundle#is_installed('neocomplcache')
 endif
 
 "===============================================================================
+"         VimProc
+"===============================================================================
+
+NeoBundle 'Shougo/vimproc', {
+\ 'build': {
+\   'windows': 'make -f make_mingw32.mak',
+\   'cygwin': 'make -f make_cygwin.mak',
+\   'mac': 'make -f make_mac.mak',
+\   'unix': 'make -f make_unix.mak',
+\ },
+\}
+
+"===============================================================================
+"         RSence
+"===============================================================================
+
+NeoBundleLazy 'marcus/rsense', {
+\ 'autoload': {
+\   'filetypes': 'ruby',
+\ },
+\}
+
+if neobundle#is_installed('neocomplete')
+  NeoBundle 'supermomonga/neocomplete-rsense.vim'
+elseif neobundle#is_installed('neocomplcache')
+  NeoBundle 'Shougo/neocomplcache-rsense.vim'
+endif
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
+let g:rsenseUseOmniFunc = 1
+
+"===============================================================================
 "         neosnippet
 "===============================================================================
 
@@ -84,10 +120,26 @@ NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'tomasr/molokai'
 
 "===============================================================================
-"         vimwiki
+"         typescript-vim
 "===============================================================================
 
-:let g:vimwiki_list = [{'path': '~/others/wiki/', 'path_html': '~/others/wiki/html/'}]
+NeoBundleLazy 'leafgarland/typescript-vim', {
+\ 'autoload': {
+\   'filetypes': ['typescript']
+\ }
+\}
+NeoBundleLazy 'jason0x43/vim-js-indent', {
+\ 'autoload': {
+\   'filetypes': ['javascript', 'typescript', 'html'],
+\ }
+\}
+let g:js_indent_typescript = 1
+
+"===============================================================================
+"         typescript-vim
+"===============================================================================
+
+NeoBundle 'rust-lang/rust.vim'
 
 "===============================================================================
 "         NeoBundleInstall
