@@ -2,6 +2,7 @@ import System.IO
 import XMonad
 import XMonad.Actions.CopyWindow
 import XMonad.Actions.CycleWS
+import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
@@ -61,9 +62,11 @@ myKeys = [
  ]
 
 --main
+baseConfig = desktopConfig
+
 main = do
   myStatusBar <- spawnPipe "xmobar"
-  xmonad $ defaultConfig {
+  xmonad $ baseConfig {
     terminal = myTerminal,
     startupHook = myStartupHook,
     modMask = myModMask,
