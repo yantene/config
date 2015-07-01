@@ -20,6 +20,8 @@ else
   alias diff='diff -u'
 fi
 
+eval "$(rbenv init -)"
+
 # 環境変数
 export EDITOR="vim"
 export LESS=-R
