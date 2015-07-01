@@ -66,7 +66,7 @@ baseConfig = desktopConfig
 
 main = do
   myStatusBar <- spawnPipe "xmobar"
-  xmonad $ baseConfig {
+  xmonad $ ewmh baseConfig {
     terminal = myTerminal,
     startupHook = myStartupHook,
     modMask = myModMask,
