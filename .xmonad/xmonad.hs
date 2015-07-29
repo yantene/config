@@ -15,8 +15,9 @@ import XMonad.Util.Run
 --ターミナル
 myTerminal = "urxvt"
 
---Swingグレイ対策
-myStartupHook = setWMName "LG3D"
+-- Swingグレイ問題は，
+-- /etc/profile.d/jre.sh << "export _JAVA_AWT_WM_NONREPARENTING=1"
+-- により解決できます。
 
 --ウィンドウ調整
 myLayoutHook = avoidStruts $ layoutHook defaultConfig
@@ -50,7 +51,7 @@ myKeys = [
 
   --輝度調整
   ("<XF86MonBrightnessDown>",
-    spawn "xbacklight -dec 2; [ \"$(echo \"`xbacklight -get` == 0\" | bc)\" -eq 1 ] && xbacklight -set 2"),
+    spawn "xbacklight -dec 2; [ \"$(echo \"`xbacklight -get` == 0\" | bc)\" -eq 1 ] && xbacklight -set 2 -time 0"),
   ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 2"),
 
   --デュアルスクリーン
@@ -68,7 +69,6 @@ main = do
   myStatusBar <- spawnPipe "xmobar"
   xmonad $ ewmh baseConfig {
     terminal = myTerminal,
-    startupHook = myStartupHook,
     modMask = myModMask,
     handleEventHook = myHandleEventHook,
     layoutHook = myLayoutHook,
