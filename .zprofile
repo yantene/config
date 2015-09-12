@@ -9,6 +9,9 @@ if [ `which go` ] ; then
   PATH="$PATH:$HOME/.go/bin"
   export GOPATH=$HOME/.go
 fi
+if [ `which javac` ] ; then
+  export JAVA_HOME=`readlink -f /usr/bin/javac | sed "s:/bin/javac::"`
+fi
 
 mkdir -p /tmp/yantene-temporary
 mkdir -p /tmp/yantene-trash
