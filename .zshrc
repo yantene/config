@@ -68,6 +68,10 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "" history-beginning-search-backward-end
 bindkey "" history-beginning-search-forward-end
 
+# キーバインド
+bindkey -e # キーバインドを emacs モードに
+bindkey '^U' backward-kill-line # C-u でカーソル以左を削除
+
 # オプション
 setopt complete_aliases
 setopt auto_pushd # 移動履歴(cd -[Tab])
