@@ -23,7 +23,8 @@ myTerminal = "urxvt"
 myLayoutHook = avoidStruts $ layoutHook defaultConfig
 myManageHook = composeAll [
   manageDocks <+> manageHook defaultConfig,
-  className =? "Xfce4-notifyd" --> doF W.focusDown <+> doF copyToAll
+  className =? "Xfce4-notifyd" --> doF W.focusDown <+> doF copyToAll,
+  className =? "qemu-system-x86_64" --> doFloat
  ]
 
 --modキー
@@ -49,9 +50,11 @@ myKeys = [
   ("<XF86AudioLowerVolume>", spawn "amixer sset Master on 10%-"),
   ("<XF86AudioRaiseVolume>", spawn "amixer sset Master on 10%+"),
 
+  --タッチパッドトグル
+  ("<XF86TouchpadToggle>", spawn "synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0')"),
+
   --輝度調整
-  ("<XF86MonBrightnessDown>",
-    spawn "xbacklight -dec 2; [ \"$(echo \"`xbacklight -get` == 0\" | bc)\" -eq 1 ] && xbacklight -set 2 -time 0"),
+  ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 2"),
   ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 2"),
 
   --デュアルスクリーン
@@ -70,6 +73,7 @@ main = do
   xmonad $ ewmh baseConfig {
     terminal = myTerminal,
     modMask = myModMask,
+
     handleEventHook = myHandleEventHook,
     layoutHook = myLayoutHook,
     manageHook = myManageHook,
