@@ -1,6 +1,6 @@
 ! Font
-URxvt.font: xft:Ricty:style=Regular:size=12:antialias=true
-URxvt.boldFont: xft:Ricty:style=Bold:size=12:antialias=true
+URxvt.font: xft:monospace:style=Regular:size=12:antialias=true
+URxvt.boldFont: xft:monospace:style=Bold:size=12:antialias=true
 URxvt.allow_bold: false
 URxvt.fading: 50
 
