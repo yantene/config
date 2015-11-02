@@ -31,8 +31,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'osyo-manga/vim-monster'
 NeoBundle 'tpope/vim-endwise'
+NeoBundle 'stephpy/vim-yaml'
+NeoBundle 'rhysd/vim-crystal'
 call neobundle#end()
 
 " インストールされていないプラグインについて，インストール
@@ -110,10 +111,6 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " Rubocop
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
-
-" monster.vim
-let g:neocomplete#sources#omni#input_patterns = {"ruby": '[^. *\t]\.\w*\|\h\w*::'}
-
 
 "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 filetype plugin indent on
