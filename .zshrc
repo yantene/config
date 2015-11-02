@@ -5,6 +5,7 @@ eval $(dircolors -b)
 alias grep='grep -n --color=auto'
 alias tmux='tmux -2'
 alias dog='cat'
+alias cb='xsel -b'
 
 if [[ -x `which vim` ]]; then
   alias vi="vim"
