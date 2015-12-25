@@ -2,13 +2,12 @@
 alias ls="ls --color=auto"
 eval $(dircolors -b)
 
-alias grep='grep -n --color=auto'
-alias tmux='tmux -2'
-alias dog='cat'
-alias cb='xsel -b'
+alias grep="grep -n --color=auto"
+alias tmux="tmux -2"
+alias rm="rm -i"
 
-if [[ -x `which vim` ]]; then
-  alias vi="vim"
+if [[ -x `which nvim` ]]; then
+  alias vim="nvim"
 fi
 
 if [[ -x `which hub` ]]; then
@@ -21,13 +20,17 @@ else
   alias diff='diff -u'
 fi
 
-if [ -d $HOME/.anyenv ]; then
-  export PATH="$HOME/.anyenv/bin:$PATH"
-  eval "$(anyenv init -)"
-  for D in `ls $HOME/.anyenv/envs`; do
-    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
-  done
+if [[ -x `which cvlc` ]]; then
+  alias play="cvlc --play-and-exit $* >& /dev/null"
 fi
+
+#if [ -d $HOME/.anyenv ]; then
+#  export PATH="$HOME/.anyenv/bin:$PATH"
+#  eval "$(anyenv init -)"
+#  for D in `ls $HOME/.anyenv/envs`; do
+#    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
+#  done
+#fi
 
 # 環境変数
 export EDITOR="vim"
