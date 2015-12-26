@@ -18,17 +18,12 @@ xmodmap $HOME/.xmodmaprc
 #xsetroot -cursor_name left_ptr
 
 #ibus-mozc
-export XMODIFIERS=@im=ibus
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-ibus-daemon -drx
-
-#タッチパッド誤動作防止
-syndaemon -i 0.5 -d
+export XMODIFIERS="@im=fcitx"
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
 
 #スタートアップアプリケーション
-
-exec xmonad
+exec qtile
 # exec gnome-session
 # exec startkde
 # exec startxfce4

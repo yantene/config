@@ -1,18 +1,18 @@
 if [ -d "$HOME/others/scripts" ] ; then
   PATH="$PATH:$HOME/others/scripts"
 fi
-if [ `which ruby` ] ; then
+if (which ruby >& /dev/null); then
   PATH="$PATH:"`ruby -rubygems -e "puts Gem.user_dir"`"/bin"
 fi
-if [ `which go` ] ; then
+if (which go >& /dev/null); then
   mkdir -p $HOME/.go/bin
   PATH="$PATH:$HOME/.go/bin"
   export GOPATH=$HOME/.go
 fi
-if [ `which javac` ] ; then
+if (which javac >& /dev/null); then
   export JAVA_HOME=`readlink -f /usr/bin/javac | sed "s:/bin/javac::"`
 fi
-if [ `which xsel` ] ; then
+if (which xsel >& /dev/null); then
   alias cb="xsel -b"
 fi
 

@@ -6,10 +6,6 @@ alias grep="grep -n --color=auto"
 alias tmux="tmux -2"
 alias rm="rm -i"
 
-if [[ -x `which nvim` ]]; then
-  alias vim="nvim"
-fi
-
 if [[ -x `which hub` ]]; then
   alias git="hub"
 fi
@@ -33,7 +29,7 @@ fi
 #fi
 
 # 環境変数
-export EDITOR="vim"
+export EDITOR="nvim"
 export LESS=-R
 export LESS_TERMCAP_me=$(printf '\e[0m')
 export LESS_TERMCAP_se=$(printf '\e[0m')
