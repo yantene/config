@@ -12,15 +12,16 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 #キーマップの変更
-xmodmap $HOME/.xmodmaprc
+xmodmap $HOME/.Xmodmap
 
 #マウスカーソルの指定
 #xsetroot -cursor_name left_ptr
 
 #ibus-mozc
-export XMODIFIERS="@im=fcitx"
+export DefaultImModule=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
 
 #スタートアップアプリケーション
 exec qtile
