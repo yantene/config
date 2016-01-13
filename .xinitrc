@@ -18,10 +18,9 @@ xmodmap $HOME/.Xmodmap
 #xsetroot -cursor_name left_ptr
 
 #ibus-mozc
-export DefaultImModule=fcitx
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS="@im=ibus"
 
 #スタートアップアプリケーション
 exec qtile
