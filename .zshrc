@@ -20,6 +20,8 @@ if [[ -x `which cvlc` ]]; then
   alias play="cvlc --play-and-exit $* >& /dev/null"
 fi
 
+alias search="find . -type f | xargs grep $*"
+
 #if [ -d $HOME/.anyenv ]; then
 #  export PATH="$HOME/.anyenv/bin:$PATH"
 #  eval "$(anyenv init -)"
