@@ -6,100 +6,116 @@ import os
 
 @hook.subscribe.startup_once
 def autostart():
-    subprocess.call(["fcitx", "-d"])
-    subprocess.call(["pulseaudio", "--start"])
-    os.system("dunst &")
+    subprocess.call(['ibus-daemon', '-d'])
+    subprocess.call(['pulseaudio', '--start'])
+    subprocess.call(['syndaemon', '-i', '0.2', '-d'])
+    os.system('dunst &')
 
-ctrl = "control"
-alt  = "mod1"
-spr  = "mod4"
+k_ctrl  = 'control'
+k_shift = 'shift'
+k_alt   = 'mod1'
+k_super = 'mod4'
 
 keys = [
     # 現在のスタックペインでウィンドウのフォーカスを切り替える
     Key(
-        [spr], "k",
+        [k_super], 'k',
         lazy.layout.down()
     ),
     Key(
-        [spr], "j",
+        [k_super], 'j',
         lazy.layout.up()
     ),
 
     # 現在のスタックでウィンドウを上下移動させる
     Key(
-        [spr, "shift"], "k",
+        [k_super, k_shift], 'k',
         lazy.layout.shuffle_down()
     ),
     Key(
-        [spr, "shift"], "j",
+        [k_super, k_shift], 'j',
         lazy.layout.shuffle_up()
     ),
 
     # 別のスタックペインへフォーカスを切り替える
     Key(
-        [spr], "space",
+        [k_super], 'space',
         lazy.layout.next()
     ),
 
     # スタックペインを入れ替える
     Key(
-        [spr, "shift"], "space",
+        [k_super, k_shift], 'space',
         lazy.layout.rotate()
     ),
 
     # スタックでウィンドウを分割表示するかしないかをトグルする
     Key(
-        [spr], "Return",
+        [k_super], 'Return',
         lazy.layout.toggle_split()
     ),
 
-    # urxvt を立ち上げる
-    Key([spr, "shift"], "Return", 
-        lazy.spawn("urxvt")
+    # gnome-terminal を立ち上げる
+    Key([k_super, k_shift], 'Return', 
+        lazy.spawn('gnome-terminal')
     ),
 
     # コマンド入力欄を表示する
-    Key([spr], "d", lazy.spawncmd()),
+    Key([k_super], 'd', lazy.spawncmd()),
 
     # レイアウトをトグルする
-    Key([spr], "Tab", lazy.next_layout()),
+    Key([k_super], 'Tab', lazy.next_layout()),
 
     # ウィンドウを kill する
-    Key([spr, "shift"], "c", lazy.window.kill()),
+    Key([k_super, k_shift], 'c', lazy.window.kill()),
 
     # qtile を再起動・終了する
-    Key([spr, "control"], "r", lazy.restart()),
-    Key([spr, "control"], "q", lazy.shutdown()),
+    Key([k_super, k_ctrl], 'r', lazy.restart()),
+    Key([k_super, k_ctrl], 'q', lazy.shutdown()),
 
     # タッチパッド
-    Key([], "XF86TouchpadToggle",
-        lazy.spawn("synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0')")
+    Key([], 'XF86TouchpadToggle',
+      # VAIO Pro では Fn + F1 で XF86TouchpadToggle イベントが発生しないので使用不可
+      lazy.spawn('sh -c \"synclient TouchpadOff=$(synclient -l | grep -c \'TouchpadOff.*=.*0\')\"'),
     ),
 
     # 音量
-    Key([], "XF86AudioMute", lazy.spawn("amixer -q sset Master toggle")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer sset Master on 10%-")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer sset Master on 10%+")),
+    Key([], 'XF86AudioMute',
+      lazy.spawn('pactl set-sink-mute 1 toggle'),
+      lazy.spawn('pactl set-sink-mute 2 toggle'),
+    ),
+    Key([], 'XF86AudioLowerVolume',
+      lazy.spawn('pactl set-sink-mute 1 false'),
+      lazy.spawn('pactl set-sink-mute 2 false'),
+      lazy.spawn('pactl set-sink-volume 1 -5%'),
+      lazy.spawn('pactl set-sink-volume 2 -5%'),
+    ),
+    Key([], 'XF86AudioRaiseVolume',
+      lazy.spawn('pactl set-sink-mute 1 false'),
+      lazy.spawn('pactl set-sink-mute 2 false'),
+      lazy.spawn('pactl set-sink-volume 1 +5%'),
+      lazy.spawn('pactl set-sink-volume 2 +5%'),
+    ),
 
     # 輝度
-    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 2")),
-    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 2")),
+    Key([], 'XF86MonBrightnessDown', lazy.spawn('xbacklight -dec 2')),
+    Key([], 'XF86MonBrightnessUp', lazy.spawn('xbacklight -inc 2')),
     
     # デュアルスクリーン
-    Key([], "XF86Display", lazy.spawn("")),
+    Key([], 'XF86Display', lazy.spawn('dscreen')),
 ]
 
-groups = [Group(i) for i in "qwertyuiop"]
+groups = [Group(i) for i in 'qwertyuiop']
 
 for i in groups:
     # mod1 + letter of group = switch to group
     keys.append(
-        Key([spr], i.name, lazy.group[i.name].toscreen())
+        Key([k_super], i.name, lazy.group[i.name].toscreen())
     )
 
     # mod1 + shift + letter of group = switch to & move focused window to group
     keys.append(
-        Key([spr, "shift"], i.name, lazy.window.togroup(i.name))
+        Key([k_super, k_shift], i.name, lazy.window.togroup(i.name))
     )
 
 layouts = [
@@ -120,8 +136,11 @@ screens = [
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
-                widget.TextBox("default config", name="default"),
-                widget.Battery(),
+                widget.CPUGraph(line_width=2, width=50, graph_color='f8ff8c'),
+                widget.MemoryGraph(line_width=2, width=50, graph_color='8cff8d'),
+                widget.NetGraph(line_width=2, width=50, graph_color='8cfff8'),
+                widget.BatteryIcon(theme_path='/home/yantene/.config/qtile/battery-icons'),
+                widget.Battery(format='{percent:2.0%}'),
                 widget.Systray(),
                 widget.Clock(format='%Y-%m-%d (%a) %p %I:%M'),
             ],
@@ -134,6 +153,12 @@ screens = [
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
+                widget.CPUGraph(line_width=2, width=50, graph_color='f8ff8c'),
+                widget.MemoryGraph(line_width=2, width=50, graph_color='8cff8d'),
+                widget.NetGraph(line_width=2, width=50, graph_color='8cfff8'),
+                widget.BatteryIcon(theme_path='/home/yantene/.config/qtile/battery-icons'),
+                widget.Battery(format='{percent:2.0%}'),
+                widget.Systray(),
                 widget.Clock(format='%Y-%m-%d (%a) %p %I:%M'),
             ],
             30,
@@ -143,11 +168,11 @@ screens = [
 
 # Drag floating layouts.
 mouse = [
-    Drag([spr], "Button1", lazy.window.set_position_floating(),
+    Drag([k_super], 'Button1', lazy.window.set_position_floating(),
         start=lazy.window.get_position()),
-    Drag([spr], "Button3", lazy.window.set_size_floating(),
+    Drag([k_super], 'Button3', lazy.window.set_size_floating(),
         start=lazy.window.get_size()),
-    Click([spr], "Button2", lazy.window.bring_to_front())
+    Click([k_super], 'Button2', lazy.window.bring_to_front())
 ]
 
 dgroups_key_binder = None
@@ -167,4 +192,4 @@ auto_fullscreen = True
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"
+wmname = 'LG3D'
