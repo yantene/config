@@ -57,7 +57,7 @@ keys = [
 
     # gnome-terminal を立ち上げる
     Key([k_super, k_shift], 'Return', 
-        lazy.spawn('gnome-terminal')
+        lazy.spawn('termite')
     ),
 
     # コマンド入力欄を表示する
