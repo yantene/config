@@ -7,6 +7,9 @@ set ignorecase
 " アドオンとナビゲーションを非表示
 set toolbars=noaddons,nonavigation,nomenu
 
+" ヒント文字列にアルファベットを使用
+set hintchars=abcde
+
 " 履歴の非表示
 set complete=s
 
