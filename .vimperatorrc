@@ -5,10 +5,10 @@ set titlestring=Firefox
 set ignorecase
 
 " アドオンとナビゲーションを非表示
-set toolbars=noaddons,nonavigation,nomenu
+set toolbars=noaddons,nomenu
 
 " ヒント文字列にアルファベットを使用
-set hintchars=abcde
+set hintchars=yuiopnm
 
 " 履歴の非表示
 set complete=s
