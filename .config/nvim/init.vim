@@ -43,8 +43,7 @@ set sw=2  "自動インデントの幅
 set sts=2 "手動インデントの幅
 
 " ヤンクに関する設定
-"set clipboard=unnamedplus,autoselect "ヤンクをクリップボードに
-set clipboard+=unnamedplus
+set clipboard+=unnamedplus "ヤンクをクリップボードに
 
 " Syntax Highlightに関する設定
 syntax on
@@ -52,7 +51,6 @@ colorscheme molokai
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "true color を使用
 
 " エディタに関する設定
-"set nocompatible "vi互換の無効化
 set number "行番号
 set list "特殊文字の可視化
 set listchars=tab:»-,trail:␣,eol:↲,extends:»,precedes:«,nbsp:%
