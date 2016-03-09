@@ -49,12 +49,13 @@ set clipboard+=unnamedplus
 " Syntax Highlightに関する設定
 syntax on
 colorscheme molokai
-"set t_Co=256
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "true color を使用
 
 " エディタに関する設定
 "set nocompatible "vi互換の無効化
 set number "行番号
 set list "特殊文字の可視化
+set listchars=tab:»-,trail:␣,eol:↲,extends:»,precedes:«,nbsp:%
 set cursorline
 set showmatch
 set ambiwidth=double "記号フォント幅の修正
@@ -70,3 +71,5 @@ noremap <Left>  <Nop>
 noremap <Right> <Nop>
 nnoremap <c-j> <C-f>
 nnoremap <c-k> <C-b>
+nnoremap <S-j> <C-e>
+nnoremap <S-k> <C-y>
