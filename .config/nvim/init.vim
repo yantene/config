@@ -1,35 +1,44 @@
 "===============================================================================
-"         NeoBundle
+"         dein.vim
 "===============================================================================
 
-" NeoBundle がインストールされていなかった場合，インストール
-if has('vim_starting')
-  if !isdirectory(expand("~/.config/nvim/bundle/neobundle.vim/"))
-    echo "install neobundle..."
-    :call system("git clone git://github.com/Shougo/neobundle.vim ~/.config/nvim/bundle/neobundle.vim")
-  endif
-  set runtimepath+=~/.config/nvim/bundle/neobundle.vim
+let s:dein_dir = expand($XDG_CACHE_HOME . '/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+if !isdirectory(s:dein_repo_dir)
+  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+endif
+execute 'set runtimepath^=' . s:dein_repo_dir
+
+call dein#begin(s:dein_dir)
+
+let s:toml = expand($XDG_CONFIG_HOME . '/nvim/dein.toml')
+let s:lazy_toml = expand($XDG_CONFIG_HOME . '/nvim/dein_lazy.toml')
+
+if dein#load_cache([expand('<sfile>', s:toml, s:lazy_toml)])
+  call dein#load_toml(s:toml, {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  call dein#save_cache()
 endif
 
-" インストールするプラグインを指定
-call neobundle#begin(expand('~/.config/nvim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'tomasr/molokai'
-"NeoBundle 'scrooloose/syntastic'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'stephpy/vim-yaml'
-NeoBundle 'rhysd/vim-crystal'
-call neobundle#end()
+if dein#check_install()
+  call dein#install()
+endif
 
-" インストールされていないプラグインについて，インストール
-if(!empty(neobundle#get_not_installed_bundle_names()))
-  echomsg 'Not installed bundles: '
-        \ string(neobundle#get_not_installed_bundle_names())
-  if confirm('Install bundles now?', "yes\nNo", 2) == 1
-    NeoBundleInstall
-    source ~/.config/nvim/init.vim
-  endif
-end
+call dein#end()
+
+"===============================================================================
+"         neomake
+"===============================================================================
+
+let g:neomake_ruby_enabled_makers = ['rubocop']
+autocmd! BufWritePost * Neomake
+
+"===============================================================================
+"         vim-ref
+"===============================================================================
+
+let g:ref_refe_cmd = system('which refe')
 
 "===============================================================================
 "         vim の設定
@@ -67,7 +76,7 @@ noremap <Up>    <Nop>
 noremap <Down>  <Nop>
 noremap <Left>  <Nop>
 noremap <Right> <Nop>
-nnoremap <c-j> <C-f>
-nnoremap <c-k> <C-b>
+nnoremap <C-j> <C-f>
+nnoremap <C-k> <C-b>
 nnoremap <S-j> <C-e>
 nnoremap <S-k> <C-y>
