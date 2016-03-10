@@ -2,8 +2,8 @@
 alias ls="ls --color=auto"
 eval $(dircolors -b)
 
-alias grep="grep -n --color=auto"
-alias tmux="tmux -2"
+alias grep="grep --color=auto"
+alias tmux="tmux -2 -f \"$XDG_CONFIG_HOME\"/tmux/tmux.conf"
 alias rm="rm -i"
 
 if [[ -x `which hub` ]]; then
@@ -15,12 +15,6 @@ if [[ -x `which colordiff` ]]; then
 else
   alias diff='diff -u'
 fi
-
-if [[ -x `which cvlc` ]]; then
-  alias play="cvlc --play-and-exit $* >& /dev/null"
-fi
-
-alias search="find . -type f | xargs grep $*"
 
 #if [ -d $HOME/.anyenv ]; then
 #  export PATH="$HOME/.anyenv/bin:$PATH"
@@ -90,4 +84,4 @@ setopt nolistbeep # ビープ消す
 setopt hist_ignore_space # 先頭が空白のコマンドを履歴に残さない
 
 # その他
-source ~/.netcmdgipsrc
+source "${XDG_CONFIG_HOME}/zsh/netcmdgips"
