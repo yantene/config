@@ -34,7 +34,6 @@ fi
 # temporary ディレクトリの作成
 
 mkdir -p /tmp/yantene-temporary
-mkdir -p /tmp/yantene-trash
 
 # X の立ち上げ
 
