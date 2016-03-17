@@ -6,7 +6,7 @@ import os
 
 @hook.subscribe.startup_once
 def autostart():
-    subprocess.call(['ibus-daemon', '-d'])
+    subprocess.call(['ibus-daemon', '-d', '-x'])
     subprocess.call(['pulseaudio', '--start'])
     subprocess.call(['syndaemon', '-i', '0.2', '-d'])
     os.system('dunst &')
@@ -100,7 +100,7 @@ keys = [
     # 輝度
     Key([], 'XF86MonBrightnessDown', lazy.spawn('xbacklight -dec 2')),
     Key([], 'XF86MonBrightnessUp', lazy.spawn('xbacklight -inc 2')),
-    
+
     # デュアルスクリーン
     Key([], 'XF86Display', lazy.spawn('dscreen')),
 ]
