@@ -1,4 +1,7 @@
-# エイリアス
+# - login shell
+# - interactive shell
+
+# aliases
 alias ls="ls --color=auto"
 eval $(dircolors -b)
 
@@ -17,15 +20,7 @@ else
   alias diff='diff -u'
 fi
 
-#if [ -d $HOME/.anyenv ]; then
-#  export PATH="$HOME/.anyenv/bin:$PATH"
-#  eval "$(anyenv init -)"
-#  for D in `ls $HOME/.anyenv/envs`; do
-#    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
-#  done
-#fi
-
-# 環境変数
+# environment variables
 export EDITOR="nvim"
 export LESS=-R
 export LESS_TERMCAP_me=$(printf '\e[0m')
@@ -36,12 +31,12 @@ export LESS_TERMCAP_md=$(printf '\e[1;34m')
 export LESS_TERMCAP_us=$(printf '\e[1;32m')
 export LESS_TERMCAP_so=$(printf '\e[1;44;1m')
 
-# 補完機能
+# input completion
 autoload -U compinit
 zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH"
 compinit
 
-# プロンプト
+# prompt
 PROMPT="
 %B%F{yellow}%n@%M:%f %~
 %(?.%F{green}%#%f.%F{red}%#%f)%b " # 平常時のプロンプト
@@ -49,7 +44,7 @@ RPROMPT="%B[%F{cyan}%D %T%f]%b" # 右プロンプト
 PROMPT2="  " # コマンドの続き
 SPROMPT=" %F{green}%r?%f " # 合ってる？
 
-# ターミナルタイトル
+# terminal title
 case "${TERM}" in
   kterm*|xterm)
     precmd() {
@@ -58,25 +53,25 @@ case "${TERM}" in
   ;;
 esac
 
-# 履歴
+# history settings
 HISTFILE=~/.zsh_history
 HISTSIZE=6000000
 SAVEHIST=6000000
 setopt hist_ignore_dups
 setopt share_history
 
-# コマンド履歴
+# command history
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "" history-beginning-search-backward-end
 bindkey "" history-beginning-search-forward-end
 
-# キーバインド
+# key bind
 bindkey -e # キーバインドを emacs モードに
 bindkey '^U' backward-kill-line # C-u でカーソル以左を削除
 
-# オプション
+# options
 setopt complete_aliases
 setopt auto_pushd # 移動履歴(cd -[Tab])
 setopt correct  # コマンド訂正
@@ -84,5 +79,5 @@ setopt list_packed  # 補完候補の詰め詰め
 setopt nolistbeep # ビープ消す
 setopt hist_ignore_space # 先頭が空白のコマンドを履歴に残さない
 
-# その他
+# others
 source "${XDG_CONFIG_HOME}/zsh/netcmdgips"
