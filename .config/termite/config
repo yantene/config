@@ -1,6 +1,6 @@
 [options]
 font = monospace 11
-cursor_shape = underline
+cursor_shape = shape
 cursor_blink = on
 
 [colors]
