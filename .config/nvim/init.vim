@@ -5,34 +5,29 @@
 let s:dein_dir = expand($XDG_CACHE_HOME . '/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-if !isdirectory(s:dein_repo_dir)
-  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
-execute 'set runtimepath^=' . s:dein_repo_dir
 
-call dein#begin(s:dein_dir)
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-let s:toml = expand($XDG_CONFIG_HOME . '/nvim/dein.toml')
-let s:lazy_toml = expand($XDG_CONFIG_HOME . '/nvim/dein_lazy.toml')
+  let s:toml = expand($XDG_CONFIG_HOME . '/nvim/dein.toml')
+  let s:lazy_toml = expand($XDG_CONFIG_HOME . '/nvim/dein_lazy.toml')
 
-if dein#load_cache([expand('<sfile>', s:toml, s:lazy_toml)])
   call dein#load_toml(s:toml, {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
-  call dein#save_cache()
+
+  call dein#end()
+  call dein#save_state()
 endif
 
 if dein#check_install()
   call dein#install()
 endif
-
-call dein#end()
-
-"===============================================================================
-"         neomake
-"===============================================================================
-
-let g:neomake_ruby_enabled_makers = ['rubocop']
-autocmd! BufWritePost * Neomake
 
 "===============================================================================
 "         vim-ref
@@ -56,7 +51,7 @@ set clipboard+=unnamedplus "ヤンクをクリップボードに
 
 " Syntax Highlightに関する設定
 syntax on
-colorscheme molokai
+colorscheme desert
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "true color を使用
 
 " エディタに関する設定

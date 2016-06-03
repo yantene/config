@@ -6,6 +6,9 @@ repo = 'tomasr/molokai'
 
 [[plugins]]
 repo = 'benekastah/neomake'
+hock_add = '''
+  autocmd! BufWritePost * Neomake
+'''
 
 [[plugins]]
 repo = 'thinca/vim-ref'
