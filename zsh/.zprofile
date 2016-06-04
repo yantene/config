@@ -52,5 +52,4 @@ if [[ -x `which cvlc` ]]; then
 fi
 
 # X の立ち上げ
-
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx $XINITRC
+# [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx $XINITRC
