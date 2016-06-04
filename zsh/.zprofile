@@ -31,8 +31,8 @@ if [[ -d $HOME/.anyenv ]]; then
 fi
 
 # my scripts and commands
-if [[ -d "$HOME/others/scripts" ]]; then
-  export PATH="$PATH:$HOME/others/scripts"
+if [[ -d "$HOME/scripts" ]]; then
+  export PATH="$PATH:$HOME/scripts"
 fi
 
 if [[ -f "$HOME/dev/twitter/mikutter/mikutter.rb" ]]; then
