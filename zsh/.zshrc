@@ -38,6 +38,7 @@ export LESS_TERMCAP_so=$(printf '\e[1;44;1m')
 # input completion
 autoload -U compinit
 zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 compinit
 
 # prompt
