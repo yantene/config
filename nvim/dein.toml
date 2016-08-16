@@ -5,10 +5,12 @@ repo = 'Shougo/dein.vim'
 repo = 'tomasr/molokai'
 
 [[plugins]]
-repo = 'benekastah/neomake'
-hock_add = '''
-  autocmd! BufWritePost * Neomake
-'''
+repo = 'neomake/neomake'
+hook_add = "autocmd! BufWritePost * Neomake"
 
 [[plugins]]
 repo = 'thinca/vim-ref'
+hook_add = "let g:ref_refe_cmd = system('which refe')"
+
+[[plugins]]
+repo = 'Shougo/vinarise.vim'
