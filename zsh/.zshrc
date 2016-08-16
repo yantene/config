@@ -20,6 +20,10 @@ else
   alias diff='diff -u'
 fi
 
+if [[ -x `which nvim` ]]; then
+  alias vim='nvim'
+fi
+
 # environment variables
 export EDITOR="nvim"
 export LESS=-R
