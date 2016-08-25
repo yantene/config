@@ -30,6 +30,21 @@ if dein#check_install()
 endif
 
 "===============================================================================
+"         Neomake
+"===============================================================================
+
+let g:neomake_markdown_textlint_maker = {
+\     'exe': 'textlint',
+\     'args': ['--format', 'compact',
+\              '--rule', 'no-mix-dearu-desumasu',
+\              '--rule', 'max-ten',
+\              '--rule', 'spellcheck-tech-word',
+\             ],
+\     'errorformat': '%f: line %l\, col %c\, %m',
+\   }
+let g:neomake_markdown_enabled_makers = ['textlint']
+
+"===============================================================================
 "         vim の設定
 "===============================================================================
 
