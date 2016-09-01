@@ -7,9 +7,10 @@ eval $(dircolors -b)
 
 alias grep="grep --color=auto"
 alias tmux="tmux -2 -f \"$XDG_CONFIG_HOME\"/tmux/tmux.conf"
+alias trash="mv --backup=numbered --target-directory=$HOME/trash"
 alias rm="rm -i"
 alias cp="cp -i"
-alias trash="mv --backup=numbered --target-directory=$HOME/trash"
+alias mv="mv -i"
 
 if [[ -x `which hub` ]]; then
   alias git="hub"
