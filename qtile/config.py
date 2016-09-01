@@ -154,17 +154,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(),
-                widget.Prompt(),
                 widget.WindowName(),
-                widget.CPUGraph(line_width=2, width=50, graph_color='f8ff8c'),
-                widget.MemoryGraph(line_width=2, width=50, graph_color='8cff8d'),
-                widget.NetGraph(interface='wlp1s0', bandwidth_type='down',
-                                line_width=2, width=50, graph_color='8cfff8'),
-                widget.NetGraph(interface='wlp1s0', bandwidth_type='up',
-                                line_width=2, width=50, graph_color='8c9aff'),
-                widget.BatteryIcon(theme_path='/home/yantene/.config/qtile/battery-icons'),
-                widget.Battery(format='{percent:2.0%}'),
-                widget.Systray(),
                 widget.Clock(format='%Y-%m-%d (%a) %p %I:%M'),
             ],
             30,
