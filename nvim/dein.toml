@@ -3,6 +3,7 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'tomasr/molokai'
+hook_add = 'colorscheme molokai'
 
 [[plugins]]
 repo = 'neomake/neomake'

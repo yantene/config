@@ -60,7 +60,6 @@ set clipboard+=unnamedplus "ヤンクをクリップボードに
 
 " Syntax Highlightに関する設定
 syntax on
-colorscheme desert
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "true color を使用
 
 " エディタに関する設定
