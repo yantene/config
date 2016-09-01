@@ -11,6 +11,7 @@ alias trash="mv --backup=numbered --target-directory=$HOME/trash"
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
+alias la="ls -lah"
 
 if [[ -x `which hub` ]]; then
   alias git="hub"
