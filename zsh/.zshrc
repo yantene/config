@@ -1,6 +1,34 @@
 # - login shell
 # - interactive shell
 
+# pathes
+
+if [[ -d $HOME/.anyenv ]]; then
+  export PATH="$HOME/.anyenv/bin:$PATH"
+  eval "$(anyenv init -)"
+  for D in `ls $HOME/.anyenv/envs`; do
+    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
+  done
+fi
+
+if [[ -x `which ruby 2> /dev/null` ]]; then
+  export PATH="$PATH:"`ruby -rubygems -e "puts Gem.user_dir"`"/bin"
+fi
+
+if [[ -x `which go 2> /dev/null` ]]; then
+  mkdir -p $HOME/.go/bin
+  export PATH="$PATH:$HOME/.go/bin"
+  export GOPATH=$HOME/.go
+fi
+
+if [[ -x `which R 2> /dev/null` ]]; then
+  export R_ENVIRON_USER="${XDG_CONFIG_HOME}/R/Renviron"
+fi
+
+if [[ -x `which javac 2> /dev/null` ]]; then
+  export JAVA_HOME=`readlink -f /usr/bin/javac | sed "s:/bin/javac::"`
+fi
+
 # aliases
 alias ls="ls --color=auto"
 eval $(dircolors -b)
@@ -13,45 +41,18 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias la="ls -lah"
 
-if [[ -x `which hub` ]]; then
+if [[ -x `which hub 2> /dev/null` ]]; then
   alias git="hub"
 fi
 
-if [[ -x `which colordiff` ]]; then
+if [[ -x `which colordiff 2> /dev/null` ]]; then
   alias diff='colordiff -u'
 else
   alias diff='diff -u'
 fi
 
-if [[ -x `which nvim` ]]; then
+if [[ -x `which nvim 2> /dev/null` ]]; then
   alias vim='nvim'
-fi
-
-# pathes
-if [[ -x `which ruby` ]]; then
-  export PATH="$PATH:"`ruby -rubygems -e "puts Gem.user_dir"`"/bin"
-fi
-
-if [[ -x `which go` ]]; then
-  mkdir -p $HOME/.go/bin
-  export PATH="$PATH:$HOME/.go/bin"
-  export GOPATH=$HOME/.go
-fi
-
-if [[ -x `which R` ]]; then
-  export R_ENVIRON_USER="${XDG_CONFIG_HOME}/R/Renviron"
-fi
-
-if [[ -x `which javac` ]]; then
-  export JAVA_HOME=`readlink -f /usr/bin/javac | sed "s:/bin/javac::"`
-fi
-
-if [[ -d $HOME/.anyenv ]]; then
-  export PATH="$HOME/.anyenv/bin:$PATH"
-  eval "$(anyenv init -)"
-  for D in `ls $HOME/.anyenv/envs`; do
-    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
-  done
 fi
 
 # my scripts and commands
@@ -67,11 +68,11 @@ if [[ -f /usr/lib/mozc/mozc_tool ]]; then
   alias mozc='/usr/lib/mozc/mozc_tool --mode=config_dialog'
 fi
 
-if [[ -x `which xsel` ]]; then
+if [[ -x `which xsel 2> /dev/null` ]]; then
   alias cb="xsel -b"
 fi
 
-if [[ -x `which cvlc` ]]; then
+if [[ -x `which cvlc 2> /dev/null` ]]; then
   alias play="cvlc --play-and-exit $* >& /dev/null"
 fi
 
