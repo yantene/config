@@ -1,0 +1,18 @@
+Config{
+  font = "xft:sans-serif:bold:size=12:antialias=true",
+  bgColor = "black",
+  fgColor = "grey",
+  position = Top,
+  lowerOnStart = False,
+  commands = [
+    Run StdinReader,
+    Run Cpu ["-t", "Cpu: <total>%", "-L", "3", "-H", "50", "--normal", "green", "--high", "red"] 10,
+    Run Memory ["-t", "Mem: <usedratio>%"] 10,
+    Run Network "wlp2s0" ["-L", "0", "-H", "32", "--normal", "green", "--high", "red"] 10,
+    Run BatteryP ["BAT0"] ["-t", "Batt: <left>%", "-L", "10", "-H", "80", "-l", "red", "-h", "green"] 60,
+    Run Date "%Y-%m-%d %H:%M" "date" 10
+  ],
+  sepChar = "%",
+  alignSep = "}{",
+  template = "%StdinReader% }{ %cpu% / %memory% / %volume% / %wlp1s0% / %battery%      %date%"
+}

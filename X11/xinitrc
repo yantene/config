@@ -18,12 +18,10 @@ xmodmap ${XDG_CONFIG_HOME}/X11/Xmodmap
 #xsetroot -cursor_name left_ptr
 
 #ibus-mozc
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export XMODIFIERS="@im=ibus"
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
 
 #スタートアップアプリケーション
-exec qtile
-# exec gnome-session
-# exec startkde
-# exec startxfce4
+#exec qtile
+exec xmonad
