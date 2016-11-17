@@ -1,53 +1,38 @@
 "===============================================================================
 "         dein.vim
 "===============================================================================
+augroup MyAutoCmd
+  autocmd!
+augroup END
 
 let s:dein_dir = expand($XDG_CACHE_HOME . '/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+if !isdirectory(s:dein_repo_dir)
+  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 endif
+let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
+let s:toml = expand($XDG_CONFIG_HOME . '/nvim/dein.toml')
 if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-
-  let s:toml = expand($XDG_CONFIG_HOME . '/nvim/dein.toml')
-  let s:lazy_toml = expand($XDG_CONFIG_HOME . '/nvim/dein_lazy.toml')
-
-  call dein#load_toml(s:toml, {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
+  call dein#begin(s:dein_dir, [s:toml])
+  call dein#load_toml(s:toml)
   call dein#end()
   call dein#save_state()
 endif
 
-if dein#check_install()
+if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
 
 "===============================================================================
-"         Neomake
+"         easymotion
 "===============================================================================
-
-let g:neomake_markdown_textlint_maker = {
-\     'exe': 'textlint',
-\     'args': ['--format', 'compact',
-\              '--rule', 'no-mix-dearu-desumasu',
-\              '--rule', 'max-ten',
-\              '--rule', 'spellcheck-tech-word',
-\             ],
-\     'errorformat': '%f: line %l\, col %c\, %m',
-\   }
-let g:neomake_markdown_enabled_makers = ['textlint']
+nmap f <plug>(easymotion-overwin-f2)
 
 "===============================================================================
 "         vim の設定
 "===============================================================================
-
 " インデントに関する設定
 set autoindent
 set expandtab  "インデントたるもの，スペースたるべし．
@@ -59,7 +44,7 @@ set sts=2 "手動インデントの幅
 set clipboard+=unnamedplus "ヤンクをクリップボードに
 
 " Syntax Highlightに関する設定
-syntax on
+syntax enable
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "true color を使用
 
 " エディタに関する設定

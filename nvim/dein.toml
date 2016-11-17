@@ -3,11 +3,41 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'tomasr/molokai'
-hook_add = 'colorscheme molokai'
+hook_add = '''
+  au MyAutoCmd VimEnter * nested colorscheme molokai
+'''
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_i = 1
+hook_source = '''
+  let g:deoplete#omni_patterns = {}
+  let g:deoplete#enable_at_startup = 1
+'''
+
+[[plugins]]
+repo = 'Lokaltog/vim-easymotion'
+hook_source = '''
+  let g:EasyMotion_do_mapping = 0
+  nmap f <plug>(easymotion-overwin-f2)
+  let g:EasyMotion_smartcase = 1
+'''
 
 [[plugins]]
 repo = 'neomake/neomake'
-hook_add = "autocmd! BufWritePost * Neomake"
+hook_add = '''
+  autocmd! BufWritePost * Neomake
+  let g:neomake_markdown_textlint_maker = {
+  \     'exe': 'textlint',
+  \     'args': ['--format', 'compact',
+  \              '--rule', 'no-mix-dearu-desumasu',
+  \              '--rule', 'max-ten',
+  \              '--rule', 'spellcheck-tech-word',
+  \             ],
+  \     'errorformat': '%f: line %l\, col %c\, %m',
+  \   }
+  let g:neomake_markdown_enabled_makers = ['textlint']
+'''
 
 [[plugins]]
 repo = 'thinca/vim-ref'
@@ -15,3 +45,30 @@ hook_add = "let g:ref_refe_cmd = system('which refe')"
 
 [[plugins]]
 repo = 'Shougo/vinarise.vim'
+
+[[plugins]]
+repo = 'vim-ruby/vim-ruby'
+on_ft = 'ruby'
+hook_source = '''
+  let g:neo = ['rubocop']
+
+'''
+
+[[plugins]]
+repo = 'osyo-manga/vim-monster'
+on_ft = 'ruby'
+hook_source = '''
+  let g:deoplete#omni_patterns.ruby = ['[^. *\t]\.\w*', '\h\w*::']
+'''
+
+[[plugins]]
+repo = 'yuku-t/vim-ref-ri'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'dag/vim2hs'
+on_ft = 'haskell'
