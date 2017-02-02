@@ -8,6 +8,12 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 on_i = 1
 hook_source = '''
@@ -51,7 +57,6 @@ repo = 'vim-ruby/vim-ruby'
 on_ft = 'ruby'
 hook_source = '''
   let g:neo = ['rubocop']
-
 '''
 
 [[plugins]]
@@ -72,3 +77,27 @@ on_ft = 'ruby'
 [[plugins]]
 repo = 'dag/vim2hs'
 on_ft = 'haskell'
+
+[[plugins]]
+repo = 'othree/html5.vim'
+on_ft = 'html'
+
+[[plugins]]
+repo = 'hokaccha/vim-html5validator'
+on_ft = 'html'
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+on_ft = 'css'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft = 'tex'

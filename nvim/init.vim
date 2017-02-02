@@ -49,11 +49,14 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "true color を使用
 
 " エディタに関する設定
 set number "行番号
+set relativenumber "相対行番号
 set list "特殊文字の可視化
 set listchars=tab:»-,trail:␣,eol:↲,extends:»,precedes:«,nbsp:%
 set cursorline
 set showmatch
-set ambiwidth=double "記号フォント幅の修正
+if exists('&ambw')
+  set ambw=double "曖昧な文字幅対策
+endif
 
 " ランタイムの有効化
 runtime macros/matchit.vim " % で対応する括弧に飛ぶ
