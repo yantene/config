@@ -14,8 +14,8 @@ git clone git@github.com:yantene/config $HOME/.config
 
 ```bash
 ln -s $HOME/.config/zsh/.zshenv $HOME/.zshenv
-ln -s $HOME/.config/xmobarrc $HOME/.xmobarrc
+ln -s $HOME/.config/xmonad/xmobarrc $HOME/.xmobarrc
 mkdir -p $HOME/.xmonad
-ln -s $HOME/.config/xmonad.hs $HOME/.xmonad/xmonad.hs
+ln -s $HOME/.config/xmonad/xmonad.hs $HOME/.xmonad/xmonad.hs
 ln -s $HOME/.config/fbterm/fbtermrc $HOME/.fbtermrc
 ```
