@@ -18,11 +18,12 @@ myTerminal = "termite"
 
 --自動起動
 myStartupHook = do
-  spawnOnce "fcitx"
   spawnOnce "pulseaudio --start"
+  spawnOnce "synclient TouchpadOff=1"
   spawnOnce "syndaemon -i 0.2 -d"
   spawnOnce "dunst &"
-  spawnOnce "xmodmap $XDG_CONFIG_HOME/X11/Xmodmap"
+  spawnOnce "touchegg &"
+  spawnOnce "fcitx-autostart"
   setWMName "LG3D" -- Swing グレー化対策
 
 --ウィンドウ調整
@@ -36,7 +37,8 @@ myManageHook = composeAll [
 myModMask = mod4Mask
 
 --フルスクリーンの設定
-myHandleEventHook = fullscreenEventHook
+--myHandleEventHook = fullscreenEventHook
+myHandleEventHook = handleEventHook desktopConfig <+> docksEventHook
 
 --XMobar
 myLogHook h = dynamicLogWithPP xmobarPP {
@@ -51,6 +53,9 @@ myKeys = [
   --rofi
   ("M-d", spawn "rofi -show run"),
 
+  --lock
+  ("M-S-l", spawn "dm-tool lock"),
+
   --`xmodmap -pke | grep XF86`でキーの名前が取れるっぽい
 
   --音量調整
@@ -59,8 +64,8 @@ myKeys = [
   ("<XF86AudioRaiseVolume>", spawn "amixer sset Master on 10%+"),
 
   --輝度調整
-  ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 5"),
-  ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 5"),
+  ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 2"),
+  ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 2"),
 
   --デュアルスクリーン
   ("<XF86Display>", spawn "dscreen toggle"),

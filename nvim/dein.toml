@@ -11,7 +11,7 @@ hook_add = '''
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
+repo = 'Shougo/unite.vim'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
@@ -57,13 +57,6 @@ repo = 'vim-ruby/vim-ruby'
 on_ft = 'ruby'
 hook_source = '''
   let g:neo = ['rubocop']
-'''
-
-[[plugins]]
-repo = 'osyo-manga/vim-monster'
-on_ft = 'ruby'
-hook_source = '''
-  let g:deoplete#omni_patterns.ruby = ['[^. *\t]\.\w*', '\h\w*::']
 '''
 
 [[plugins]]
