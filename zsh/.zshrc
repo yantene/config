@@ -136,5 +136,8 @@ setopt list_packed  # 補完候補の詰め詰め
 setopt nolistbeep # ビープ消す
 setopt hist_ignore_space # 先頭が空白のコマンドを履歴に残さない
 
+# compdef
+compdef mosh=ssh # ssh の補完を mosh に
+
 # others
 source "${XDG_CONFIG_HOME}/zsh/netcmdgips"
