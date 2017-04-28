@@ -40,6 +40,7 @@ alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
 alias la="ls -lah"
+alias sc="systemctl"
 
 if [[ -x `which hub 2> /dev/null` ]]; then
   alias git="hub"
