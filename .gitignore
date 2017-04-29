@@ -22,6 +22,10 @@
 /fontconfig/*
 !/fontconfig/fonts.conf
 
+!/git
+/git/*
+!/git/config
+
 !/nvim
 /nvim/*
 !/nvim/dein.toml

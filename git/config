@@ -1,0 +1,17 @@
+[user]
+  email = contact@yantene.net
+  name = yantene
+
+[color]
+  ui = true
+
+[alias]
+  unadd = reset HEAD # indexをHEADに変更
+  graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+  adiff = diff --cached # indexと比較
+  wdiff = diff --word-diff
+  co = checkout
+  cm = commit
+
+[core]
+  quotepath = false
