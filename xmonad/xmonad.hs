@@ -23,7 +23,7 @@ myStartupHook = do
   spawnOnce "syndaemon -i 0.2 -d"
   spawnOnce "dunst &"
   spawnOnce "touchegg &"
-  spawnOnce "fcitx-autostart"
+  spawnOnce "fcitx-autostart > x/k"
   setWMName "LG3D" -- Swing グレー化対策
 
 --ウィンドウ調整
