@@ -8,7 +8,7 @@
 !/X11
 /X11/*
 !/X11/Xmodmap
-!/X11/xinitrc
+!/X11/xprofile
 
 !/dunst
 /dunst/*

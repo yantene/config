@@ -1,0 +1,13 @@
+# 本ファイルを ~/.xprofile にリンクすると，
+# XMonad 起動前にパスが通る．
+# しかしながら，意味がない．
+# 本パスを通さずとも，
+# XMonad は ~/.xmonad ディレクトリがないと ~/.config/xmonad/xmonad.hs を読みコンパイルする．
+# しかし実行ファイルは ~/.xmonad 下に生成する．
+# Super + Q で再読込しようとすると ~/.xmonad/xmonad.hs を読もうとして見つからず失敗するので，
+# まずこのディレクトリを削除しなくてはならない．
+# 面倒だが以上の手順を踏めばどうにかなるので，本件は保留．
+
+# xmonad
+export XMONAD_CONFIG_HOME="$HOME/.config/xmonad"
+export XMONAD_CACHE_HOME="$HOME/.cache/xmonad"
