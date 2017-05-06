@@ -17,3 +17,4 @@ Config{
   alignSep = "}{",
   template = "%StdinReader% }{ %cpu% / %memory% / %swap% / %wlp1s0% / %battery%      %date%"
 }
+

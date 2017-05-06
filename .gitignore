@@ -43,9 +43,12 @@
 /tmux/*
 !/tmux/tmux.conf
 
+!/xmobar
+/xmobar/*
+!/xmobar/xmobarrc
+
 !/xmonad
 /xmonad/*
-!/xmonad/xmobarrc
 !/xmonad/xmonad.hs
 
 !/zsh
