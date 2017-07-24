@@ -4,7 +4,7 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'tomasr/molokai'
 hook_add = '''
-  au MyAutoCmd VimEnter * nested colorscheme molokai
+  au AutoCmd VimEnter * nested colorscheme molokai
 '''
 
 [[plugins]]

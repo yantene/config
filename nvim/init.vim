@@ -1,7 +1,7 @@
 "===============================================================================
 "         dein.vim
 "===============================================================================
-augroup MyAutoCmd
+augroup AutoCmd
   autocmd!
 augroup END
 
@@ -67,7 +67,7 @@ noremap <Up>    <Nop>
 noremap <Down>  <Nop>
 noremap <Left>  <Nop>
 noremap <Right> <Nop>
-nnoremap <C-j> <C-f>
-nnoremap <C-k> <C-b>
-nnoremap <S-j> <C-e>
-nnoremap <S-k> <C-y>
+noremap <C-j> <C-f>
+noremap <C-k> <C-b>
+noremap <S-j> <C-e>
+noremap <S-k> <C-y>
