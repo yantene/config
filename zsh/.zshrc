@@ -43,6 +43,7 @@ alias la="ls -lah"
 alias lat="ls -lahtr"
 alias sc="systemctl"
 alias xpath='xmllint --html --xpath 2> /dev/null'
+alias wunzip='unzip -Ocp932'
 
 if [[ -x `which hub 2> /dev/null` ]]; then
   alias git="hub"
