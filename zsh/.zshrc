@@ -40,7 +40,9 @@ alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
 alias la="ls -lah"
+alias lat="ls -lahtr"
 alias sc="systemctl"
+alias xpath='xmllint --html --xpath 2> /dev/null'
 
 if [[ -x `which hub 2> /dev/null` ]]; then
   alias git="hub"
@@ -54,6 +56,33 @@ fi
 
 if [[ -x `which nvim 2> /dev/null` ]]; then
   alias vim='nvim'
+fi
+
+if [[ -x `which trans 2> /dev/null` ]]; then
+  alias trans='trans -show-original Y\
+                     -show-original-phonetics n\
+                     -show-translation Y\
+                     -show-translation-phonetics n\
+                     -show-prompt-message n\
+                     -show-languages n\
+                     -show-original-dictionary N\
+                     -show-dictionary n\
+                     -show-alternatives n\
+                     -no-ansi'
+  function ja() {
+    if [[ -p /dev/stdin ]]; then
+      trans :ja
+    else
+      echo "$@" | ja
+    fi
+  }
+  function en() {
+    if [[ -p /dev/stdin ]]; then
+      trans :en
+    else
+      echo "$@" | en
+    fi
+  }
 fi
 
 # my scripts and commands
@@ -97,7 +126,7 @@ compinit
 # prompt
 PROMPT="
 %B%F{yellow}%n@%M:%f %~
-%(?.%F{green}%#%f.%F{red}%#%f)%b " # 平常時のプロンプト
+%(?.%F{green}$%f.%F{red}$%f)%b " # 平常時のプロンプト
 RPROMPT="%B[%F{cyan}%D %T%f]%b" # 右プロンプト
 PROMPT2="  " # コマンドの続き
 SPROMPT=" %F{green}%r?%f " # 合ってる？
@@ -112,7 +141,7 @@ case "${TERM}" in
 esac
 
 # history settings
-HISTFILE=~/.zsh_history
+HISTFILE=$XDG_CONFIG_HOME/zsh/.zsh_history
 HISTSIZE=6000000
 SAVEHIST=6000000
 setopt hist_ignore_dups
@@ -122,12 +151,12 @@ setopt share_history
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-bindkey "" history-beginning-search-backward-end
-bindkey "" history-beginning-search-forward-end
+bindkey '' history-beginning-search-backward-end
+bindkey '' history-beginning-search-forward-end
 
 # key bind
 bindkey -e # キーバインドを emacs モードに
-bindkey '^U' backward-kill-line # C-u でカーソル以左を削除
+bindkey '' backward-kill-line # C-u でカーソル以左を削除
 
 # options
 setopt complete_aliases
