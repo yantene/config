@@ -23,10 +23,10 @@ repo = 'Shougo/denite.nvim'
 
 [[plugins]]
 repo = 'Lokaltog/vim-easymotion'
-hook_source = '''
+hook_add = '''
   let g:EasyMotion_do_mapping = 0
-  nmap f <plug>(easymotion-overwin-f2)
   let g:EasyMotion_smartcase = 1
+  nmap f <plug>(easymotion-overwin-f2)
 '''
 
 [[plugins]]
@@ -51,6 +51,11 @@ hook_add = '''
 
 [[plugins]]
 repo = 'Shougo/vinarise.vim'
+
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
 
 [[plugins]]
 repo = 'vim-ruby/vim-ruby'
