@@ -23,7 +23,8 @@ myStartupHook = do
   spawnOnce "syndaemon -i 0.2 -d"
   spawnOnce "dunst &"
   spawnOnce "touchegg &"
-  spawnOnce "fcitx-autostart > x/k"
+  spawnOnce "timidity -iA &"
+  spawnOnce "fcitx-autostart"
   setWMName "LG3D" -- Swing グレー化対策
 
 --ウィンドウ調整
@@ -51,7 +52,8 @@ myWorkspaces = [[x] | x <- "123456789"]
 --キーバインド設定
 myKeys = [
   --rofi
-  ("M-d", spawn "rofi -show run"),
+  --("M-d", spawn "rofi -show run"),
+  ("M-d", spawn "rofi -run-command \"zsh -c -l -i '{cmd}'\" -show run"),
 
   --lock
   ("M-S-l", spawn "dm-tool lock"),
@@ -78,7 +80,7 @@ myKeys = [
 --main
 main = do
   myStatusBar <- spawnPipe "xmobar"
-  xmonad $ desktopConfig {
+  xmonad $ ewmh desktopConfig {
     handleEventHook = myHandleEventHook,
     layoutHook = myLayoutHook,
     logHook = myLogHook myStatusBar,
