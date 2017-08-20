@@ -11,7 +11,7 @@
   adiff = diff --cached # indexと比較
   wdiff = diff --word-diff
   co = checkout
-  cm = commit
+  ci = commit
 
 [core]
   quotepath = false
