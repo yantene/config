@@ -45,6 +45,8 @@ alias sc="systemctl"
 alias xpath='xmllint --html --xpath 2> /dev/null'
 alias wunzip='unzip -Ocp932'
 
+alias anony="chromium --proxy-server=socks://localhost:9050 --no-referrers --user-agent='' --incognito --user-data-dir=`mktemp -d` https://duckduckgo.com"
+
 if [[ -x `which hub 2> /dev/null` ]]; then
   alias git="hub"
 fi
