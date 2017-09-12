@@ -13,6 +13,20 @@ repo = 'itchyny/lightline.vim'
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 
+[[plugins]]
+repo = 'soramugi/auto-ctags.vim'
+on_if = 'system("git -C " . expand("%:h") . " rev-parse --is-inside-work-tree") == "true\n"'
+hook_add = '''
+  let g:auto_ctags = 1
+  let g:auto_ctags_filetype_mode = 1
+  let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes'
+
+  let s:git_dir = substitute(system('git -C ' . expand('%:h') . ' rev-parse --git-dir'), '\n\+$', '', '')
+  let s:ctags_dir = s:git_dir . '/ctags'
+  call system('mkdir -p ' . s:ctags_dir)
+  let g:auto_ctags_directory_list = [s:ctags_dir]
+'''
+
 #[[plugins]]
 #repo = 'Shougo/deoplete.nvim'
 #on_i = 1
