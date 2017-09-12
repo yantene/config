@@ -44,7 +44,6 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "true color を使用
 
 " エディタに関する設定
 set number "行番号
-set relativenumber "相対行番号
 set list "特殊文字の可視化
 set listchars=tab:»-,trail:␣,eol:↲,extends:»,precedes:«,nbsp:%
 set cursorline
