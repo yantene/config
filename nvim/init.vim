@@ -52,9 +52,6 @@ if exists('&ambw')
   set ambw=double "曖昧な文字幅対策
 endif
 
-" ランタイムの有効化
-runtime macros/matchit.vim " % で対応する括弧に飛ぶ
-
 " キーバインドに関する設定
 noremap <Up>    <Nop>
 noremap <Down>  <Nop>
