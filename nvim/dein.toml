@@ -57,6 +57,11 @@ hook_add = '''
   let g:neomake_markdown_enabled_makers = ['textlint']
 '''
 
+# Ref
+
+[[plugins]]
+repo = 'thinca/vim-ref'
+
 # Languages
 
 ## Binary
@@ -69,6 +74,7 @@ repo = 'vim-ruby/vim-ruby'
 on_ft = 'ruby'
 hook_source = '''
   let g:neomake_ruby_enabled_makers = ['rubocop']
+  let g:ref_refe_cmd = substitute(system('(cd ' . expand("%:h") . '; rbenv which refe)'), '\n\+$', '', '')
 '''
 
 [[plugins]]
