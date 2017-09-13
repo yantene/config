@@ -23,6 +23,26 @@ hook_add = '''
   nmap f <plug>(easymotion-overwin-f2)
 '''
 
+# Completion
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_event = 'InsertCharPre'
+hook_source = '''
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_complete_delay = 0
+  let g:deoplete#auto_complete_start_length = 1
+  let g:deoplete#enable_camel_case = 0
+  let g:deoplete#enable_ignore_case = 0
+  let g:deoplete#enable_refresh_always = 0
+  let g:deoplete#enable_smart_case = 1
+  let g:deoplete#file#enable_buffer_path = 1
+  let g:deoplete#max_list = 10000
+  inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
+'''
+on_i = 1
+# Note: Execute the :UpdateRemotePlugins and restart Neovim.
+
 # Ctags
 
 [[plugins]]
@@ -76,6 +96,10 @@ hook_source = '''
   let g:neomake_ruby_enabled_makers = ['rubocop']
   let g:ref_refe_cmd = substitute(system('(cd ' . expand("%:h") . '; rbenv which refe)'), '\n\+$', '', '')
 '''
+
+[[plugins]]
+repo = 'Shougo/deoplete-rct'
+on_ft = 'ruby'
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
