@@ -14,9 +14,11 @@ endif
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
 let s:toml = expand($XDG_CONFIG_HOME . '/nvim/dein.toml')
+let s:lazy_toml = expand($XDG_CONFIG_HOME . '/nvim/dein_lazy.toml')
 if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir, [s:toml])
-  call dein#load_toml(s:toml)
+  call dein#begin(s:dein_dir, [s:toml, s:lazy_toml])
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
   call dein#end()
   call dein#save_state()
 endif

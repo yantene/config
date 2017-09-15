@@ -29,6 +29,7 @@
 !/nvim
 /nvim/*
 !/nvim/dein.toml
+!/nvim/dein_lazy.toml
 !/nvim/init.vim
 
 !/qtile
