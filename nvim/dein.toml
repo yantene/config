@@ -5,7 +5,7 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'tomasr/molokai'
-hook_add = 'au AutoCmd VimEnter * nested colorscheme molokai'
+hook_add = 'au cs_hook VimEnter * nested colorscheme molokai'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
@@ -59,6 +59,34 @@ hook_add = '''
   \     'errorformat': '%f: line %l\, col %c\, %m',
   \   }
   let g:neomake_markdown_enabled_makers = ['textlint']
+'''
+
+# Ctags
+
+[[plugins]]
+repo = 'soramugi/auto-ctags.vim'
+hook_add = '''
+  function! SetCtags()
+    if &filetype != "" && system("git -C " . expand("%:h") . " rev-parse --is-inside-work-tree") == "true\n"
+      let g:auto_ctags_filetype_mode = 1
+
+      " 編集中のファイルの git ディレクトリを見つけ、ctags ディレクトリを作成する
+      let s:git_dir = substitute(system('git -C ' . expand('%:h') . ' rev-parse --git-dir'), '\n\+$', '', '')
+      let s:ctags_dir = s:git_dir . '/ctags'
+      call system('mkdir -p ' . s:ctags_dir)
+
+      " ctags ディレクトリに関する設定
+      let g:auto_ctags_directory_list = [s:ctags_dir]
+      let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes ' . s:ctags_dir
+
+      " ctags ディレクトリ中の lang.tags を tags ファイルにする
+      exec 'set tags=' . s:ctags_dir . '/' . &filetype . '.tags'
+    else
+      set tags&
+    endif
+  endfunction
+
+  au ctags_hook BufEnter * :call SetCtags()
 '''
 
 # Ref

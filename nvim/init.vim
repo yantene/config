@@ -1,7 +1,11 @@
 "===============================================================================
 "         dein.vim
 "===============================================================================
-augroup AutoCmd
+augroup cs_hook
+  autocmd!
+augroup END
+
+augroup ctags_hook
   autocmd!
 augroup END
 
