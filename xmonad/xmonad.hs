@@ -19,8 +19,6 @@ myTerminal = "termite"
 --自動起動
 myStartupHook = do
   spawnOnce "pulseaudio --start"
-  spawnOnce "synclient TouchpadOff=1"
-  spawnOnce "syndaemon -i 0.2 -d"
   spawnOnce "dunst &"
   spawnOnce "touchegg &"
   spawnOnce "timidity -iA &"
@@ -52,7 +50,6 @@ myWorkspaces = [[x] | x <- "123456789"]
 --キーバインド設定
 myKeys = [
   --rofi
-  --("M-d", spawn "rofi -show run"),
   ("M-d", spawn "rofi -run-command \"zsh -c -l -i '{cmd}'\" -show run"),
 
   --lock
