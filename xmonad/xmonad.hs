@@ -50,7 +50,7 @@ myWorkspaces = [[x] | x <- "123456789"]
 --キーバインド設定
 myKeys = [
   --rofi
-  ("M-d", spawn ("rofi -run-command \"zsh -c '{cmd}'\"" ++
+  ("M-d", spawn ("rofi -run-command \"zsh -i -c '{cmd}'\"" ++
                  " -color-window \"#222, #222, #bbb\"" ++
                  " -color-normal \"#222, #bbb, #222, #057, #bbb\"" ++
                  " -color-active \"#222, #bbb, #222, #076, #bbb\"" ++
