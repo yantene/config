@@ -22,7 +22,7 @@ myStartupHook = do
   spawnOnce "dunst &"
   spawnOnce "touchegg &"
   spawnOnce "timidity -iA &"
-  spawnOnce "fcitx-autostart"
+  spawnOnce "(sleep 1 && fcitx-autostart)"
   setWMName "LG3D" -- Swing グレー化対策
 
 --ウィンドウ調整
@@ -50,7 +50,12 @@ myWorkspaces = [[x] | x <- "123456789"]
 --キーバインド設定
 myKeys = [
   --rofi
-  ("M-d", spawn "rofi -run-command \"zsh -c -l -i '{cmd}'\" -show run"),
+  ("M-d", spawn ("rofi -run-command \"zsh -c '{cmd}'\"" ++
+                 " -color-window \"#222, #222, #bbb\"" ++
+                 " -color-normal \"#222, #bbb, #222, #057, #bbb\"" ++
+                 " -color-active \"#222, #bbb, #222, #076, #bbb\"" ++
+                 " -color-urgent \"#222, #bbb, #222, #704, #bbb\"" ++
+                 " -show run")),
 
   --lock
   ("M-S-l", spawn "dm-tool lock"),
