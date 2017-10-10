@@ -47,7 +47,9 @@ alias wunzip='unzip -Ocp932'
 
 alias anony="chromium --proxy-server=socks://localhost:9050 --no-referrers --user-agent='' --incognito --user-data-dir=`mktemp -d` https://duckduckgo.com"
 
-alias line="chromium --app-id=$(find $XDG_CONFIG_HOME/chromium/Default/Extensions -name 'line_chrome.min.css' | cut -d'/' -f8)"
+if [[ -x `find $XDG_CONFIG_HOME/chromium/Default/Extensions -name 'line_chrome.min.css' 2> /dev/null` ]]; then
+  alias line="chromium --app-id=$(find $XDG_CONFIG_HOME/chromium/Default/Extensions -name 'line_chrome.min.css' | cut -d'/' -f8)"
+fi
 
 if [[ -x `which hub 2> /dev/null` ]]; then
   alias git="hub"
