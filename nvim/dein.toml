@@ -93,3 +93,8 @@ hook_add = '''
 
 [[plugins]]
 repo = 'thinca/vim-ref'
+
+# Tools
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
