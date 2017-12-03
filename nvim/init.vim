@@ -57,6 +57,7 @@ set showmatch
 if exists('&ambw')
   set ambw=double "曖昧な文字幅対策
 endif
+filetype plugin indent on " filetype plugin
 
 " キーバインドに関する設定
 noremap <Up>    <Nop>
