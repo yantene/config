@@ -55,6 +55,12 @@ if [[ -x `which hub 2> /dev/null` ]]; then
   alias git="hub"
 fi
 
+if [[ -x `which pacaur 2> /dev/null` ]]; then
+  alias pac='pacaur'
+else
+  alias pac='pacman'
+fi
+
 if [[ -x `which colordiff 2> /dev/null` ]]; then
   alias diff='colordiff -u'
 else
