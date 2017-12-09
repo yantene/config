@@ -65,6 +65,10 @@ on_ft = 'rust'
 repo = 'dag/vim2hs'
 on_ft = 'haskell'
 
+[[plugins]]
+repo = 'ujihisa/neco-ghc'
+on_ft = 'haskell'
+
 ## TOML
 [[plugins]]
 repo = 'cespare/vim-toml'
