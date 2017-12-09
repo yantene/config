@@ -49,6 +49,7 @@ syntax enable
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "true color を使用
 
 " エディタに関する設定
+set background=dark "背景色を黒に
 set number "行番号
 set list "特殊文字の可視化
 set listchars=tab:»-,trail:␣,eol:↲,extends:»,precedes:«,nbsp:%
