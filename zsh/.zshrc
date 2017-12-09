@@ -137,9 +137,17 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 compinit
 
 # prompt
-PROMPT="
+if [[ ! -n "$SSH_CONNECTION" ]]; then
+  # ローカルでの平常時のプロンプト
+  PROMPT="
 %B%F{yellow}%n@%M:%f %~
+%(?.%F{green}$%f.%F{red}$%f)%b "
+else
+  # リモートでの平常時のプロンプト
+  PROMPT="
+%B%F{blue}%n@%M:%f %~
 %(?.%F{green}$%f.%F{red}$%f)%b " # 平常時のプロンプト
+fi
 RPROMPT="%B[%F{cyan}%D %T%f]%b" # 右プロンプト
 PROMPT2="  " # コマンドの続き
 SPROMPT=" %F{green}%r?%f " # 合ってる？
