@@ -12,7 +12,7 @@ if [[ -d $HOME/.anyenv ]]; then
 fi
 
 if [[ -x `which ruby 2> /dev/null` ]]; then
-  export PATH="$PATH:"`ruby -rubygems -e "puts Gem.user_dir"`"/bin"
+  export PATH="$PATH:"`ruby -e "puts Gem.user_dir"`"/bin"
 fi
 
 if [[ -x `which go 2> /dev/null` ]]; then
@@ -46,6 +46,10 @@ alias xpath='xmllint --html --xpath 2> /dev/null'
 alias wunzip='unzip -Ocp932'
 
 alias anony="chromium --proxy-server=socks://localhost:9050 --no-referrers --user-agent='' --incognito --user-data-dir=`mktemp -d` https://duckduckgo.com"
+
+# tools
+
+alias sp2tab='sed -e "s/\s\+/\t/g"'
 
 if [[ `find $XDG_CONFIG_HOME/chromium/Default/Extensions -name 'line_chrome.min.css' 2> /dev/null | wc -l` -eq 1 ]]; then
   alias line="chromium --app-id=$(find $XDG_CONFIG_HOME/chromium/Default/Extensions -name 'line_chrome.min.css' | cut -d'/' -f8)"
