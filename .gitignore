@@ -36,6 +36,10 @@
 /qtile/*
 !/qtile/config.py
 
+!/sway
+/sway/*
+!/sway/config
+
 !/termite
 /termite/*
 !/termite/config
