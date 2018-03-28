@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term termite
+set $term urxvt +sb -fn 'xft:M+ 1m-11' -fg \#FFFFFF -bg \#242424 -cr \#4E9A06 --color0  \#000000 --color1  \#CC0000 --color2  \#4E9A06 --color3  \#C4A000 --color4  \#3465A4 --color5  \#AE80B6 --color6  \#06989A --color7  \#D3D7CF --color8  \#555753 --color9  \#EF2929 --color10 \#8AE234 --color11 \#FCE94F --color12 \#729FCF --color13 \#D9ABD4 --color14 \#34E2E2 --color15 \#EEEEEC
 # Your preferred application launcher
 set $menu rofi -run-command \"zsh -i -c '{cmd}'\" -show run -normal-window
 
