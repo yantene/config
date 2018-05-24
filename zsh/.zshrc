@@ -73,6 +73,8 @@ fi
 
 if [[ -x `which nvim 2> /dev/null` ]]; then
   alias vim='nvim'
+else
+  alias nvim='vim'
 fi
 
 if [[ -x `which trans 2> /dev/null` ]]; then
