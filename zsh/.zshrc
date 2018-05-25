@@ -29,6 +29,10 @@ if [[ -x `which javac 2> /dev/null` ]]; then
   export JAVA_HOME=`readlink -f /usr/bin/javac | sed "s:/bin/javac::"`
 fi
 
+if [[ -x `which direnv 2> /dev/null` ]]; then
+  eval "$(direnv hook zsh)"
+fi
+
 # aliases
 alias ls="ls --color=auto"
 eval $(dircolors -b)
