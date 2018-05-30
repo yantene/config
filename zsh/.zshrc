@@ -148,16 +148,15 @@ compinit
 
 # prompt
 if [[ ! -n "$SSH_CONNECTION" ]]; then
-  # ローカルでの平常時のプロンプト
-  PROMPT="
-%B%F{yellow}%n@%M:%f %~
-%(?.%F{green}$%f.%F{red}$%f)%b "
+  # ローカル環境
+  hostname_color='yellow'
 else
-  # リモートでの平常時のプロンプト
-  PROMPT="
-%B%F{blue}%n@%M:%f %~
-%(?.%F{green}$%f.%F{red}$%f)%b " # 平常時のプロンプト
+  # リモート環境
+  hostname_color='blue'
 fi
+PROMPT="
+%B%F{${hostname_color}}%n@%M:%f %~
+%(?.%F{green}$%f.%F{red}$%f)%b " # 平常時のプロンプト
 RPROMPT="%B[%F{cyan}%D %T%f]%b" # 右プロンプト
 PROMPT2="  " # コマンドの続き
 SPROMPT=" %F{green}%r?%f " # 合ってる？
