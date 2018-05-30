@@ -164,10 +164,45 @@ else
   # リモート環境
   hostname_color='blue'
 fi
-PROMPT="
-%B%F{${hostname_color}}%n@%M:%f %~
-%(?.%F{green}$%f.%F{red}$%f)%b " # 平常時のプロンプト
-RPROMPT="%B[%F{cyan}%D %T%f]%b" # 右プロンプト
+function rprompt-git-current-branch {
+  local branch_name st branch_status
+  if git rev-parse 2> /dev/null; then
+    branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
+    st=`git status 2> /dev/null`
+    if [[ -n `grep "^nothing to" <<<$st` ]]; then
+      # 全てcommitされてクリーンな状態
+      branch_status="[%F{green}"
+    elif [[ -n `grep "^Untracked files" <<<$st` ]]; then
+      # gitに管理されていないファイルがある状態
+      branch_status="?[%F{red}"
+    elif [[ -n `grep "^Changes not staged for commit" <<<$st` ]]; then
+      # git addされていないファイルがある状態
+      branch_status="+[%F{red}"
+    elif [[ -n `grep "^Changes to be committed" <<<$st` ]]; then
+      # git commitされていないファイルがある状態
+      branch_status="![%F{yellow}"
+    elif [[ -n `grep "^rebase in progress" <<<$st` ]]; then
+      # コンフリクトが起こった状態
+      echo "!(no branch)[%F{red}"
+      return
+    else
+      # 上記以外の状態の場合は青色で表示させる
+      branch_status="%F{blue}"
+    fi
+    echo "${branch_status}$branch_name%f]"
+  else
+    return
+  fi
+}
+prompt_1stline="[%F{cyan}%D %T%f%f] %B%(?.%F{green}↩%f.%F{red}↩%f)%b"
+prompt_2ndline="%B%F{${hostname_color}}%n@%M:%f %~%b"
+prompt_3rdline="%F{grey}$%f "
+setopt prompt_subst
+PROMPT="$prompt_1stline
+
+$prompt_2ndline
+$prompt_3rdline" # 平常時のプロンプト
+RPROMPT='%B`rprompt-git-current-branch`%b' # 右プロンプト
 PROMPT2="  " # コマンドの続き
 SPROMPT=" %F{green}%r?%f " # 合ってる？
 
