@@ -98,3 +98,6 @@ repo = 'thinca/vim-ref'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
