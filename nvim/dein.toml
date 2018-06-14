@@ -10,6 +10,9 @@ hook_add = 'au cs_hook VimEnter * nested colorscheme molokai'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
 # Controll
 
 [[plugins]]
