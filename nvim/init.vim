@@ -60,6 +60,10 @@ if exists('&ambw')
 endif
 filetype plugin indent on " filetype plugin
 
+" Ctags の設定
+
+nnoremap <C-]> g<C-]>
+
 " キーバインドに関する設定
 noremap <Up>    <Nop>
 noremap <Down>  <Nop>
