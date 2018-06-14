@@ -76,3 +76,6 @@ repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
