@@ -13,9 +13,6 @@ repo = 'itchyny/lightline.vim'
 # Controll
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-
-[[plugins]]
 repo = 'Lokaltog/vim-easymotion'
 hook_add = '''
   let g:EasyMotion_do_mapping = 0
