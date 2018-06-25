@@ -11,7 +11,6 @@ on_cmd = ['Vinarise']
 repo = 'vim-ruby/vim-ruby'
 on_ft = 'ruby'
 hook_source = '''
-  let g:neomake_ruby_enabled_makers = ['rubocop']
   let g:ref_refe_cmd = substitute(system('(cd ' . expand("%:h") . '; rbenv which refe)'), '\n\+$', '', '')
 '''
 
@@ -45,15 +44,6 @@ on_ft = 'css'
 [[plugins]]
 repo = 'othree/yajs.vim'
 on_ft = 'javascript'
-hook_source = '''
-  let g:neomake_javascript_eslint_maker = {
-  \     'exe': 'eslint',
-  \     'args': ['-f', 'compact'],
-  \     'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
-  \                    '%W%f: line %l\, col %c\, Warning - %m'
-  \     }
-  let g:neomake_javascript_enabled_makers = ['eslint']
-'''
 
 ## Rust
 [[plugins]]
