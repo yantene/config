@@ -16,9 +16,6 @@ repo = 'Yggdroot/indentLine'
 # Controll
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-
-[[plugins]]
 repo = 'Lokaltog/vim-easymotion'
 hook_add = '''
   let g:EasyMotion_do_mapping = 0
@@ -30,8 +27,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-on_event = 'InsertCharPre'
-hook_source = '''
+hook_add = '''
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#auto_complete_delay = 0
   let g:deoplete#auto_complete_start_length = 1
@@ -46,23 +42,27 @@ hook_source = '''
 on_i = 1
 # Note: Execute the :UpdateRemotePlugins and restart Neovim.
 
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev  = 'next'
+build = 'bash install.sh'
+hook_add = '''
+  set hidden
+  let g:LanguageClient_serverCommands = {
+  \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+  \ 'ruby': ['solargraph', 'stdio'],
+  \}
+  let g:LanguageClient_autoStart = 1
+  nnoremap <F5>          :call LanguageClient_contextMenu()<CR>
+  nnoremap <silent> K    :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <silent> gd   :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+'''
+
 # Lint
 
 [[plugins]]
-repo = 'neomake/neomake'
-hook_add = '''
-  autocmd! BufWritePost * Neomake
-  let g:neomake_markdown_textlint_maker = {
-  \     'exe': 'textlint',
-  \     'args': ['--format', 'compact',
-  \              '--rule', 'no-mix-dearu-desumasu',
-  \              '--rule', 'max-ten',
-  \              '--rule', 'spellcheck-tech-word',
-  \             ],
-  \     'errorformat': '%f: line %l\, col %c\, %m',
-  \   }
-  let g:neomake_markdown_enabled_makers = ['textlint']
-'''
+repo = 'w0rp/ale'
 
 # Ref
 
