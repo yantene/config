@@ -187,7 +187,7 @@ function rprompt-git-current-branch {
       return
     else
       # 上記以外の状態の場合は青色で表示させる
-      branch_status="%F{blue}"
+      branch_status="[%F{blue}"
     fi
     echo "${branch_status}$branch_name%f]"
   else
