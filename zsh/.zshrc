@@ -82,8 +82,8 @@ if [[ -x `which hub 2> /dev/null` ]]; then
   alias gbranch="git rev-parse --abbrev-ref HEAD 2> /dev/null"
 fi
 
-if [[ -x `which colordiff 2> /dev/null` ]]; then
-  alias diff='colordiff -u'
+if [[ -x `which git 2> /dev/null` ]]; then
+  alias diff='git diff --no-index'
 else
   alias diff='diff -u'
 fi
