@@ -55,21 +55,23 @@ alias anony="chromium --proxy-server=socks://localhost:9050 --no-referrers --use
 
 alias sp2tab='sed -e "s/\s\+/\t/g"'
 
-function cedit () {
-  [[ $# -eq 0 ]] && return 1
-  $EDITOR $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
-}
-
-function nedit () {
-  [[ $# -eq 0 ]] && return 1
-  $EDITOR $(ag -g $@ | peco --query "$LBUFFER")
-}
-
 function gup () {
   if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
     cd `pwd`/`git rev-parse --show-cdup`
   fi
 }
+
+if [[ -x `which peco 2> /dev/null` ]]; then
+  function cedit () {
+    [[ $# -eq 0 ]] && return 1
+    $EDITOR $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+  }
+
+  function nedit () {
+    [[ $# -eq 0 ]] && return 1
+    $EDITOR $(ag -g $@ | peco --query "$LBUFFER")
+  }
+fi
 
 if [[ `find $XDG_CONFIG_HOME/chromium/Default/Extensions -name 'line_chrome.min.css' 2> /dev/null | wc -l` -eq 1 ]]; then
   alias line="chromium --app-id=$(find $XDG_CONFIG_HOME/chromium/Default/Extensions -name 'line_chrome.min.css' | cut -d'/' -f8)"
