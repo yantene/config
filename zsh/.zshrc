@@ -79,6 +79,7 @@ fi
 
 if [[ -x `which hub 2> /dev/null` ]]; then
   alias git="hub"
+  alias gbranch="git rev-parse --abbrev-ref HEAD 2> /dev/null"
 fi
 
 if [[ -x `which colordiff 2> /dev/null` ]]; then
