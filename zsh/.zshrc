@@ -218,6 +218,11 @@ case "${TERM}" in
   ;;
 esac
 
+# key bind
+bindkey -e # キーバインドを emacs モードに
+bindkey '' backward-kill-line # C-u でカーソル以左を削除
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>' # C-w 時にスラッシュを単語デリミタとして扱う
+
 # history settings
 HISTFILE=$XDG_CACHE_HOME/.zsh_history
 HISTSIZE=6000000
@@ -226,16 +231,21 @@ setopt hist_ignore_dups
 setopt share_history
 
 # command history
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey '' history-beginning-search-backward-end
-bindkey '' history-beginning-search-forward-end
-
-# key bind
-bindkey -e # キーバインドを emacs モードに
-bindkey '' backward-kill-line # C-u でカーソル以左を削除
-WORDCHARS='*?_-.[]~=&;!#$%^(){}<>' # C-w 時にスラッシュを単語デリミタとして扱う
+if [[ -x `which peco 2> /dev/null` ]]; then
+  function peco-select-history() {
+    BUFFER="$(history -nr 1 | awk '!a[$0]++' | peco --query "$LBUFFER" | sed 's/\\n/\n/')"
+    CURSOR=$#BUFFER
+    zle -R -c
+  }
+  zle -N peco-select-history
+  bindkey '' peco-select-history
+else
+  autoload history-search-end
+  zle -N history-beginning-search-backward-end history-search-end
+  zle -N history-beginning-search-forward-end history-search-end
+  bindkey '' history-beginning-search-backward-end
+  bindkey '' history-beginning-search-forward-end
+fi
 
 # options
 setopt complete_aliases
