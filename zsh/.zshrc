@@ -219,7 +219,7 @@ case "${TERM}" in
 esac
 
 # history settings
-HISTFILE=$XDG_CONFIG_HOME/zsh/.zsh_history
+HISTFILE=$XDG_CACHE_HOME/.zsh_history
 HISTSIZE=6000000
 SAVEHIST=6000000
 setopt hist_ignore_dups
