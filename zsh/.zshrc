@@ -232,6 +232,7 @@ bindkey '' history-beginning-search-forward-end
 # key bind
 bindkey -e # キーバインドを emacs モードに
 bindkey '' backward-kill-line # C-u でカーソル以左を削除
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>' # C-w 時にスラッシュを単語デリミタとして扱う
 
 # options
 setopt complete_aliases
