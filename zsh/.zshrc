@@ -83,9 +83,12 @@ if [[ `find $XDG_CONFIG_HOME/chromium/Default/Extensions -name 'line_chrome.min.
   alias line="chromium --app-id=$(find $XDG_CONFIG_HOME/chromium/Default/Extensions -name 'line_chrome.min.css' | cut -d'/' -f8)"
 fi
 
+if [[ -x `which git 2> /dev/null` ]]; then
+  alias gbranch="git rev-parse --abbrev-ref HEAD 2> /dev/null"
+fi
+
 if [[ -x `which hub 2> /dev/null` ]]; then
   alias git="hub"
-  alias gbranch="git rev-parse --abbrev-ref HEAD 2> /dev/null"
 fi
 
 if [[ -x `which git 2> /dev/null` ]]; then
