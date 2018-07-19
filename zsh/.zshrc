@@ -53,6 +53,12 @@ alias anony="chromium --proxy-server=socks://localhost:9050 --no-referrers --use
 
 # tools
 
+## timestamp
+
+alias ymd='date +%F'
+alias ymdhms='date +%F_%T'
+alias ymdhmst='date +%F_%T%:z'
+
 alias sp2tab='sed -e "s/\s\+/\t/g"'
 
 function gup () {
