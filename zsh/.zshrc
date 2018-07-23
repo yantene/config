@@ -68,15 +68,17 @@ function gup () {
 }
 
 if [[ -x `which peco 2> /dev/null` ]]; then
-  function cedit () {
-    [[ $# -eq 0 ]] && return 1
-    $EDITOR $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
-  }
+  if [[ -x `which ag 2> /dev/null` ]]; then
+    function cedit () {
+      [[ $# -eq 0 ]] && return 1
+      $EDITOR $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+    }
 
-  function nedit () {
-    [[ $# -eq 0 ]] && return 1
-    $EDITOR $(ag -g $@ | peco --query "$LBUFFER")
-  }
+    function nedit () {
+      [[ $# -eq 0 ]] && return 1
+      $EDITOR $(ag -g $@ | peco --query "$LBUFFER")
+    }
+  fi
 fi
 
 if [[ `find $XDG_CONFIG_HOME/chromium/Default/Extensions -name 'line_chrome.min.css' 2> /dev/null | wc -l` -eq 1 ]]; then
