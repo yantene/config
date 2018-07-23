@@ -69,15 +69,13 @@ function gup () {
 
 if [[ -x `which peco 2> /dev/null` ]]; then
   if [[ -x `which ag 2> /dev/null` ]]; then
-    function cedit () {
-      [[ $# -eq 0 ]] && return 1
-      $EDITOR $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
-    }
+    function age () {
+      args=$@
+      [[ $# -eq 0 ]] && args='.'
 
-    function nedit () {
-      [[ $# -eq 0 ]] && return 1
-      $EDITOR $(ag -g $@ | peco --query "$LBUFFER")
+      eval $(ag $args | peco | awk -F : "{print \"$EDITOR -c \" \$2 \" \" \$1}")
     }
+    alias age cedit
   fi
 
   function pekill () {
