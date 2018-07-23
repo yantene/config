@@ -262,6 +262,27 @@ else
   bindkey '' history-beginning-search-forward-end
 fi
 
+# change directory and edit file
+if [[ -x `which peco 2> /dev/null` ]]; then
+  function peco-path() {
+    local filepath="$(find . | grep -v '/\.' | peco --prompt 'PATH>')"
+    [[ -z "$filepath" ]] && return
+    if [[ -n "$LBUFFER" ]]; then
+      BUFFER="$LBUFFER$filepath"
+    else
+      if [[ -d "$filepath" ]]; then
+        BUFFER="cd $filepath"
+      elif [[ -f "$filepath" ]]; then
+        BUFFER="$EDITOR $filepath"
+      fi
+    fi
+    CURSOR=$#BUFFER
+  }
+
+  zle -N peco-path
+  bindkey '' peco-path
+fi
+
 # options
 setopt complete_aliases
 setopt auto_pushd # 移動履歴(cd -[Tab])
