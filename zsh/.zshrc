@@ -79,6 +79,10 @@ if [[ -x `which peco 2> /dev/null` ]]; then
       $EDITOR $(ag -g $@ | peco --query "$LBUFFER")
     }
   fi
+
+  function pekill () {
+    ps -ef | peco | awk '{ print $2 }' | xargs kill
+  }
 fi
 
 if [[ `find $XDG_CONFIG_HOME/chromium/Default/Extensions -name 'line_chrome.min.css' 2> /dev/null | wc -l` -eq 1 ]]; then
