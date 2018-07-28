@@ -56,8 +56,8 @@ alias anony="chromium --proxy-server=socks://localhost:9050 --no-referrers --use
 ## timestamp
 
 alias ymd='date +%F'
-alias ymdhms='date +%F_%T'
-alias ymdhmst='date +%F_%T%:z'
+alias ymdhms='date +%FT%T'
+alias ymdhmst='date +%FT%T%:z'
 
 alias sp2tab='sed -e "s/\s\+/\t/g"'
 
