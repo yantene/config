@@ -75,7 +75,6 @@ if [[ -x `which peco 2> /dev/null` ]]; then
 
       eval $(ag $args | peco | awk -F : "{print \"$EDITOR -c \" \$2 \" \" \$1}")
     }
-    alias age cedit
   fi
 
   function pekill () {
