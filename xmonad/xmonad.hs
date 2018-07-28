@@ -18,11 +18,7 @@ myTerminal = "termite"
 
 --自動起動
 myStartupHook = do
-  spawnOnce "pulseaudio --start"
   spawnOnce "dunst &"
-  spawnOnce "touchegg &"
-  spawnOnce "timidity -iA &"
-  spawnOnce "(sleep 1 && fcitx-autostart)"
   setWMName "LG3D" -- Swing グレー化対策
 
 --ウィンドウ調整
@@ -63,9 +59,9 @@ myKeys = [
   --`xmodmap -pke | grep XF86`でキーの名前が取れるっぽい
 
   --音量調整
-  ("<XF86AudioMute>", spawn "amixer sset Master off"),
-  ("<XF86AudioLowerVolume>", spawn "amixer sset Master on 10%-"),
-  ("<XF86AudioRaiseVolume>", spawn "amixer sset Master on 10%+"),
+  ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle"),
+  ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -10%"),
+  ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +10%"),
 
   --輝度調整
   ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 2"),
