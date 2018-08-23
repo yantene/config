@@ -54,7 +54,7 @@ myKeys = [
                  " -show run")),
 
   --lock
-  ("M-S-l", spawn "dm-tool lock"),
+  ("M-S-l", spawn "slock"),
 
   --`xmodmap -pke | grep XF86`でキーの名前が取れるっぽい
 
