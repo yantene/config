@@ -26,6 +26,9 @@ hook_add = '''
   nmap f <plug>(easymotion-overwin-f2)
 '''
 
+[[plugins]]
+repo = 'tmhedberg/matchit'
+
 # Completion
 
 [[plugins]]
