@@ -7,12 +7,14 @@
   ui = true
 
 [alias]
-  unadd = reset HEAD # indexをHEADに変更
-  graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
-  adiff = diff --cached # indexと比較
-  wdiff = diff --word-diff
   co = checkout
   ci = commit
+  unadd = reset HEAD # indexをHEADに変更
+  graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+  ndiff = diff --name-only 
+  adiff = diff --cached # indexと比較
+  wdiff = diff --word-diff
+  rewind = reset --soft HEAD~
 
 [core]
   quotepath = false

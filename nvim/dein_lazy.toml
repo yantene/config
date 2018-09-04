@@ -45,6 +45,11 @@ on_ft = 'css'
 repo = 'othree/yajs.vim'
 on_ft = 'javascript'
 
+## Vue
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = 'vue'
+
 ## Rust
 [[plugins]]
 repo = 'rust-lang/rust.vim'

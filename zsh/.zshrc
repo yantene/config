@@ -87,6 +87,13 @@ if [[ `find $XDG_CONFIG_HOME/chromium/Default/Extensions -name 'line_chrome.min.
 fi
 
 if [[ -x `which git 2> /dev/null` ]]; then
+  g () {
+    if [[ $# -eq 0 ]]; then
+      git status
+    else
+      git $@
+    fi
+  }
   alias gbranch="git rev-parse --abbrev-ref HEAD 2> /dev/null"
 fi
 

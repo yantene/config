@@ -48,6 +48,10 @@ set clipboard+=unnamedplus "ヤンクをクリップボードに
 syntax enable
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "true color を使用
 
+" 検索に関する設定
+set ignorecase
+set smartcase "大文字を含むときは sensitive に
+
 " エディタに関する設定
 set background=dark "背景色を黒に
 set number "行番号

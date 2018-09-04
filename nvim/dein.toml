@@ -9,6 +9,9 @@ hook_add = 'au cs_hook VimEnter * nested colorscheme molokai'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+hook_add = '''
+  let g:lightline = { 'colorscheme': 'wombat' }
+'''
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
@@ -22,6 +25,9 @@ hook_add = '''
   let g:EasyMotion_smartcase = 1
   nmap f <plug>(easymotion-overwin-f2)
 '''
+
+[[plugins]]
+repo = 'tmhedberg/matchit'
 
 # Completion
 
