@@ -139,13 +139,6 @@ setopt hist_ignore_space # 先頭が空白のコマンドを履歴に残さな�
 if [[ -d $HOME/.anyenv ]]; then
   export PATH="$HOME/.anyenv/bin:$PATH"
   eval "$(anyenv init -)"
-  for D in `ls $HOME/.anyenv/envs`; do
-    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
-  done
-fi
-
-if [[ -x `which ruby 2> /dev/null` ]]; then
-  export PATH="$PATH:"`ruby -e "puts Gem.user_dir"`"/bin"
 fi
 
 if [[ -x `which go 2> /dev/null` ]]; then
