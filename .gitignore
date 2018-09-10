@@ -62,4 +62,5 @@
 !/zsh/.zshenv
 !/zsh/.zshrc
 !/zsh/.zprofile
-!/zsh/netcmdgips
+!/zsh/*.zsh
+!/zsh/scripts
