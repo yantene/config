@@ -18,5 +18,9 @@
 
 [core]
   quotepath = false
+
 [gpg]
   program = gpg2
+
+[ghq]
+  root = ~/dev
