@@ -21,6 +21,7 @@ fi
 
 # shorten
 
-alias la="ls -lah"
-alias lat="ls -lahtr"
-alias sc="systemctl"
+alias la='ls -lah'
+alias lat='ls -lahtr'
+alias sc='systemctl'
+compdef sc='systemctl'
