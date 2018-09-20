@@ -23,5 +23,6 @@ fi
 
 alias la='ls -lah'
 alias lat='ls -lahtr'
-alias sc='systemctl'
 alias cb='xsel -b'
+alias sc='systemctl'
+compdef sc='systemctl'
