@@ -22,7 +22,7 @@ font:
     family: monospace
   italic:
     family: monospace
-  size: 7
+  size: 6
 
 colors:
   primary:
@@ -46,3 +46,18 @@ colors:
     blue:    '0x729fcf'
     magenta: '0xd9abd4'
     white:   '0xeeeeec'
+
+key_bindings:
+  - { key: Left,  chars: "\x1b[D",   mode: ~AppCursor }
+  - { key: Left,  chars: "\x1bOD",   mode: AppCursor  }
+  - { key: Right, chars: "\x1b[C",   mode: ~AppCursor }
+  - { key: Right, chars: "\x1bOC",   mode: AppCursor  }
+  - { key: Up,    chars: "\x1b[A",   mode: ~AppCursor }
+  - { key: Up,    chars: "\x1bOA",   mode: AppCursor  }
+  - { key: Down,  chars: "\x1b[B",   mode: ~AppCursor }
+  - { key: Down,  chars: "\x1bOB",   mode: AppCursor  }
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy  }
+
+dynamic_title: true
+live_config_reload: true
