@@ -44,6 +44,10 @@
 /termite/*
 !/termite/config
 
+!/alacritty
+/alacritty/*
+!/alacritty/alacritty.yml
+
 !/tmux
 /tmux/*
 !/tmux/tmux.conf
