@@ -22,7 +22,7 @@ font:
     family: monospace
   italic:
     family: monospace
-  size: 6
+  size: 10
 
 colors:
   primary:
