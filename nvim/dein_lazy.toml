@@ -36,6 +36,10 @@ repo = 'hokaccha/vim-html5validator'
 on_ft = 'html'
 
 [[plugins]]
+repo = 'digitaltoad/vim-pug'
+on_ft = 'pug'
+
+[[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'css']
 
