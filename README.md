@@ -18,3 +18,11 @@ ln -s $HOME/.config/X11/Xmodmap $HOME/.Xmodmap
 ln -s $HOME/.config/X11/xprofile $HOME/.xprofile
 ln -s $HOME/.config/fbterm/fbtermrc $HOME/.fbtermrc
 ```
+
+#### 3. Other settings
+
+##### SSH Agent
+
+```bash
+systemctl --user enable --now ssh-agent
+```
