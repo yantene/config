@@ -40,6 +40,12 @@
 /sway/*
 !/sway/config
 
+!/systemd
+/systemd/*
+!/systemd/user
+/systemd/user/*
+!/systemd/user/ssh-agent.service
+
 !/termite
 /termite/*
 !/termite/config

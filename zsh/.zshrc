@@ -7,6 +7,6 @@ source $ZDOTDIR/aliases.zsh
 
 source $ZDOTDIR/tools.zsh
 
-for scripts_dir in `ls -1 $ZDOTDIR/scripts`; do
+for scripts_dir in `ls -1d $ZDOTDIR/scripts/*`; do
   export PATH="$scripts_dir:$PATH"
 done

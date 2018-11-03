@@ -29,6 +29,17 @@ elif [[ -x `which git 2> /dev/null` ]]; then
   compdef g=git
 fi
 
+if [[ -x `which ghq 2> /dev/null` ]]; then
+  ghq-cd () {
+    if [[ $# -eq 0 ]]; then
+      cd `\ghq root`/`\ghq list | peco`
+    else
+      ghq $@
+    fi
+  }
+  alias ghq=ghq-cd
+fi
+
 # search
 
 if [[ -x `which peco 2> /dev/null` && -x `which ag 2> /dev/null` ]]; then
