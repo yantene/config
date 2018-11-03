@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+require 'optparse'
+require 'cgi'
+
+params = ARGV.getopts('d')
+
+if params['d']
+  # decode
+  STDIN.each_line do |line|
+    puts CGI.unescape(line)
+  end
+else
+  # encode
+  STDIN.each_line do |line|
+    puts CGI.escape(line)
+  end
+end
