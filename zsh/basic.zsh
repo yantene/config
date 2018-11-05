@@ -147,6 +147,12 @@ if [[ -x `which git 2> /dev/null` ]]; then
   eval "$(anyenv init -)"
 fi
 
+# yarn
+
+if [[ -x `which yarn 2> /dev/null` ]]; then
+  export PATH="`yarn global dir`/node_modules/.bin:$PATH"
+fi
+
 # direnv
 
 if [[ -x `which direnv 2> /dev/null` ]]; then
