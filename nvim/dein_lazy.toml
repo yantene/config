@@ -23,6 +23,10 @@ repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
 
 [[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = 'ruby'
+
+[[plugins]]
 repo = 'vim-utils/vim-ruby-fold'
 on_ft = 'ruby'
 
