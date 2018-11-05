@@ -55,6 +55,14 @@ on_ft = 'javascript'
 repo = 'posva/vim-vue'
 on_ft = 'vue'
 
+## JSON
+
+repo = 'elzr/vim-json'
+on_ft = 'json'
+hook_source = '''
+  let g:vim_json_syntax_conceal = 0
+'''
+
 ## Rust
 [[plugins]]
 repo = 'rust-lang/rust.vim'
