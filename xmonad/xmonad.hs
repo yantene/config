@@ -58,6 +58,10 @@ myKeys = [
 
   --`xmodmap -pke | grep XF86`でキーの名前が取れるっぽい
 
+  --Screenshot
+  ("<Print>", spawn "maim -s | xclip -selection clipboard -t image/png"),
+  ("S-<Print>", spawn "maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png"),
+
   --音量調整
   ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle"),
   ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -10%"),
