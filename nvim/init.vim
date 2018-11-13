@@ -62,7 +62,6 @@ set showmatch
 if exists('&ambw')
   set ambw=double "曖昧な文字幅対策
 endif
-let loaded_matchparen = 1 " 対応する括弧をハイライトしない
 filetype plugin indent on " filetype plugin
 
 " Ctags の設定
