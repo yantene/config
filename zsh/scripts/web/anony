@@ -1,0 +1,9 @@
+#!/bin/bash
+
+chromium \
+  --proxy-server=socks://localhost:9050 \
+  --no-referrers \
+  --user-agent='' \
+  --incognito \
+  --user-data-dir=`mktemp -d` \
+  https://duckduckgo.com

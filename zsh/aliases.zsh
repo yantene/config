@@ -26,3 +26,9 @@ alias lat='ls -lahtr'
 alias cb='xsel -b'
 alias sc='systemctl'
 compdef sc='systemctl'
+
+# shortcut
+
+if [[ -f /usr/lib/mozc/mozc_tool ]]; then
+  alias mozc='/usr/lib/mozc/mozc_tool --mode=config_dialog'
+fi
