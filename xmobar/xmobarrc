@@ -6,16 +6,66 @@ Config{
   lowerOnStart = False,
   commands = [
     Run StdinReader,
-    Run Cpu ["-t", "CPU: <total>%", "-L", "3", "-H", "50", "--normal", "green", "--high", "red"] 10,
-    Run Memory ["-t", "Mem: <usedratio>%"] 10,
-    Run Swap [] 10,
-    Run Com "sh" ["-c", "iw dev wlp59s0 link | grep 'SSID' | sed 's/^[ \\t]*//'"] "wifi" 10,
-    Run Network "wlp59s0" ["-L", "0", "-H", "32", "--normal", "green", "--high", "red"] 10,
-    Run BatteryP ["BAT0"] ["-t", "Batt: <left>%", "-L", "10", "-H", "80", "-l", "red", "-h", "green"] 60,
+    Run MultiCpu [
+      "-t", "CPU: <total0>%, <total1>%, <total2>%, <total3>%",
+      "-L", "50",
+      "-H", "85",
+      "-l", "green",
+      "-n", "orange",
+      "-h", "red"
+    ] 10,
+    Run CoreTemp [
+      "-t", "Temp: <core0>℃, <core1>℃, <core2>℃, <core3>℃",
+      "-L", "50",
+      "-H", "80",
+      "-l", "green",
+      "-n", "orange",
+      "-h", "red"
+    ] 50,
+    Run Memory [
+      "-t", "Mem: <usedratio>%",
+      "-L", "50",
+      "-H", "80",
+      "-l", "green",
+      "-n", "orange",
+      "-h", "red"
+    ] 10,
+    Run Swap [
+      "-t", "Swap: <usedratio>%",
+      "-L", "30",
+      "-H", "50",
+      "-l", "green",
+      "-n", "orange",
+      "-h", "red"
+    ] 10,
+    Run Com "sh" [
+      "-c", "iw dev wlp59s0 link | grep 'SSID' | sed 's/^[ \\t]*//'"
+    ] "wifi" 10,
+    --Run DynNetwork [
+    --  "-t", "<dev>: <tx>kB/s|<rx>kB/s",
+    --  "-L", "1000",
+    --  "-H", "5000",
+    --  "-l", "darkgreen",
+    --  "-n", "darkorange",
+    --  "-h", "darkred",
+    --] 10,
+    Run Network "wlp59s0" [
+      "-L", "0",
+      "-H", "32",
+      "-n", "green",
+      "--high", "red"
+    ] 10,
+    Run BatteryP ["BAT0"] [
+      "-t", "Batt: <left>%",
+      "-L", "10",
+      "-H", "80",
+      "-l", "red",
+      "-h", "green"
+    ] 60,
     Run Date "%F (%a) %H:%M" "date" 10
   ],
   sepChar = "%",
   alignSep = "}{",
-  template = "%StdinReader% }{ %cpu% / %memory% / %swap% / %wifi% / %wlp59s0% / %battery%      %date%"
+  template = "%StdinReader% }{ %multicpu% / %coretemp% / %memory% / %swap% / %wifi% / %wlp59s0% / %battery%      %date%"
 }
 
