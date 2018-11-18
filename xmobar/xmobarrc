@@ -41,19 +41,13 @@ Config{
     Run Com "sh" [
       "-c", "iw dev | grep ssid | sed 's/^[ \\t]*ssid /SSID: /'"
     ] "wifi" 10,
-    --Run DynNetwork [
-    --  "-t", "<dev>: <tx>kB/s|<rx>kB/s",
-    --  "-L", "1000",
-    --  "-H", "5000",
-    --  "-l", "darkgreen",
-    --  "-n", "darkorange",
-    --  "-h", "darkred",
-    --] 10,
-    Run Network "wlp59s0" [
-      "-L", "0",
-      "-H", "32",
-      "-n", "green",
-      "--high", "red"
+    Run DynNetwork [
+      "-t", "<dev>: <tx>kBps|<rx>kBps",
+      "-L", "1000",
+      "-H", "5000",
+      "-l", "green",
+      "-n", "orange",
+      "-h", "red"
     ] 10,
     Run BatteryP ["BAT0"] [
       "-t", "Batt: <left>%",
@@ -66,6 +60,6 @@ Config{
   ],
   sepChar = "%",
   alignSep = "}{",
-  template = "%StdinReader% }{ %multicpu% / %coretemp% / %memory% / %swap% / %wifi% / %wlp59s0% / %battery%      %date%"
+  template = "%StdinReader% }{ %multicpu% / %coretemp% / %memory% / %swap% / %wifi% / %dynnetwork% / %battery%      %date%"
 }
 
