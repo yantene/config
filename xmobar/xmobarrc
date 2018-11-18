@@ -39,7 +39,7 @@ Config{
       "-h", "red"
     ] 10,
     Run Com "sh" [
-      "-c", "iw dev wlp59s0 link | grep 'SSID' | sed 's/^[ \\t]*//'"
+      "-c", "iw dev | grep ssid | sed 's/^[ \\t]*ssid /SSID: /'"
     ] "wifi" 10,
     --Run DynNetwork [
     --  "-t", "<dev>: <tx>kB/s|<rx>kB/s",
