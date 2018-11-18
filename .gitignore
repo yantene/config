@@ -32,6 +32,10 @@
 !/nvim/dein_lazy.toml
 !/nvim/init.vim
 
+!/peco
+/peco/*
+!/peco/config.json
+
 !/qtile
 /qtile/*
 !/qtile/config.py
