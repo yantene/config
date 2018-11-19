@@ -8,10 +8,6 @@ alias ymd='date +%F'
 alias ymdhms='date +%FT%T'
 alias ymdhmst='date +%FT%T%:z'
 
-# anonymous browser
-
-alias anony="chromium --proxy-server=socks://localhost:9050 --no-referrers --user-agent='' --incognito --user-data-dir=`mktemp -d` https://duckduckgo.com"
-
 # text processing
 
 alias sp2tab='sed -e "s/\s\+/\t/g"'
@@ -64,10 +60,4 @@ if [[ -x `which peco 2> /dev/null` && -x `which ag 2> /dev/null` ]]; then
   function notes () {
     eval $(ag -U $@ $HOME/notes | peco | awk -F : "{print \"$EDITOR -c \" \$2 \" \" \$1}")
   }
-fi
-
-# mozc
-
-if [[ -f /usr/lib/mozc/mozc_tool ]]; then
-  alias mozc='/usr/lib/mozc/mozc_tool --mode=config_dialog'
 fi
