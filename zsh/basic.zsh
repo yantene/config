@@ -151,7 +151,6 @@ fi
 
 if [[ -x `which yarn 2> /dev/null` ]]; then
   export PATH="`yarn global dir`/node_modules/.bin:$PATH"
-  alias npm='yarn'
 fi
 
 # direnv
