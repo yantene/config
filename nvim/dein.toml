@@ -13,9 +13,6 @@ hook_add = '''
   let g:lightline = { 'colorscheme': 'wombat' }
 '''
 
-[[plugins]]
-repo = 'Yggdroot/indentLine'
-
 # Controll
 
 [[plugins]]
