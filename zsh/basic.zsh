@@ -35,8 +35,8 @@ function rprompt-git-current-branch {
       branch_status="![%F{yellow}"
     elif [[ -n `grep "^rebase in progress" <<<$st` ]]; then
       # コンフリクトが起こった状態
-      echo "!(no branch)[%F{red}"
-      return
+      branch_status="!?[%F{magenta}"
+      branch_name="NO BRANCH"
     else
       # 上記以外の状態の場合は青色で表示させる
       branch_status="[%F{blue}"
