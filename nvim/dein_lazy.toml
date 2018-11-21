@@ -40,10 +40,6 @@ repo = 'hokaccha/vim-html5validator'
 on_ft = 'html'
 
 [[plugins]]
-repo = 'digitaltoad/vim-pug'
-on_ft = 'pug'
-
-[[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'css']
 
@@ -58,6 +54,10 @@ on_ft = 'javascript'
 [[plugins]]
 repo = 'posva/vim-vue'
 on_ft = 'vue'
+
+[[plugins]]
+repo = 'digitaltoad/vim-pug'
+on_ft = 'pug'
 
 ## JSON
 

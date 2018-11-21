@@ -54,6 +54,7 @@ hook_add = '''
   let g:LanguageClient_serverCommands = {
   \ 'rust': ['rustup', 'run', 'stable', 'rls'],
   \ 'ruby': ['solargraph', 'stdio'],
+  \ 'vue': ['vls'],
   \ 'javascript': ['javascript-typescript-stdio'],
   \}
   let g:LanguageClient_autoStart = 1
