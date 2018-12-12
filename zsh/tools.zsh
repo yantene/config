@@ -2,6 +2,14 @@ alias xpath='xmllint --html --xpath 2> /dev/null'
 alias wunzip='unzip -Ocp932'
 alias trash="mv --backup=numbered --target-directory=$HOME/trash"
 
+cb () {
+  if [[ -p /dev/stdin ]]; then
+    xclip -selection clipboard
+  else
+    xclip -o -selection clipboard
+  fi
+}
+
 # timestamp
 
 alias ymd='date +%F'

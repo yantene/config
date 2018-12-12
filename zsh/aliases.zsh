@@ -23,7 +23,6 @@ fi
 
 alias la='ls -lah'
 alias lat='ls -lahtr'
-alias cb='xclip -selection clipboard'
 alias sc='systemctl'
 compdef sc='systemctl'
 
