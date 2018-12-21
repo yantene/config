@@ -80,7 +80,3 @@ noremap <Up>    <Nop>
 noremap <Down>  <Nop>
 noremap <Left>  <Nop>
 noremap <Right> <Nop>
-noremap <C-j> <C-f>
-noremap <C-k> <C-b>
-noremap <S-j> <C-e>
-noremap <S-k> <C-y>
