@@ -76,7 +76,7 @@ setopt share_history
 
 if [[ -x `which peco 2> /dev/null` ]]; then
   function peco-select-history() {
-    BUFFER="$(history -nr 1 | awk '!a[$0]++' | peco --query "$LBUFFER" | sed 's/\\n/\n/')"
+    BUFFER="$(history -nr 1 | awk '!a[$0]++' | peco --query "$LBUFFER" --prompt 'COMMAND>' | sed 's/\\n/\n/')"
     CURSOR=$#BUFFER
     zle -R -c
   }
