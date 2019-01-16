@@ -84,3 +84,9 @@ repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+# Lang
+
+[[plugins]]
+repo = 'digitaltoad/vim-pug'
+on_ft = 'pug'

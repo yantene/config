@@ -1,7 +1,6 @@
 # Languages
 
 ## Binary
-
 [[plugins]]
 repo = 'Shougo/vinarise.vim'
 on_cmd = ['Vinarise']
@@ -55,12 +54,7 @@ on_ft = 'javascript'
 repo = 'posva/vim-vue'
 on_ft = 'vue'
 
-[[plugins]]
-repo = 'digitaltoad/vim-pug'
-on_ft = 'pug'
-
 ## JSON
-
 repo = 'elzr/vim-json'
 on_ft = 'json'
 hook_source = '''
