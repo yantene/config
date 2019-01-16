@@ -103,7 +103,7 @@ compinit
 
 if [[ -x `which peco 2> /dev/null` ]]; then
   function peco-path() {
-    local filepath="$(find . | grep -v '/\.' | peco --prompt 'PATH>')"
+    local filepath="$(find . | grep -v '/\.' | peco --initial-filter Fuzzy --prompt 'PATH>')"
     [[ -z "$filepath" ]] && return
     if [[ -n "$LBUFFER" ]]; then
       BUFFER="$LBUFFER$filepath"
