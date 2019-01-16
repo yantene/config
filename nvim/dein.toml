@@ -172,6 +172,12 @@ on_ft = 'haskell'
 repo = 'ujihisa/neco-ghc'
 on_ft = 'haskell'
 
+## CSV
+
+[[plugins]]
+repo = 'mechatroner/rainbow_csv'
+on_ft = 'csv'
+
 ## TOML
 
 [[plugins]]
