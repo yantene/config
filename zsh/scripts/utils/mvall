@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -eu
+
+old=`mktemp`
+new=`mktemp`
+
+ls -1 $@ | tee $old > $new
+
+${EDITOR:-vi} $new
+
+[[ `wc -l < $old` -ne `wc -l < $new` ]] && exit -1
+
+paste $old $new | while read line; do
+  if [[ `cut -f1 <<<$line` != `cut -f2 <<<$line` ]]; then
+    mv -iv $line
+  fi
+done
+
+rm -f $old $new
