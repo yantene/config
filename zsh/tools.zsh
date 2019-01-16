@@ -35,7 +35,7 @@ fi
 if [[ -x `which ghq 2> /dev/null` ]]; then
   ghq-cd () {
     if [[ $# -eq 0 ]]; then
-      cd `\ghq root`/`\ghq list | peco`
+      cd `\ghq root`/`\ghq list | peco --layout=bottom-up`
     else
       ghq $@
     fi
@@ -50,7 +50,7 @@ if [[ -x `which peco 2> /dev/null` && -x `which ag 2> /dev/null` ]]; then
     local args=$@
     [[ $# -eq 0 ]] && args='.'
 
-    eval $(ag $args | peco | awk -F : "{print \"$EDITOR -c \" \$2 \" \" \$1}")
+    eval $(ag $args | peco --layout=bottom-up | awk -F : "{print \"$EDITOR -c \" \$2 \" \" \$1}")
   }
 fi
 
@@ -58,7 +58,7 @@ fi
 
 if [[ -x `which peco 2> /dev/null` ]]; then
   function pekill () {
-    ps -ef | peco | awk '{ print $2 }' | xargs kill
+    ps -ef | peco --layout=bottom-up | awk '{ print $2 }' | xargs kill
   }
 fi
 
@@ -66,6 +66,6 @@ fi
 
 if [[ -x `which peco 2> /dev/null` && -x `which ag 2> /dev/null` ]]; then
   function notes () {
-    eval $(ag -U $@ $HOME/notes | peco | awk -F : "{print \"$EDITOR -c \" \$2 \" \" \$1}")
+    eval $(ag -U $@ $HOME/notes | peco --layout=bottom-up | awk -F : "{print \"$EDITOR -c \" \$2 \" \" \$1}")
   }
 fi

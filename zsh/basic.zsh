@@ -76,7 +76,7 @@ setopt share_history
 
 if [[ -x `which peco 2> /dev/null` ]]; then
   function peco-select-history() {
-    BUFFER="$(history -nr 1 | awk '!a[$0]++' | peco --query "$LBUFFER" --prompt 'COMMAND>' | sed 's/\\n/\n/')"
+    BUFFER="$(history -nr 1 | awk '!a[$0]++' | peco --layout=bottom-up --query "$LBUFFER" --prompt 'COMMAND>' | sed 's/\\n/\n/')"
     CURSOR=$#BUFFER
     zle -R -c
   }
@@ -103,7 +103,7 @@ compinit
 
 if [[ -x `which peco 2> /dev/null` ]]; then
   function peco-path() {
-    local filepath="$(find . | grep -v '/\.' | peco --initial-filter Fuzzy --prompt 'PATH>')"
+    local filepath="$(find . | grep -v '/\.' | peco --layout=bottom-up --initial-filter Fuzzy --prompt 'PATH>')"
     [[ -z "$filepath" ]] && return
     if [[ -n "$LBUFFER" ]]; then
       BUFFER="$LBUFFER$filepath"
