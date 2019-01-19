@@ -156,6 +156,12 @@ hook_source = '''
   let g:vim_json_syntax_conceal = 0
 '''
 
+## Elixir
+
+[[plugins]]
+repo = 'elixir-lang/vim-elixir'
+on_ft = 'elixir'
+
 ## Rust
 
 [[plugins]]
