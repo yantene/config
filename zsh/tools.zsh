@@ -32,10 +32,10 @@ elif [[ -x `which git 2> /dev/null` ]]; then
   compdef g=git
 fi
 
-if [[ -x `which ghq 2> /dev/null` ]]; then
+if [[ -x `which ghq 2> /dev/null` &&  -x `which sk 2> /dev/null` ]]; then
   ghq-cd () {
     if [[ $# -eq 0 ]]; then
-      cd `\ghq root`/`\ghq list | peco --layout=bottom-up`
+      cd `ghq root`/`sk --ansi -c 'ghq list'`
     else
       ghq $@
     fi
@@ -43,29 +43,18 @@ if [[ -x `which ghq 2> /dev/null` ]]; then
   alias ghq=ghq-cd
 fi
 
-# search
-
-if [[ -x `which peco 2> /dev/null` && -x `which ag 2> /dev/null` ]]; then
-  function age () {
-    local args=$@
-    [[ $# -eq 0 ]] && args='.'
-
-    eval $(ag $args | peco --layout=bottom-up | awk -F : "{print \"$EDITOR -c \" \$2 \" \" \$1}")
-  }
-fi
-
 # pekill
 
-if [[ -x `which peco 2> /dev/null` ]]; then
+if [[ -x `which sk 2> /dev/null` ]]; then
   function pekill () {
-    ps -ef | peco --layout=bottom-up | awk '{ print $2 }' | xargs kill
+    sk --ansi -c 'ps -ef --no-headers' | awk '{ print $2 }' | xargs kill
   }
 fi
 
 # notes
 
-if [[ -x `which peco 2> /dev/null` && -x `which ag 2> /dev/null` ]]; then
+if [[ -x `which sk 2> /dev/null` && -x `which ag 2> /dev/null` ]]; then
   function notes () {
-    eval $(ag -U $@ $HOME/notes | peco --layout=bottom-up | awk -F : "{print \"$EDITOR -c \" \$2 \" \" \$1}")
+    eval $(sk --ansi -i -c "rg --line-number --null --color=always '{}' $HOME/notes" | cut -d: -f1 | awk -F "\0" "{print \"$EDITOR -c \" \$2 \" \" \$1}")
   }
 fi

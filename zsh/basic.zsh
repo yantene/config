@@ -74,14 +74,14 @@ setopt hist_ignore_dups
 setopt hist_ignore_space # 先頭が空白のコマンドを履歴に残さない
 setopt share_history
 
-if [[ -x `which peco 2> /dev/null` ]]; then
-  function peco-select-history() {
-    BUFFER="$(history -nr 1 | awk '!a[$0]++' | peco --layout=bottom-up --query "$LBUFFER" --prompt 'COMMAND>' | sed 's/\\n/\n/')"
+if [[ -x `which sk 2> /dev/null` ]]; then
+  function sk-select-history() {
+    BUFFER="$(history -nr 1 | awk '!_[$0]++' | sk --query "$LBUFFER" | sed 's/\\n/\n/')"
     CURSOR=$#BUFFER
     zle -R -c
   }
-  zle -N peco-select-history
-  bindkey '' peco-select-history
+  zle -N sk-select-history
+  bindkey '' sk-select-history
 else
   autoload history-search-end
   zle -N history-beginning-search-backward-end history-search-end
@@ -99,11 +99,11 @@ zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH"
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 compinit
 
-# change directory and edit file
+# find path
 
-if [[ -x `which peco 2> /dev/null` ]]; then
-  function peco-path() {
-    local filepath="$(find . | grep -v '/\.' | peco --layout=bottom-up --initial-filter Fuzzy --prompt 'PATH>')"
+if [[ -x `which sk 2> /dev/null` ]]; then
+  function sk-find-path() {
+    local filepath="$(find . | sk)"
     [[ -z "$filepath" ]] && return
     if [[ -n "$LBUFFER" ]]; then
       BUFFER="$LBUFFER$filepath"
@@ -117,8 +117,19 @@ if [[ -x `which peco 2> /dev/null` ]]; then
     CURSOR=$#BUFFER
   }
 
-  zle -N peco-path
-  bindkey '' peco-path
+  zle -N sk-find-path
+  bindkey '' sk-find-path
+fi
+
+# find line
+
+if [[ -x `which sk 2> /dev/null` ]]; then
+  function sk-find-line() {
+    eval $(sk --ansi -i -c 'rg --line-number --null --color=always "{}"' | cut -d: -f1 | awk -F "\0" "{print \"$EDITOR -c \" \$2 \" \" \$1}")
+  }
+
+  zle -N sk-find-line
+  bindkey '' sk-find-line
 fi
 
 # others
