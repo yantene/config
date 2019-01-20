@@ -125,7 +125,7 @@ fi
 
 if [[ -x `which sk 2> /dev/null` ]]; then
   function sk-find-line() {
-    eval $(sk --ansi -i -c 'rg --line-number --null --color=always "{}"' | cut -d: -f1 | awk -F "\0" "{print \"$EDITOR -c \" \$2 \" \" \$1}")
+    eval $(sk -i -c 'rg --line-number --null --color=always "{}"' | cut -d: -f1 | awk -F "\0" "{print \"$EDITOR -c \" \$2 \" \" \$1}")
   }
 
   zle -N sk-find-line
@@ -149,6 +149,14 @@ export LESS_TERMCAP_mb=$(printf '\e[1;32m')
 export LESS_TERMCAP_md=$(printf '\e[1;34m')
 export LESS_TERMCAP_us=$(printf '\e[1;32m')
 export LESS_TERMCAP_so=$(printf '\e[1;44;1m')
+
+# skim
+
+export SKIM_DEFAULT_OPTIONS='
+  --ansi
+  --reverse
+  --color=matched:0,matched_bg:3
+'
 
 # anyenv
 

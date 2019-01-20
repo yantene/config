@@ -35,7 +35,7 @@ fi
 if [[ -x `which ghq 2> /dev/null` &&  -x `which sk 2> /dev/null` ]]; then
   ghq-cd () {
     if [[ $# -eq 0 ]]; then
-      cd `ghq root`/`sk --ansi -c 'ghq list'`
+      cd `ghq root`/`sk -c 'ghq list'`
     else
       ghq $@
     fi

@@ -7,8 +7,6 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-alias sk='sk --reverse'
-
 if [[ -x `which git 2> /dev/null` ]]; then
   alias diff='git diff --no-index'
 else
