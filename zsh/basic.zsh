@@ -123,7 +123,7 @@ fi
 
 # find line
 
-if [[ -x `which sk 2> /dev/null` ]]; then
+if [[ -x `which sk 2> /dev/null`  && -x `which rg 2> /dev/null` ]]; then
   function sk-find-line() {
     eval $(sk -i -c 'rg --line-number --null --color=always "{}"' | cut -d: -f1 | awk -F "\0" "{print \"$EDITOR -c \" \$2 \" \" \$1}")
   }
