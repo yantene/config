@@ -125,7 +125,7 @@ fi
 
 if [[ -x `which sk 2> /dev/null`  && -x `which rg 2> /dev/null` ]]; then
   function sk-find-line() {
-    eval $(sk -i -c 'rg --line-number --null --color=always "{}"' | cut -d: -f1 | awk -F "\0" "{print \"$EDITOR -c \" \$2 \" \" \$1}")
+    eval $(sk -i -c 'rg --smart-case --line-number --null --color=always "{}"' | cut -d: -f1 | awk -F "\0" "{print \"$EDITOR -c \" \$2 \" \" \$1}")
   }
 
   zle -N sk-find-line
@@ -156,6 +156,7 @@ export SKIM_DEFAULT_OPTIONS='
   --ansi
   --reverse
   --color=matched:0,matched_bg:3
+  --bind 'ctrl-u:backward-kill-word'
 '
 
 # anyenv
