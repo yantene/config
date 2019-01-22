@@ -1,0 +1,111 @@
+# Languages
+
+## Binary
+
+[[plugins]]
+repo = 'Shougo/vinarise.vim'
+on_cmd = ['Vinarise']
+
+## Ruby
+
+[[plugins]]
+repo = 'vim-ruby/vim-ruby'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'Shougo/deoplete-rct'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'vim-utils/vim-ruby-fold'
+on_ft = 'ruby'
+
+## Web
+
+[[plugins]]
+repo = 'othree/html5.vim'
+on_ft = 'html'
+
+[[plugins]]
+repo = 'hokaccha/vim-html5validator'
+on_ft = 'html'
+
+[[plugins]]
+repo = 'digitaltoad/vim-pug'
+on_ft = 'pug'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'css']
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+on_ft = 'css'
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = 'vue'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = 'ruby'
+
+## Elixir
+
+[[plugins]]
+repo = 'elixir-lang/vim-elixir'
+on_ft = 'elixir'
+
+## Rust
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+
+## Haskell
+
+[[plugins]]
+repo = 'dag/vim2hs'
+on_ft = 'haskell'
+
+[[plugins]]
+repo = 'ujihisa/neco-ghc'
+on_ft = 'haskell'
+
+## JSON
+
+repo = 'elzr/vim-json'
+on_ft = 'json'
+hook_source = '''
+  let g:vim_json_syntax_conceal = 0
+'''
+
+## CSV
+
+[[plugins]]
+repo = 'mechatroner/rainbow_csv'
+on_ft = 'csv'
+
+## TOML
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+## TeX
+
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft = 'tex'
+
+[[plugins]]
+repo = 'matze/vim-tex-fold'
+on_ft = 'tex'

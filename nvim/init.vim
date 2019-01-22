@@ -38,6 +38,9 @@ endif
 autocmd FileType vue syntax sync fromstart
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.pug.javascript.sass
 
+" csv
+autocmd BufRead,BufNewFile *.csv setlocal filetype=csv
+
 "===============================================================================
 "         vim の設定
 "===============================================================================
