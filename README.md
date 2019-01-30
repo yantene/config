@@ -26,3 +26,21 @@ ln -s $HOME/.config/fbterm/fbtermrc $HOME/.fbtermrc
 ```bash
 systemctl --user enable --now ssh-agent
 ```
+
+##### Install \*env
+
+install anyenv
+
+```bash
+git clone https://github.com/anyenv/anyenv $HOME/.anyenv
+mkdir $HOME/.anyenv/plugins
+git clone https://github.com/znz/anyenv-update $HOME/.anyenv/plugins
+```
+
+##### Web development
+
+```bash
+yarn global add vue-language-server
+yarn global add javascript-typescript-langserver
+gem install solargraph haml-lint
+```
