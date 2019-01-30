@@ -76,7 +76,7 @@ setopt share_history
 
 if [[ -x `which sk 2> /dev/null` ]]; then
   function sk-select-history() {
-    BUFFER="$(history -nr 1 | awk '!_[$0]++' | sk --query "$LBUFFER" | sed 's/\\n/\n/')"
+    BUFFER="$(history -nr 1 | awk '!_[$0]++' | sk --regex --query "$LBUFFER" | sed 's/\\n/\n/')"
     CURSOR=$#BUFFER
     zle -R -c
   }
