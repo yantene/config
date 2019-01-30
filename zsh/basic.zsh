@@ -161,8 +161,7 @@ export SKIM_DEFAULT_OPTIONS='
 
 # anyenv
 
-if [[ -x `which git 2> /dev/null` ]]; then
-  [[ -d $HOME/.anyenv ]] || git clone https://github.com/riywo/anyenv $HOME/.anyenv
+if [[ -d $HOME/.anyenv/bin ]]; then
   export PATH="$HOME/.anyenv/bin:$PATH"
   eval "$(anyenv init -)"
 fi
