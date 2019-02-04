@@ -1,3 +1,3 @@
 #!/bin/bash
 
-git rev-parse --show-cdup
+echo `pwd`/`git rev-parse --show-cdup`
