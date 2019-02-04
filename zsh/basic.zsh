@@ -138,7 +138,7 @@ setopt auto_pushd # 移動履歴(cd -[Tab])
 setopt correct  # コマンド訂正
 setopt nolistbeep # ビープ消す
 
-eval $(dircolors -b)
+[[ -x `which dircolors 2> /dev/null` ]] && eval $(dircolors -b)
 
 export EDITOR='nvim'
 export LESS=-R
