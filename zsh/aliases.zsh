@@ -23,8 +23,11 @@ fi
 
 alias la='ls -lah'
 alias lat='ls -lahtr'
-alias sc='systemctl'
-compdef sc='systemctl'
+
+if [[ -x `which systemctl 2> /dev/null` ]]; then
+  alias sc='systemctl'
+  compdef sc='systemctl'
+fi
 
 # shortcut
 
