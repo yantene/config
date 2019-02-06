@@ -76,7 +76,21 @@ myKeys = [
 
   --ワークスペースを転がす
   ("M-f", moveTo Next NonEmptyWS),
-  ("M-s", moveTo Prev NonEmptyWS)
+  ("M-s", moveTo Prev NonEmptyWS),
+
+
+  ("M-S-r", do
+    screenWorkspace 1 >>= flip whenJust (windows.W.view)
+    (windows . W.greedyView) "9"
+    screenWorkspace 2 >>= flip whenJust (windows.W.view)
+    (windows . W.greedyView) "5"
+    screenWorkspace 3 >>= flip whenJust (windows.W.view)
+    (windows . W.greedyView) "1"
+  )
+ ] ++ [
+  ((m ++ "M-" ++ [key]), screenWorkspace sc >>= flip whenJust (windows . f))
+        | (key, sc) <- zip "xcv" [2, 0, 1]
+        , (f, m) <- [(W.view, "")]
  ]
 
 --main
