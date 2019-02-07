@@ -35,6 +35,24 @@ install anyenv
 git clone https://github.com/anyenv/anyenv $HOME/.anyenv
 mkdir $HOME/.anyenv/plugins
 git clone https://github.com/znz/anyenv-update $HOME/.anyenv/plugins
+anyenv install --init
+```
+
+install ruby
+
+```bash
+anyenv install rbenv
+rbenv install 2.6.1
+rbenv global 2.6.1
+```
+
+install node
+
+```bash
+anyenv install nodenv
+nodenv install 8.15.0
+nodenv install 10.15.1
+nodenv global 8.15.0
 ```
 
 ##### Web development
