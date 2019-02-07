@@ -1,8 +1,7 @@
 $HOME/.config
 =============
 
-setup
------
+## setup
 
 ### 1. Git clone
 
@@ -10,24 +9,36 @@ setup
 git clone git@github.com:yantene/config $HOME/.config
 ```
 
-#### 2. Solution to issue of boot strap
+### 2. symbolic link を張る
 
 ```bash
 ln -s $HOME/.config/zsh/.zshenv $HOME/.zshenv
 ln -s $HOME/.config/X11/Xmodmap $HOME/.Xmodmap
 ln -s $HOME/.config/X11/xprofile $HOME/.xprofile
-ln -s $HOME/.config/fbterm/fbtermrc $HOME/.fbtermrc
+ln -s $HOME/.config/fbterm/fbtermrc $HOME/.fbtermrc # 必要であれば
 ```
 
-#### 3. Other settings
+## dependency
 
-##### SSH Agent
+この config ファイル群が必要とするパッケージ (すべてではない)
+
+- zsh
+- git
+- hub
+- neovim
+- ripgrep
+- skim
+- yarn
+
+## その他
+
+### SSH Agent
 
 ```bash
 systemctl --user enable --now ssh-agent
 ```
 
-##### Install \*env
+### \*env のインストール
 
 install anyenv
 
@@ -55,7 +66,16 @@ nodenv install 10.15.1
 nodenv global 8.15.0
 ```
 
-##### Web development
+### linter のインストール
+
+主に vim で使っているもの
+
+```bash
+gem install rubocop
+yarn global add eslint stylelint
+```
+
+### language servers のインストール
 
 ```bash
 yarn global add vue-language-server
