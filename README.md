@@ -18,6 +18,20 @@ ln -s $HOME/.config/X11/xprofile $HOME/.xprofile
 ln -s $HOME/.config/fbterm/fbtermrc $HOME/.fbtermrc # 必要であれば
 ```
 
+### 3. xmonad バイナリを配置するディレクトリを作成
+
+`~/.xmonad` ディレクトリを削除。
+
+```bash
+rm -rf ~/.xmonad
+```
+
+XDG 対応のディレクトリを作成。
+
+```bash
+mkdir -p $XDG_DATA_HOME/xmonad
+```
+
 ## dependency
 
 この config ファイル群が必要とするパッケージ (すべてではない)
