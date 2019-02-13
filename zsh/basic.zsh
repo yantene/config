@@ -161,8 +161,7 @@ export SKIM_DEFAULT_OPTIONS='
 
 # anyenv
 
-if [[ -d $HOME/.anyenv ]]; then
-  export PATH="$HOME/.anyenv/bin:$PATH"
+if [[ -x `which anyenv 2> /dev/null` ]]; then
   eval "$(anyenv init -)"
 fi
 
