@@ -90,6 +90,8 @@ else
   bindkey '' history-beginning-search-forward-end
 fi
 
+function chpwd() { ls --color=auto }
+
 # input completion
 
 autoload -U compinit
