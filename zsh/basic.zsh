@@ -92,6 +92,8 @@ fi
 
 function chpwd() { ls --color=auto }
 
+setopt no_flow_control
+
 # input completion
 
 autoload -U compinit
