@@ -160,7 +160,7 @@ export SKIM_DEFAULT_OPTIONS='
   --ansi
   --reverse
   --color=matched:0,matched_bg:3
-  --bind 'ctrl-u:backward-kill-word'
+  --bind "ctrl-u:backward-kill-word"
 '
 
 # anyenv
