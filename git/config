@@ -15,6 +15,7 @@
   ndf = diff --name-only 
   adf = diff --cached # indexと比較
   wdf = diff --word-diff
+  awdf = diff --cached --word-diff
   rewind = reset --soft HEAD~
 
 [core]
