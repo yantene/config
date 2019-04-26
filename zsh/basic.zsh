@@ -70,9 +70,11 @@ WORDCHARS='*?_-.[]~=&;!#$%^(){}<>' # C-w 時にスラッシュを単語デリミ
 HISTFILE=$XDG_CACHE_HOME/.zsh_history
 HISTSIZE=6000000
 SAVEHIST=6000000
-setopt hist_ignore_dups
 setopt hist_ignore_space # 先頭が空白のコマンドを履歴に残さない
-setopt share_history
+setopt hist_reduce_blanks # 余計な空白を除去して記録する
+setopt share_history # 複数の端末で履歴を共有する
+setopt append_history # 複数の zsh を同時に使用した際に、履歴ファイルを上書きではなく追記する
+setopt extended_history # 実行開始時刻・実行時間を記録
 
 if [[ -x `which sk 2> /dev/null` ]]; then
   function sk-select-history() {
