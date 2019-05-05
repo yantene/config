@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for acf in `ls -1 $HOME/.steam/steam/steamapps/appmanifest_*.acf`; do
+  appid=`grep '"appid"' ${acf} | sed 's/\t*"appid"\t*"\([0-9]\+\)"/\1/g'`
+  name=`grep '"name"' ${acf} | sed 's/\t*"name"\t*"\(.\+\)"/\1/g'`
+
+  if [[ "${1,,}" =~ "${name,,}" ]]; then
+    steam steam://rungameid/${appid}
+    exit
+  fi
+done
