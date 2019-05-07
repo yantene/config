@@ -1,8 +1,3 @@
-[user]
-  email = contact@yantene.net
-  name = yantene
-  signingkey = contact@yantene.net
-
 [color]
   ui = true
 

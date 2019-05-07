@@ -46,6 +46,20 @@ mkdir -p $XDG_DATA_HOME/xmonad
 
 ## その他
 
+### git の user 設定
+
+個人に依存するファイルをここで管理したくないため、
+git の user 設定は `git/config` には記述していない。
+
+`$HOME/.gitconfig` に以下のようなファイルを配置する。
+
+```bash
+[user]
+  email = contact@yantene.net
+  name = yantene
+  signingkey = contact@yantene.net
+```
+
 ### SSH Agent
 
 ```bash

@@ -174,7 +174,7 @@ fi
 # yarn
 
 if [[ -x `which yarn 2> /dev/null` ]]; then
-  export PATH="`yarn global dir`/node_modules/.bin:$PATH"
+  export PATH="`yarn global dir --offline`/node_modules/.bin:$PATH"
 fi
 
 # direnv
