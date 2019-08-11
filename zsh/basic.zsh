@@ -59,6 +59,13 @@ RPROMPT='%B`rprompt-git-current-branch`%b' # 右プロンプト
 PROMPT2="  " # コマンドの続き
 SPROMPT=" %F{green}%r?%f " # 合ってる？
 
+# zsh-syntax-highlighting
+
+if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+fi
+
 # key bind
 
 bindkey -e # キーバインドを emacs モードに
