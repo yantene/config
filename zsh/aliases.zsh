@@ -29,6 +29,10 @@ if [[ -x `which systemctl 2> /dev/null` ]]; then
   compdef sc='systemctl'
 fi
 
+if [[ -x `which bundle 2> /dev/null` ]]; then
+  alias be='bundle exec'
+fi
+
 # shortcut
 
 if [[ -f /usr/lib/mozc/mozc_tool ]]; then
