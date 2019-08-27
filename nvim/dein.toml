@@ -42,7 +42,6 @@ hook_add = '''
   let g:deoplete#max_list = 10000
   inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 '''
-on_i = 1
 # Note: Execute the :UpdateRemotePlugins and restart Neovim.
 
 [[plugins]]
@@ -73,14 +72,6 @@ hook_add = '''
   let b:ale_linters = {
   \  'javascript': ['eslint'],
   \}
-'''
-
-# Ref
-
-[[plugins]]
-repo = 'thinca/vim-ref'
-hook_source = '''
-  let g:ref_refe_cmd = substitute(system('(cd ' . expand("%:h") . '; rbenv which refe)'), '\n\+$', '', '')
 '''
 
 # Tools
