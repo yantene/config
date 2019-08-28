@@ -13,10 +13,6 @@ repo = 'vim-ruby/vim-ruby'
 on_ft = 'ruby'
 
 [[plugins]]
-repo = 'Shougo/deoplete-rct'
-on_ft = 'ruby'
-
-[[plugins]]
 repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
 
