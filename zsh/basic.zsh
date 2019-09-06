@@ -181,7 +181,11 @@ fi
 # yarn
 
 if [[ -x `which yarn 2> /dev/null` ]]; then
-  export PATH="`yarn global dir --offline`/node_modules/.bin:$PATH"
+  if [[ -d "$XDG_DATA_HOME/yarn/global/node_modules/.bin" ]]; then
+    export PATH="$XDG_DATA_HOME/yarn/global/node_modules/.bin:$PATH"
+  else
+    export PATH="`yarn global dir --offline`/node_modules/.bin:$PATH"
+  fi
 fi
 
 # direnv
