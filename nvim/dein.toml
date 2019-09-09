@@ -10,7 +10,16 @@ hook_add = 'au cs_hook VimEnter * nested colorscheme molokai'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
-  let g:lightline = { 'colorscheme': 'wombat' }
+  let g:lightline = {
+  \ 'colorscheme': 'wombat',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'fugitive', 'readonly', 'relativepath', 'modified' ] ],
+  \ },
+  \ 'component_function': {
+  \    'relativepath': 'RelativePath'
+  \ },
+  \}
 '''
 
 # Controll
@@ -80,7 +89,7 @@ hook_add = '''
 repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
-repo = 'editorconfig/editorconfig-vim'
+repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
+repo = 'editorconfig/editorconfig-vim'

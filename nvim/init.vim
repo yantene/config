@@ -9,6 +9,17 @@ augroup ctags_hook
   autocmd!
 augroup END
 
+function! RelativePath()
+  let rpath = substitute(expand('%:p'), getcwd() . '/', '', '')
+  if rpath == ""
+    return ''
+  elseif strlen(rpath) > 80
+    return rpath[strlen(rpath)-80:]
+  else
+    return rpath
+  endif
+endfunction
+
 let s:dein_dir = expand($XDG_CACHE_HOME . '/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
