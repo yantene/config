@@ -100,7 +100,7 @@ nodenv global 8.15.0
 
 ```bash
 gem install rubocop
-yarn global add eslint stylelint
+yarn global add eslint stylelint pug-lint
 ```
 
 ### language servers のインストール

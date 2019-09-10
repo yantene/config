@@ -13,10 +13,6 @@ repo = 'vim-ruby/vim-ruby'
 on_ft = 'ruby'
 
 [[plugins]]
-repo = 'Shougo/deoplete-rct'
-on_ft = 'ruby'
-
-[[plugins]]
 repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
 
@@ -57,6 +53,12 @@ on_ft = 'vue'
 [[plugins]]
 repo = 'tpope/vim-rails'
 on_ft = 'ruby'
+hook_source = '''
+  let g:rails_default_file='config/database.yml'
+  let g:rails_level = 5
+  let g:rails_mappings = 1
+  let g:rails_modelines = 0
+'''
 
 ## Elixir
 

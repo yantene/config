@@ -10,6 +10,10 @@
   ndf = diff --name-only 
   adf = diff --cached # indexと比較
   wdf = diff --word-diff
+  idf = diff --ignore-space-change
+  awdf = diff --cached --word-diff
+  aidf = diff --cached --ignore-space-change
+  awidf = diff --cached --word-diff --ignore-space-change
   rewind = reset --soft HEAD~
 
 [core]
