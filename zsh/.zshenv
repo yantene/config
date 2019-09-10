@@ -9,3 +9,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 # zsh の dotfiles のディレクトリパスを指定
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+# XXX
+mkdir -p $XDG_DATA_HOME/xmonad
