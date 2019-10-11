@@ -26,6 +26,10 @@
 /git/*
 !/git/config
 
+!/i3
+/i3/*
+!/i3/config
+
 !/nvim
 /nvim/*
 !/nvim/dein.toml
