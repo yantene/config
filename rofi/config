@@ -1,0 +1,5 @@
+rofi.run-command: zsh -i -c '{cmd}'
+rofi.color-window: #222, #222, #bbb
+rofi.color-normal: #222, #bbb, #222, #057, #bbb
+rofi.color-active: #222, #bbb, #222, #076, #bbb
+rofi.color-urgent: #222, #bbb, #222, #704, #bbb

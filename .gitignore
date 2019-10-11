@@ -44,6 +44,10 @@
 /qtile/*
 !/qtile/config.py
 
+!/rofi
+/rofi/*
+!/rofi/config
+
 !/sway
 /sway/*
 !/sway/config
