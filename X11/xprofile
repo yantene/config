@@ -13,7 +13,3 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
-fcitx-autostart
-
-# autostart
-xautolock -time 5 -locker slock &
