@@ -163,7 +163,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-  bindsym l exec --no-startup-id i3exit lock, mode "default"
+  bindsym l exec --no-startup-id slock, mode "default"
   bindsym s exec --no-startup-id i3exit suspend, mode "default"
   bindsym u exec --no-startup-id i3exit switch_user, mode "default"
   bindsym e exec --no-startup-id i3exit logout, mode "default"
@@ -226,6 +226,8 @@ set_from_resource $term_color12    color12
 set_from_resource $term_color13    color13
 set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
+
+mouse_warping none
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
