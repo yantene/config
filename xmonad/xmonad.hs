@@ -44,21 +44,12 @@ myLogHook h = dynamicLogWithPP xmobarPP {
 myWorkspaces = [[x] | x <- "123456789"]
 
 --キーバインド設定
+--`xmodmap -pke | grep XF86`でキーの名前が取れるっぽい
 myKeys = [
-  --rofi
-  ("M-d", spawn ("rofi -run-command \"zsh -i -c '{cmd}'\"" ++
-                 " -color-window \"#222, #222, #bbb\"" ++
-                 " -color-normal \"#222, #bbb, #222, #057, #bbb\"" ++
-                 " -color-active \"#222, #bbb, #222, #076, #bbb\"" ++
-                 " -color-urgent \"#222, #bbb, #222, #704, #bbb\"" ++
-                 " -show run")),
-
-  --lock
+  ("M-d", spawn ("rofi -show run")),
   ("M-S-l", spawn "slock"),
 
-  --`xmodmap -pke | grep XF86`でキーの名前が取れるっぽい
-
-  --Screenshot
+  -- Screenshot
   ("<Print>", spawn "maim -u -s | xclip -selection clipboard -t image/png"),
   ("S-<Print>", spawn "maim -u -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png"),
 
