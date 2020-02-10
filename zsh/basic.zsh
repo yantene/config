@@ -117,12 +117,12 @@ if [[ -x `which sk 2> /dev/null` ]]; then
     local filepath="$( (test -x `which fd 2> /dev/null` && fd -Hc always . || find . 2> /dev/null) | sk)"
     [[ -z "$filepath" ]] && return
     if [[ -n "$LBUFFER" ]]; then
-      BUFFER="$LBUFFER$filepath"
+      BUFFER="$LBUFFER '$filepath'"
     else
       if [[ -d "$filepath" ]]; then
-        BUFFER="cd $filepath"
+        BUFFER="cd '$filepath'"
       elif [[ -f "$filepath" ]]; then
-        BUFFER="$EDITOR $filepath"
+        BUFFER="$EDITOR '$filepath'"
       fi
     fi
     CURSOR=$#BUFFER
@@ -134,9 +134,9 @@ fi
 
 # find line
 
-if [[ -x `which sk 2> /dev/null`  && -x `which rg 2> /dev/null` ]]; then
+if [[ -x `which sk 2> /dev/null` ]] && [[ -x `which rg 2> /dev/null` ]]; then
   function sk-find-line() {
-    eval $(sk -i -c 'rg --smart-case --line-number --null --color=always "{}"' | cut -d: -f1 | awk -F "\0" "{print \"$EDITOR -c \" \$2 \" \" \$1}")
+    eval $(sk -i -c 'rg --smart-case --line-number --null --color=always "{}"' | cut -d: -f1 | awk -F "\0" "{print \"$EDITOR -c \" \$2 \" \" \"'\"\$1\"'\"}")
   }
 
   zle -N sk-find-line
