@@ -19,6 +19,7 @@ alias ymdhmst='date +%FT%T%:z'
 # text processing
 
 alias sp2tab='sed -e "s/\s\+/\t/g"'
+alias csv2tsv='ruby -rcsv -ne '\''puts CSV.parse($_)[0].join(%[\t])'\'
 
 # git
 
@@ -35,13 +36,18 @@ fi
 if [[ -x `which ghq 2> /dev/null` &&  -x `which sk 2> /dev/null` ]]; then
   ghq-cd () {
     if [[ $# -eq 0 ]]; then
-      cd `ghq root`/`sk -c 'ghq list'`
+      local repo_path=`sk -c 'ghq list'`
+      [[ $repo_path ]] && cd `ghq root`/$repo_path
     else
       ghq $@
     fi
   }
   alias ghq=ghq-cd
 fi
+# unzipall
+
+function unzipall () { ls -1 $@ | xargs -I{} unzip {} }
+function wunzipall () { ls -1 $@ | xargs -I{} wunzip {} }
 
 # pekill
 
