@@ -114,7 +114,7 @@ compinit
 
 if [[ -x `which sk 2> /dev/null` ]]; then
   function sk-find-path() {
-    local filepath="$( (test -x `which fd 2> /dev/null` && fd -Hc always . || find .) | sk)"
+    local filepath="$( (test -x `which fd 2> /dev/null` && fd -Hc always . || find . 2> /dev/null) | sk)"
     [[ -z "$filepath" ]] && return
     if [[ -n "$LBUFFER" ]]; then
       BUFFER="$LBUFFER$filepath"
