@@ -15,7 +15,7 @@ Config{
       "-h", "red"
     ] 10,
     Run CoreTemp [
-      "-t", "Temp: <core0>℃, <core1>℃, <core2>℃, <core3>℃",
+      "-t", "Temp: <core0>℃",
       "-L", "50",
       "-H", "80",
       "-l", "green",
@@ -62,4 +62,3 @@ Config{
   alignSep = "}{",
   template = "%StdinReader% }{ %multicpu% / %coretemp% / %memory% / %swap% / %wifi% / %dynnetwork% / %battery%      %date%"
 }
-
