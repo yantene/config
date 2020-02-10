@@ -74,7 +74,7 @@ WORDCHARS='*?_-.[]~=&;!#$%^(){}<>' # C-w 時にスラッシュを単語デリミ
 
 # history
 
-HISTFILE=$XDG_CACHE_HOME/.zsh_history
+HISTFILE=$XDG_DATA_HOME/zsh_history
 HISTSIZE=6000000
 SAVEHIST=6000000
 setopt hist_ignore_space # 先頭が空白のコマンドを履歴に残さない
