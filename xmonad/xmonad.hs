@@ -14,7 +14,7 @@ import XMonad.Util.WorkspaceCompare
 import qualified XMonad.StackSet as W
 
 --ターミナル
-myTerminal = "WINIT_HIDPI_FACTOR=1.0 alacritty"
+myTerminal = "alacritty"
 
 --自動起動
 myStartupHook = do
