@@ -99,8 +99,6 @@ else
   bindkey '' history-beginning-search-forward-end
 fi
 
-function chpwd() { ls --color=auto }
-
 setopt no_flow_control
 
 # input completion
