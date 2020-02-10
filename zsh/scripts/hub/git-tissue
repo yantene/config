@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cat \
+  <(hub pr list -f"%I PR    %sC%t%Creset %l%n")\
+  <(hub issue -f"%I Issue %sC%t%Creset %l%n") |\
+  sort -rnk1 |\
+  sk |\
+  cut -d" " -f1 |\
+  xargs hub issue show

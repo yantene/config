@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+#
+branches = `hub branch`.strip.split(/\s+/)
+
+content = `hub issue -f"%I\t%t\n"`.each_line.map { |line|
+  issue, title = line.strip.split(/\t/, 2)
+
+  branch = branches.find { |b| b =~ /issue-#{issue}(?!\d)/ }
+
+  [issue, branch, title]
+}
+
+content.each do |line|
+  puts line.join("\t")
+end
