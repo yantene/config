@@ -43,6 +43,10 @@ if [[ -x `which ghq 2> /dev/null` &&  -x `which sk 2> /dev/null` ]]; then
   }
   alias ghq=ghq-cd
 fi
+# unzipall
+
+function unzipall () { ls -1 $@ | xargs -I{} unzip {} }
+function wunzipall () { ls -1 $@ | xargs -I{} wunzip {} }
 
 # pekill
 
