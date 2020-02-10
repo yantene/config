@@ -1,3 +1,0 @@
-#!/bin/bash
-
-hub issue show -f'%t' `hub issue-number`
