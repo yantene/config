@@ -36,7 +36,8 @@ fi
 if [[ -x `which ghq 2> /dev/null` &&  -x `which sk 2> /dev/null` ]]; then
   ghq-cd () {
     if [[ $# -eq 0 ]]; then
-      cd `ghq root`/`sk -c 'ghq list'`
+      local repo_path=`sk -c 'ghq list'`
+      [[ $repo_path ]] && cd `ghq root`/$repo_path
     else
       ghq $@
     fi
