@@ -19,6 +19,7 @@ alias ymdhmst='date +%FT%T%:z'
 # text processing
 
 alias sp2tab='sed -e "s/\s\+/\t/g"'
+alias csv2tsv='ruby -rcsv -ne '\''puts CSV.parse($_)[0].join(%[\t])'\'
 
 # git
 
