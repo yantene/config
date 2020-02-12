@@ -116,13 +116,14 @@ if [[ -x `which sk 2> /dev/null` ]]; then
   function sk-find-path() {
     local filepath="$( (test -x `which fd 2> /dev/null` && fd -Hc always . || find . 2> /dev/null) | sk)"
     [[ -z "$filepath" ]] && return
+    escaped_filepath=`printf %q "$filepath"`
     if [[ -n "$LBUFFER" ]]; then
-      BUFFER="$LBUFFER '$filepath'"
+      BUFFER="$LBUFFER $escaped_filepath"
     else
-      if [[ -d "$filepath" ]]; then
-        BUFFER="cd '$filepath'"
-      elif [[ -f "$filepath" ]]; then
-        BUFFER="$EDITOR '$filepath'"
+      if [[ -f "$filepath" ]]; then
+        BUFFER="$EDITOR $escaped_filepath"
+      elif [[ -d "$filepath" ]]; then
+        BUFFER="cd $escaped_filepath"
       fi
     fi
     CURSOR=$#BUFFER
