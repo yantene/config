@@ -16,8 +16,14 @@ fi
 
 # shorten
 
-alias la='ls -lah'
-alias lat='ls -lahtr'
+if [[ -x `which exa 2> /dev/null` ]]; then
+  alias ls='exa'
+  alias la='exa -la'
+  alias lat='exa -lahtr'
+else
+  alias la='ls -lah'
+  alias lat='ls -lahtr'
+fi
 
 if [[ -x `which systemctl 2> /dev/null` ]]; then
   alias sc='systemctl'

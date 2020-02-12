@@ -42,6 +42,7 @@ mkdir -p $XDG_DATA_HOME/xmonad
 - neovim
 - ripgrep
 - skim
+- exa
 - yarn
 
 ## その他
