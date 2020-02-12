@@ -6,12 +6,7 @@ alias tmux="tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-
-if [[ -x `which git 2> /dev/null` ]]; then
-  alias diff='git diff --no-index'
-else
-  alias diff='diff -u'
-fi
+alias diff='diff -u'
 
 if [[ -x `which nvim 2> /dev/null` ]]; then
   alias vim='nvim'
