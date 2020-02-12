@@ -4,14 +4,14 @@ def hsl2rgb(h, s, l)
   Color::HSL.new(h % 360, s, l).html.gsub('#', '0x')
 end
 
-rot = -10
+rot = -15
 nsat, nlit =  65, 55
 bsat, blit =  75, 65
 
 puts <<~ALACRITTY
   env:
     TERM: xterm-256color
-  
+
   window:
     dimensions:
       columns: 0
@@ -20,12 +20,12 @@ puts <<~ALACRITTY
       x: 0
       y: 0
     decorations: none
-  
+
   scrolling:
     history: 100000
-  
+
   tabspaces: 2
-  
+
   font:
     normal:
       family: monospace
@@ -33,8 +33,8 @@ puts <<~ALACRITTY
       family: monospace
     italic:
       family: monospace
-    size: 6
-  
+    size: 10.0
+
   colors:
     primary:
       foreground: '0xeaeaea'
@@ -57,7 +57,7 @@ puts <<~ALACRITTY
       blue:    '#{hsl2rgb(240 + rot, bsat,  blit)}'
       magenta: '#{hsl2rgb(300 + rot, bsat,  blit)}'
       white:   '#{hsl2rgb(  0,    0,    90)}'
-  
+
   key_bindings:
     - { key: Left,  chars: "\\x1b[D",   mode: ~AppCursor }
     - { key: Left,  chars: "\\x1bOD",   mode: AppCursor  }
@@ -69,7 +69,7 @@ puts <<~ALACRITTY
     - { key: Down,  chars: "\\x1bOB",   mode: AppCursor  }
     - { key: V, mods: Control|Shift, action: Paste }
     - { key: C, mods: Control|Shift, action: Copy  }
-  
+
   dynamic_title: true
   live_config_reload: true
 ALACRITTY
