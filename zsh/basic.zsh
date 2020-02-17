@@ -48,7 +48,7 @@ function rprompt-git-current-branch {
 }
 
 prompt_1stline="[%F{cyan}%D %T%f%f] %B%(?.%F{green}↩%f.%F{red}↩%f)%b"
-prompt_2ndline="%B%F{${hostname_color}}%n@%M:%f %~%b"
+prompt_2ndline="%B%F{${hostname_color}}%n@%M:%f%b%~"
 prompt_3rdline="%F{grey}$%f "
 setopt prompt_subst
 PROMPT="$prompt_1stline
