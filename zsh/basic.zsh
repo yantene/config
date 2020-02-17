@@ -152,7 +152,16 @@ setopt nolistbeep # ビープ消す
 
 [[ -x `which dircolors 2> /dev/null` ]] && eval $(dircolors -b)
 
-export EDITOR='nvim'
+if [[ -x `which nvim 2> /dev/null` ]]; then
+  export EDITOR='nvim'
+elif [[ -x `which vim 2> /dev/null` ]]; then
+  export EDITOR='vim'
+elif [[ -x `which vi 2> /dev/null` ]]; then
+  export EDITOR='vi'
+elif [[ -x `which nano 2> /dev/null` ]]; then
+  export EDITOR='nano'
+fi
+
 export LESS=-R
 export LESS_TERMCAP_me=$(printf '\e[0m')
 export LESS_TERMCAP_se=$(printf '\e[0m')
