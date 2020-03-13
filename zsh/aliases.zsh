@@ -8,6 +8,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias diff='diff -u'
 alias qssh='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+alias each="xargs -L1 $@"
 
 if [[ -x `which nvim 2> /dev/null` ]]; then
   alias vim='nvim'
