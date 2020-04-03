@@ -80,7 +80,7 @@ myKeys = [
   )
  ] ++ [
   ((m ++ "M-" ++ [key]), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip "xcv" [2, 0, 1]
+        | (key, sc) <- zip "zxc" [2, 0, 1]
         , (f, m) <- [(W.view, "")]
  ]
 

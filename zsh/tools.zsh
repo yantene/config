@@ -44,6 +44,21 @@ if [[ -x `which ghq 2> /dev/null` &&  -x `which sk 2> /dev/null` ]]; then
   }
   alias ghq=ghq-cd
 fi
+
+# ssh
+
+if [[ -x `which ssh 2> /dev/null` ]]; then
+  ssh-sk () {
+    if [[ $# -eq 0 ]]; then
+      local target_host=`sk --ansi -c 'grep "^Host\s\+[^*]*$" ~/.ssh/config | sed "s/\s\+/\t/g" | cut -f2'`
+      [[ $target_host ]] && ssh $target_host
+    else
+      ssh $@
+    fi
+  }
+  alias ssh=ssh-sk
+fi
+
 # unzipall
 
 function unzipall () { ls -1 $@ | xargs -I{} unzip {} }
