@@ -36,6 +36,16 @@ if [[ -x `which bundle 2> /dev/null` ]]; then
   alias be='bundle exec'
 fi
 
+if [[ -x `which docker 2> /dev/null` ]]; then
+  alias d='docker'
+  compdef d='docker'
+fi
+
+if [[ -x `which docker-compose 2> /dev/null` ]]; then
+  alias dc='docker-compose'
+  compdef dc='docker-compose'
+fi
+
 # shortcut
 
 if [[ -f /usr/lib/mozc/mozc_tool ]]; then
