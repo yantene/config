@@ -50,7 +50,7 @@ fi
 if [[ -x `which ssh 2> /dev/null` ]]; then
   ssh-sk () {
     if [[ $# -eq 0 ]]; then
-      local target_host=`sk --ansi -c 'grep "^Host\s\+[^*]*$" ~/.ssh/config | sed "s/\s\+/\t/g" | cut -f2'`
+      local target_host=`sk --ansi -c 'grep "^Host\s\+[^*]*$" ~/.ssh/config.d/*.conf | sed "s/\s\+/\t/g" | cut -f2'`
       [[ $target_host ]] && ssh $target_host
     else
       ssh $@
