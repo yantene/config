@@ -18,7 +18,7 @@ export XMONAD_DATA_HOME="$XDG_DATA_HOME/xmonad"
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
-fcitx-autostart
+#fcitx-autostart
 
 # autostart
-xautolock -time 5 -locker slock &
+#xautolock -time 5 -locker slock &
