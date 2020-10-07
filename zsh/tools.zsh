@@ -25,10 +25,7 @@ alias csv2tsv='ruby -rcsv -ne '\''puts CSV.parse($_)[0].join(%[\t])'\'
 
 alias gup='git rev-parse --is-inside-work-tree > /dev/null 2>&1 && cd `pwd`/`git rev-parse --show-cdup`'
 
-if [[ -x `which hub 2> /dev/null` ]]; then
-  g () { [[ $# -eq 0 ]] && hub status || hub $@ }
-  compdef g=hub
-elif [[ -x `which git 2> /dev/null` ]]; then
+if [[ -x `which git 2> /dev/null` ]]; then
   g () { [[ $# -eq 0 ]] && git status || git $@ }
   compdef g=git
 fi
