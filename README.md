@@ -71,6 +71,8 @@ systemctl --user enable --now ssh-agent
 
 install anyenv
 
+Install from AUR or...
+
 ```bash
 git clone https://github.com/anyenv/anyenv $HOME/.anyenv
 mkdir $HOME/.anyenv/plugins
