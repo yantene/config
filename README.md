@@ -38,7 +38,6 @@ mkdir -p $XDG_DATA_HOME/xmonad
 
 - zsh
 - git
-- hub
 - neovim
 - ripgrep
 - skim
