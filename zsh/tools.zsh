@@ -74,11 +74,3 @@ fi
 
 function unzipall () { ls -1 $@ | xargs -I{} unzip {} }
 function wunzipall () { ls -1 $@ | xargs -I{} wunzip {} }
-
-# notes
-
-if [[ -x `which sk 2> /dev/null` && -x `which ag 2> /dev/null` ]]; then
-  function notes () {
-    eval $(sk --ansi -i -c "rg --line-number --null --color=always '{}' $HOME/notes" | cut -d: -f1 | awk -F "\0" "{print \"$EDITOR -c \" \$2 \" \" \$1}")
-  }
-fi
