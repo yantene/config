@@ -21,6 +21,9 @@
   quotepath = false
   pager = delta
 
+[pull]
+  ff = only
+
 [interactive]
   diffFilter = delta --color-only
 
