@@ -56,18 +56,24 @@ if [[ -x `which ssh 2> /dev/null` ]]; then
   alias ssh=ssh-sk
 fi
 
+# kill
+
+if [[ -x `which sk 2> /dev/null` ]]; then
+  function kill-sk () {
+    if [[ $# -eq 0 ]]; then
+      local target_process=`sk --multi -c 'ps -ef --no-headers' | awk '{ print $2 }'`
+      [[ $target_process ]] && echo $target_process | xargs kill
+    else
+      kill $@
+    fi
+  }
+  alias kill=kill-sk
+fi
+
 # unzipall
 
 function unzipall () { ls -1 $@ | xargs -I{} unzip {} }
 function wunzipall () { ls -1 $@ | xargs -I{} wunzip {} }
-
-# pekill
-
-if [[ -x `which sk 2> /dev/null` ]]; then
-  function pekill () {
-    sk --ansi -c 'ps -ef --no-headers' | awk '{ print $2 }' | xargs kill
-  }
-fi
 
 # notes
 
