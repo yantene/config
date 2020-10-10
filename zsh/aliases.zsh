@@ -20,12 +20,9 @@ fi
 # shorten
 
 if [[ -x `which exa 2> /dev/null` ]]; then
-  alias ls='exa'
-  alias la='exa -la'
-  alias lat='exa -lahtr'
+  alias la='exa -lgFiaa --git'
 else
   alias la='ls -lah'
-  alias lat='ls -lahtr'
 fi
 
 if [[ -x `which systemctl 2> /dev/null` ]]; then
