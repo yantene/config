@@ -21,6 +21,40 @@ alias ymdhmst='date +%FT%T%:z'
 alias sp2tab='sed -e "s/\s\+/\t/g"'
 alias csv2tsv='ruby -rcsv -ne '\''puts CSV.parse($_)[0].join(%[\t])'\'
 
+# find path
+
+if [[ -x `which sk 2> /dev/null` ]]; then
+  function sk-find-path() {
+    local filepath="$( (test -x `which fd 2> /dev/null` && fd -Hc always . || find . 2> /dev/null) | sk)"
+    [[ -z "$filepath" ]] && return
+    escaped_filepath=`printf %q "$filepath"`
+    if [[ -n "$LBUFFER" ]]; then
+      BUFFER="$LBUFFER $escaped_filepath"
+    else
+      if [[ -f "$filepath" ]]; then
+        BUFFER="$EDITOR $escaped_filepath"
+      elif [[ -d "$filepath" ]]; then
+        BUFFER="cd $escaped_filepath"
+      fi
+    fi
+    CURSOR=$#BUFFER
+  }
+
+  zle -N sk-find-path
+  bindkey '' sk-find-path
+fi
+
+# find line
+
+if [[ -x `which sk 2> /dev/null` ]] && [[ -x `which rg 2> /dev/null` ]]; then
+  function sk-find-line() {
+    eval $(sk -i -c 'rg --smart-case --line-number --null --color=always "{}"' | cut -d: -f1 | awk -F "\0" "{print \"$EDITOR -c \" \$2 \" \" \"'\"\$1\"'\"}")
+  }
+
+  zle -N sk-find-line
+  bindkey '' sk-find-line
+fi
+
 # git
 
 alias gup='git rev-parse --is-inside-work-tree > /dev/null 2>&1 && cd `pwd`/`git rev-parse --show-cdup`'

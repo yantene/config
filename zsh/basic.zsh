@@ -110,40 +110,6 @@ zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH"
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 compinit
 
-# find path
-
-if [[ -x `which sk 2> /dev/null` ]]; then
-  function sk-find-path() {
-    local filepath="$( (test -x `which fd 2> /dev/null` && fd -Hc always . || find . 2> /dev/null) | sk)"
-    [[ -z "$filepath" ]] && return
-    escaped_filepath=`printf %q "$filepath"`
-    if [[ -n "$LBUFFER" ]]; then
-      BUFFER="$LBUFFER $escaped_filepath"
-    else
-      if [[ -f "$filepath" ]]; then
-        BUFFER="$EDITOR $escaped_filepath"
-      elif [[ -d "$filepath" ]]; then
-        BUFFER="cd $escaped_filepath"
-      fi
-    fi
-    CURSOR=$#BUFFER
-  }
-
-  zle -N sk-find-path
-  bindkey '' sk-find-path
-fi
-
-# find line
-
-if [[ -x `which sk 2> /dev/null` ]] && [[ -x `which rg 2> /dev/null` ]]; then
-  function sk-find-line() {
-    eval $(sk -i -c 'rg --smart-case --line-number --null --color=always "{}"' | cut -d: -f1 | awk -F "\0" "{print \"$EDITOR -c \" \$2 \" \" \"'\"\$1\"'\"}")
-  }
-
-  zle -N sk-find-line
-  bindkey '' sk-find-line
-fi
-
 # others
 
 setopt auto_pushd # 移動履歴(cd -[Tab])
