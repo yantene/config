@@ -30,6 +30,10 @@
 /i3/*
 !/i3/config
 
+!/irb
+/irb/*
+!/irb/irbrc
+
 !/nvim
 /nvim/*
 !/nvim/dein.toml
