@@ -79,15 +79,20 @@ fi
 # ssh
 
 if [[ -x `which ssh 2> /dev/null` ]]; then
-  ssh-sk () {
+  ssh-sk-resetbg () {
     if [[ $# -eq 0 ]]; then
       local target_host=`sk --ansi -c 'grep "^Host\s\+[^*]*$" ~/.ssh/config.d/*.conf | sed "s/\s\+/\t/g" | cut -f2'`
-      [[ $target_host ]] && ssh $target_host
+      if [[ $target_host ]]; then
+        echo connect to $target_host...
+        ssh $target_host
+      fi
     else
       ssh $@
     fi
+
+    [[ $TMUX ]] && tmux select-pane -P bg=default # resetbg
   }
-  alias ssh=ssh-sk
+  alias ssh=ssh-sk-resetbg
 fi
 
 # kill
