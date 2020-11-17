@@ -38,7 +38,9 @@
 /nvim/*
 !/nvim/dein.toml
 !/nvim/dein_lazy.toml
+!/nvim/coc-settings.json
 !/nvim/init.vim
+!/nvim/plugins
 
 !/peco
 /peco/*
