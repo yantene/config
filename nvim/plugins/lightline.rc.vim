@@ -2,13 +2,15 @@ let g:lightline = {
 \ 'colorscheme': 'wombat',
 \ 'active': {
 \   'left': [ [ 'mode', 'paste' ],
-\             [ 'fugitive', 'readonly', 'relativepath', 'modified' ] ],
+\             [ 'fugitive', 'readonly', 'relativepath', 'modified' ],
+\             [ 'cocstatus' ]],
 \   'right': [ [ 'lineinfo' ],
 \              [ 'percent' ],
 \              [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ],
-\              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ] ],
+\              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]],
 \ },
 \ 'component_function': {
-\    'relativepath': 'RelativePath'
+\    'relativepath': 'RelativePath',
+\    'cocstatus': 'coc#status'
 \ },
 \}
