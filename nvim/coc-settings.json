@@ -1,5 +1,22 @@
 {
   "languageserver": {
+    "efm": {
+      "command": "efm-langserver",
+      "args": [],
+      "filetypes": [
+        "vim",
+        "markdown",
+        "text",
+        "html",
+        "javascript", "typescript", "vue",
+        "css", "scss", "sass",
+        "json",
+        "yaml",
+        "ruby",
+        "c", "cpp",
+        "sh", "zsh"
+      ]
+    },
     "dockerfile": {
       "command": "docker-langserver",
       "filetypes": ["dockerfile"],

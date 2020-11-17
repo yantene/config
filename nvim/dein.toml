@@ -24,21 +24,6 @@ source ${XDG_CONFIG_HOME}/nvim/plugins/easymotion.rc.vim
 [[plugins]]
 repo = 'tmhedberg/matchit'
 
-# Linter
-
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-source ${XDG_CONFIG_HOME}/nvim/plugins/ale.rc.vim
-'''
-
-[[plugins]]
-repo = 'maximbaz/lightline-ale'
-depends = ['lightline.vim', 'ale']
-hook_add = '''
-source ${XDG_CONFIG_HOME}/nvim/plugins/lightline-ale.rc.vim
-'''
-
 # Language Server Protocol
 
 [[plugins]]
@@ -52,6 +37,10 @@ source ${XDG_CONFIG_HOME}/nvim/plugins/coc.rc.vim
 [[plugins]]
 repo = 'josa42/vim-lightline-coc'
 depends = ['lightline.vim', 'coc.nvim']
+
+[[plugins]]
+repo = 'tsuyoshicho/vim-efm-langserver-settings'
+depends = ['coc.nvim']
 
 # Tools
 

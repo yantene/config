@@ -6,8 +6,7 @@ let g:lightline = {
 \             [ 'cocstatus' ]],
 \   'right': [ [ 'lineinfo' ],
 \              [ 'percent' ],
-\              [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ],
-\              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]],
+\              [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ]]
 \ },
 \ 'component_function': {
 \    'relativepath': 'RelativePath',
