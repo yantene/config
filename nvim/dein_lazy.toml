@@ -101,13 +101,3 @@ on_ft = 'csv'
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
-
-## TeX
-
-[[plugins]]
-repo = 'lervag/vimtex'
-on_ft = 'tex'
-
-[[plugins]]
-repo = 'matze/vim-tex-fold'
-on_ft = 'tex'
