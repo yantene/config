@@ -67,7 +67,11 @@ set clipboard+=unnamedplus "ヤンクをクリップボードに
 
 " Syntax Highlightに関する設定
 syntax enable
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "true color を使用
+
+set termguicolors "true color を使用
+
+" 表示に関する設定
+set pumblend=20 " ポップアップを半透明に
 
 " 検索に関する設定
 set ignorecase
