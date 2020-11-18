@@ -7,7 +7,6 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias diff='diff -u'
-alias qssh='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 alias each="xargs -L1 $@"
 alias resetbg='tmux select-pane -P bg=default'
 

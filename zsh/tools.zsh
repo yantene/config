@@ -93,6 +93,9 @@ if [[ -x `which ssh 2> /dev/null` ]]; then
     [[ $TMUX ]] && tmux select-pane -P bg=default # resetbg
   }
   alias ssh=ssh-sk-resetbg
+
+  alias qssh='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+  compdef qssh=ssh
 fi
 
 # kill
