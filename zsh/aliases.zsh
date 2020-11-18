@@ -40,8 +40,8 @@ if [[ -x `which docker 2> /dev/null` ]]; then
 fi
 
 if [[ -x `which docker-compose 2> /dev/null` ]]; then
-  alias dc='docker-compose'
-  compdef dc='docker-compose'
+  alias fig='docker-compose'
+  compdef fig='docker-compose'
 fi
 
 # shortcut
