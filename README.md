@@ -36,8 +36,14 @@ mkdir -p $XDG_DATA_HOME/xmonad
 
 この config ファイル群が必要とするパッケージ (すべてではない)
 
+- coreutils
+- grep
+- gawk
+- sed
 - zsh
+- zsh-syntax-highlighting
 - git
+- anyenv
 - neovim
 - ripgrep
 - skim
