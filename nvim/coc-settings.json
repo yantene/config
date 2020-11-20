@@ -16,6 +16,14 @@
         "c", "cpp",
         "sh", "zsh"
       ]
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": [
+        "terraform"
+      ],
+      "initializationOptions": {},
+      "settings": {}
     }
   }
 }

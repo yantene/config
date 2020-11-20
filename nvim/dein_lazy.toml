@@ -101,3 +101,9 @@ on_ft = 'csv'
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
+
+## Terraform
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+on_ft = 'terraform'
