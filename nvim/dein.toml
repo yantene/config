@@ -4,7 +4,7 @@ repo = 'Shougo/dein.vim'
 # Appearance
 
 [[plugins]]
-repo = 'yantene/molokai'
+repo = 'tomasr/molokai'
 hook_add = 'au cs_hook VimEnter * nested colorscheme molokai'
 
 [[plugins]]
