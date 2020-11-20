@@ -103,19 +103,46 @@ nodenv install 10.15.1
 nodenv global 8.15.0
 ```
 
-### linter のインストール
+### Neovim のセットアップ
 
-主に vim で使っているもの
+#### CoC
 
-```bash
-gem install rubocop
-yarn global add eslint stylelint pug-lint
+CoC プラグインをインストール。
+nvim 内にて以下を実行。
+
+```
+CocInstall coc-sh coc-clangd coc-css coc-html coc-tsserver coc-vetur coc-json coc-docker coc-sql coc-solargraph
 ```
 
-### language servers のインストール
+CoC やプラグインが依存するパッケージをインストール。
 
 ```bash
-yarn global add vue-language-server
-yarn global add javascript-typescript-langserver
-gem install solargraph haml-lint
+yay -S \
+  nodejs \
+  clang \
+  terraform-lsp-bin \
+  efm-langserver
+
+gem install \
+  solargraph
 ```
+
+efm-langserver が利用できる linter 類をインストール。
+
+cf. https://github.com/tsuyoshicho/vim-efm-langserver-settings
+
+```bash
+yay -S \
+  shellcheck \
+  pandoc \
+  jq
+
+npm i -g \
+  jsonlint \
+  fixjson \
+  htmllint \
+  markdownlint-cli
+```
+
+その他、`textlint`、`rubocop`、`eslint`、`stylelint` などは、
+プロジェクトごとの bundler や npm でインストールすると発動するみたい。
