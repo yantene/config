@@ -107,13 +107,6 @@ nodenv global 8.15.0
 
 #### CoC
 
-CoC プラグインをインストール。
-nvim 内にて以下を実行。
-
-```
-CocInstall coc-sh coc-clangd coc-css coc-html coc-tsserver coc-vetur coc-json coc-docker coc-sql coc-solargraph
-```
-
 CoC やプラグインが依存するパッケージをインストール。
 
 ```bash

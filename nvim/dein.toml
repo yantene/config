@@ -24,27 +24,6 @@ source ${XDG_CONFIG_HOME}/nvim/plugins/easymotion.rc.vim
 [[plugins]]
 repo = 'tmhedberg/matchit'
 
-# Language Server Protocol
-
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-merge = 0
-rev = 'release'
-hook_add = '''
-source ${XDG_CONFIG_HOME}/nvim/plugins/coc.rc.vim
-'''
-
-[[plugins]]
-repo = 'josa42/vim-lightline-coc'
-depends = ['lightline.vim', 'coc.nvim']
-hook_add = '''
-source ${XDG_CONFIG_HOME}/nvim/plugins/lightline-coc.rc.vim
-'''
-
-[[plugins]]
-repo = 'tsuyoshicho/vim-efm-langserver-settings'
-depends = ['coc.nvim']
-
 # Tools
 
 [[plugins]]
