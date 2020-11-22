@@ -3,7 +3,7 @@ alias wunzip='unzip -Ocp932'
 alias trash="mv --backup=numbered --target-directory=$HOME/trash"
 
 cb () {
-  if [[ -p /dev/stdin ]]; then
+  if [[ -p /dev/stdin ]] || [[ -f /dev/stdin ]]; then
     xclip -selection clipboard
   else
     xclip -o -selection clipboard
