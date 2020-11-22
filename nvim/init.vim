@@ -5,10 +5,6 @@ augroup cs_hook
   autocmd!
 augroup END
 
-augroup ctags_hook
-  autocmd!
-augroup END
-
 function! RelativePath()
   let rpath = substitute(expand('%:p'), getcwd() . '/', '', '')
   if rpath == ""
@@ -65,7 +61,6 @@ set clipboard+=unnamedplus "ヤンクをクリップボードに
 
 " Syntax Highlightに関する設定
 syntax enable
-
 set termguicolors "true color を使用
 
 " 表示に関する設定
@@ -86,10 +81,6 @@ if exists('&ambw')
   set ambw=double "曖昧な文字幅対策
 endif
 filetype plugin indent on " filetype plugin
-
-" Ctags の設定
-
-nnoremap <C-]> g<C-]>
 
 " キーバインドに関する設定
 noremap <Up>    <Nop>
