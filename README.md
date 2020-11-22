@@ -1,5 +1,4 @@
-$HOME/.config
-=============
+# $HOME/.config
 
 ## setup
 
@@ -122,7 +121,7 @@ gem install \
 
 efm-langserver が利用できる linter 類をインストール。
 
-cf. https://github.com/tsuyoshicho/vim-efm-langserver-settings
+cf. <https://github.com/tsuyoshicho/vim-efm-langserver-settings>
 
 ```bash
 yay -S \
