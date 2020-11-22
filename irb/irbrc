@@ -1,6 +1,10 @@
-# history
+require 'fileutils'
 
-IRB.conf[:HISTORY_FILE] ||= File.join(ENV.fetch('XDG_DATA_HOME'), 'irb', 'history')
+# history
+File.join(ENV.fetch('XDG_DATA_HOME'), 'irb', 'history').tap do |hispath|
+  FileUtils.makedirs(File.dirname(hispath))
+  IRB.conf[:HISTORY_FILE] ||= hispath
+end
 
 # clipboard
 
