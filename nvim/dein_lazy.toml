@@ -32,7 +32,7 @@ on_ft = 'html'
 
 [[plugins]]
 repo = 'digitaltoad/vim-pug'
-on_ft = 'pug'
+on_ft = ['pug', 'vue']
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
@@ -44,7 +44,7 @@ on_ft = 'css'
 
 [[plugins]]
 repo = 'othree/yajs.vim'
-on_ft = 'javascript'
+on_ft = ['javascript', 'vue']
 
 [[plugins]]
 repo = 'posva/vim-vue'

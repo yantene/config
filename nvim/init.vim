@@ -45,10 +45,6 @@ endif
 "===============================================================================
 "         言語ごとの設定
 "===============================================================================
-" vue.js
-autocmd FileType vue syntax sync fromstart
-autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.pug.javascript.sass
-
 " csv
 autocmd BufRead,BufNewFile *.csv setlocal filetype=csv
 
