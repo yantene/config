@@ -1,3 +1,5 @@
+# shellcheck disable=SC2034,SC2139
+
 # override
 
 alias ls='ls --color=auto'
@@ -7,10 +9,8 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias diff='diff -u'
-alias each="xargs -L1 $@"
-alias resetbg='tmux select-pane -P bg=default'
 
-if [[ -x `which nvim 2> /dev/null` ]]; then
+if [[ -x $(which nvim 2> /dev/null) ]]; then
   alias vim='nvim'
 else
   alias nvim='vim'
@@ -18,32 +18,34 @@ fi
 
 # shorten
 
-if [[ -x `which exa 2> /dev/null` ]]; then
+if [[ -x $(which exa 2> /dev/null) ]]; then
   alias la='exa -lgFiaa --git'
 else
   alias la='ls -lah'
 fi
 
-if [[ -x `which systemctl 2> /dev/null` ]]; then
+if [[ -x $(which systemctl 2> /dev/null) ]]; then
   alias sc='systemctl'
   compdef sc='systemctl'
 fi
 
-if [[ -x `which bundle 2> /dev/null` ]]; then
+if [[ -x $(which bundle 2> /dev/null) ]]; then
   alias be='bundle exec'
 fi
 
-if [[ -x `which docker 2> /dev/null` ]]; then
+if [[ -x $(which docker 2> /dev/null) ]]; then
   alias d='docker'
   compdef d='docker'
 fi
 
-if [[ -x `which docker-compose 2> /dev/null` ]]; then
+if [[ -x $(which docker-compose 2> /dev/null) ]]; then
   alias fig='docker-compose'
   compdef fig='docker-compose'
 fi
 
 # shortcut
+
+alias resetbg='tmux select-pane -P bg=default'
 
 if [[ -f /usr/lib/mozc/mozc_tool ]]; then
   alias mozc='/usr/lib/mozc/mozc_tool --mode=config_dialog'
