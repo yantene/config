@@ -20,6 +20,13 @@ on_ft = 'ruby'
 repo = 'vim-utils/vim-ruby-fold'
 on_ft = 'ruby'
 
+[[plugins]]
+repo = 'noprompt/vim-yardoc'
+on_ft = 'ruby'
+hook_add = '''
+source ${XDG_CONFIG_HOME}/nvim/plugins/vim-yardoc.rc.vim
+'''
+
 ## HTML
 
 [[plugins]]
