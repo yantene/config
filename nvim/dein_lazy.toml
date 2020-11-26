@@ -17,10 +17,6 @@ repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
 
 [[plugins]]
-repo = 'vim-utils/vim-ruby-fold'
-on_ft = 'ruby'
-
-[[plugins]]
 repo = 'noprompt/vim-yardoc'
 on_ft = 'ruby'
 hook_add = '''

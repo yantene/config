@@ -44,6 +44,7 @@ endif
 "         言語ごとの設定
 "===============================================================================
 augroup lang_csv
+  autocmd!
   autocmd BufRead,BufNewFile *.csv setlocal filetype=csv
 augroup END
 
@@ -76,9 +77,13 @@ set background=dark "背景色を黒に
 set number "行番号
 set list "特殊文字の可視化
 set listchars=tab:»-,trail:␣,eol:↲,extends:»,precedes:«,nbsp:%
-set cursorline
 set showmatch
-set cmdheight=2
+set foldmethod=indent
+augroup auto_cursorline "cursorline
+  autocmd!
+  autocmd CursorMoved,CursorMovedI,WinLeave * setlocal nocursorline
+  autocmd CursorHold,CursorHoldI * setlocal cursorline
+augroup END
 if exists('&ambiwidth')
   set ambiwidth=double "曖昧な文字幅対策
 endif
