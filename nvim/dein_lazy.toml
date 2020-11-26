@@ -17,7 +17,8 @@ repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
 
 [[plugins]]
-repo = 'noprompt/vim-yardoc'
+repo = 'yantene/vim-yardoc'
+rev = 'exp'
 on_ft = 'ruby'
 hook_add = '''
 source ${XDG_CONFIG_HOME}/nvim/plugins/vim-yardoc.rc.vim

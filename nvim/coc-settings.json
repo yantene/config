@@ -1,4 +1,5 @@
 {
+  "solargraph.formatting": true,
   "languageserver": {
     "efm": {
       "command": "efm-langserver",
