@@ -16,6 +16,10 @@ let g:coc_global_extensions = [
 \ 'coc-vimlsp'
 \]
 
+" ROOT PATTERNS
+
+autocmd FileType ruby let b:coc_root_patterns = ['Gemfile', '.ruby-version']
+
 " SETTINGS
 
 let mapleader = "\<Space>"
