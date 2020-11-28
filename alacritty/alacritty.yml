@@ -1,4 +1,4 @@
-
+#!/usr/bin/env erb
 
 env:
   TERM: xterm-256color
