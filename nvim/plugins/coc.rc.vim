@@ -1,4 +1,4 @@
-let g:coc_node_path = '/usr/bin/node'
+let g:coc_node_path = systemlist('which node')[0]
 
 " EXTENSIONS
 
