@@ -30,6 +30,10 @@
 /i3/*
 !/i3/config
 
+!/ideavim
+/ideavim/*
+!/ideavim/ideavimrc
+
 !/irb
 /irb/*
 !/irb/irbrc
