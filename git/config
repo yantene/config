@@ -23,7 +23,7 @@
   pager = delta
 
 [pull]
-  ff = only
+  rebase = false
 
 [interactive]
   diffFilter = delta --color-only
