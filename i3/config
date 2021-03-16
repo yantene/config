@@ -192,7 +192,7 @@ mode "resize" {
 exec --no-startup-id xautolock -time 5 -locker "i3lock -c '#ff8080'"
 exec --no-startup-id xss-lock -- i3lock -c '#ff8080'
 #exec --no-startup-id picom -i 0.9
-exec --no-startup-id hsetroot -solid '#008080'
+exec --no-startup-id hsetroot -solid $(od -v -An -tx -N3 < /dev/urandom | sed 's/^ 00/#/')
 exec --no-startup-id fcitx-autostart
 
 # Color palette used for the terminal ( ~/.Xresources file )
