@@ -45,6 +45,8 @@ fi
 
 # shortcut
 
+alias chrome='google-chrome-stable'
+
 alias resetbg='tmux select-pane -P bg=default'
 
 if [[ -f /usr/lib/mozc/mozc_tool ]]; then
