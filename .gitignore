@@ -57,7 +57,7 @@
 
 !/rofi
 /rofi/*
-!/rofi/config
+!/rofi/config.rasi
 
 !/sway
 /sway/*
