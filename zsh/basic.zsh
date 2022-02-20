@@ -150,10 +150,10 @@ export SKIM_DEFAULT_OPTIONS='
   --color=matched:0,matched_bg:3,current_bg:8,current_match:0,current_match_bg:3
 '
 
-# anyenv
+# asdf
 
-if [[ -x $(which anyenv 2> /dev/null) ]]; then
-  eval "$(anyenv init -)"
+if [[ -f /opt/asdf-vm/asdf.sh ]]; then
+  . /opt/asdf-vm/asdf.sh
 fi
 
 # yarn
