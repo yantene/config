@@ -18,6 +18,8 @@
 /fbterm/*
 !/fbterm/fbtermrc
 
+!/fish
+
 !/fontconfig
 /fontconfig/*
 !/fontconfig/fonts.conf
