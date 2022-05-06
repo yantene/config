@@ -13,7 +13,7 @@ function fish_right_prompt
   # Prompt status only if it's not 0
   set -l prompt_status
   if test $last_status -ne 0
-    set prompt_status (set_color --bold $fish_color_error)"↩$last_status"(set_color normal)
+    set prompt_status (set_color --bold $fish_color_error)"🚨$last_status"(set_color normal)
   end
 
   set_color normal
