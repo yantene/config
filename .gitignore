@@ -64,6 +64,7 @@
 !/sway
 /sway/*
 !/sway/config
+!/sway/config.d
 
 !/systemd
 /systemd/*
