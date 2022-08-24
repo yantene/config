@@ -48,6 +48,8 @@
 /irb/*
 !/irb/irbrc
 
+!/mako
+
 !/nvim
 /nvim/*
 !/nvim/dein.toml
@@ -92,6 +94,10 @@
 !/tmux
 /tmux/*
 !/tmux/tmux.conf
+
+!/waybar
+
+!/wofi
 
 !/xmobar
 /xmobar/*
