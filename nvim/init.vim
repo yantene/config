@@ -78,7 +78,6 @@ set number "行番号
 set list "特殊文字の可視化
 set listchars=tab:»-,trail:␣,eol:↲,extends:»,precedes:«,nbsp:%
 set showmatch
-set foldmethod=indent
 augroup auto_cursorline "cursorline
   autocmd!
   autocmd CursorMoved,CursorMovedI,WinLeave * setlocal nocursorline
