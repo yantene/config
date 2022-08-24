@@ -35,6 +35,9 @@ bindsym $mod+Shift+c kill
 # start program launcher
 bindsym $mod+d exec --no-startup-id "rofi -show run"
 
+# xrandr
+bindsym $mod+x exec --no-startup-id "xrandr"
+
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
@@ -52,8 +55,9 @@ bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +10%"
 bindsym XF86MonBrightnessUp exec 'xbacklight -inc 2'
 bindsym XF86MonBrightnessDown exec 'xbacklight -dec 2'
 
-bindsym Print exec --no-startup-id "maim -u -s | xclip -selection clipboard -t image/png"
-bindsym Shift+Print --release exec --no-startup-id "maim -u -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png"
+bindsym Print exec --no-startup-id "maim -u -s | xclip -selection clipboard -t image/png && notify-send 'Cheese!'"
+bindsym Shift+Print --release exec --no-startup-id "maim -u -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png && notify-send 'Cheese!'"
+bindsym Ctrl+Print --release exec --no-startup-id "maim -u -d 5 -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png && notify-send 'Cheese!'"
 
 # focus_follows_mouse no
 
@@ -163,7 +167,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (h)ybrid-sleep, (s)uspend, (Shift+h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-  bindsym l       exec --no-startup-id i3lock -c '#ff8080', mode "default"
+  bindsym l       exec --no-startup-id i3lock -t -i '/usr/share/backgrounds/archlinux/awesome.png', mode "default"
   bindsym h       exec --no-startup-id systemctl hybrid-sleep, mode "default"
   bindsym s       exec --no-startup-id systemctl suspend, mode "default"
   bindsym Shift+h exec --no-startup-id systemctl hibernate, mode "default"
@@ -189,10 +193,10 @@ mode "resize" {
 }
 
 # Autostart applications
-exec --no-startup-id xautolock -time 5 -locker "i3lock -c '#ff8080'"
-exec --no-startup-id xss-lock -- i3lock -c '#ff8080'
+exec --no-startup-id xautolock -time 5 -locker "i3lock -t -i '/usr/share/backgrounds/archlinux/awesome.png'"
+exec --no-startup-id xss-lock -- i3lock -t -i '/usr/share/backgrounds/archlinux/awesome.png'
 #exec --no-startup-id picom -i 0.9
-exec --no-startup-id hsetroot -solid $(od -v -An -tx -N3 < /dev/urandom | sed 's/^ 00/#/')
+exec --no-startup-id hsetroot -cover "/usr/share/backgrounds/archlinux/conference.png"
 exec --no-startup-id fcitx5
 
 # Color palette used for the terminal ( ~/.Xresources file )
