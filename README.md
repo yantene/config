@@ -56,6 +56,12 @@ For example, I have installed the following packages.
 - clipman
 - alacritty
 
+### Fonts
+
+- noto-fonts{,-cjk,-emoji,-extra}
+- otf-ipamjfont
+- ttf-hack
+
 ## Setup
 
 To use this repository, clone it to `$HOME.config`.
