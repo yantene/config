@@ -5,15 +5,6 @@
 # white list
 !/.gitignore
 
-!/X11
-/X11/*
-!/X11/Xmodmap
-!/X11/xprofile
-
-!/dunst
-/dunst/*
-!/dunst/dunstrc
-
 !/environment.d
 /environment.d/*
 !/environment.d/*.conf
@@ -36,10 +27,6 @@
 /git/*
 !/git/config
 
-!/i3
-/i3/*
-!/i3/config
-
 !/ideavim
 /ideavim/*
 !/ideavim/ideavimrc
@@ -59,18 +46,6 @@
 !/nvim/init.vim
 !/nvim/plugins
 
-!/peco
-/peco/*
-!/peco/config.json
-
-!/qtile
-/qtile/*
-!/qtile/config.py
-
-!/rofi
-/rofi/*
-!/rofi/config.rasi
-
 !/sway
 /sway/*
 !/sway/config
@@ -81,10 +56,7 @@
 !/systemd/user
 /systemd/user/*
 !/systemd/user/ssh-agent.service
-
-!/termite
-/termite/*
-!/termite/config
+!/systemd/user/mpris-proxy.service
 
 !/alacritty
 /alacritty/*
@@ -98,20 +70,3 @@
 !/waybar
 
 !/wofi
-
-!/xmobar
-/xmobar/*
-!/xmobar/xmobarrc
-
-!/xmonad
-/xmonad/*
-!/xmonad/xmonad.hs
-
-!/zsh
-/zsh/*
-!/zsh/.zprofile
-!/zsh/.zshenv
-!/zsh/.zshrc
-!/zsh/.zprofile
-!/zsh/*.zsh
-!/zsh/scripts

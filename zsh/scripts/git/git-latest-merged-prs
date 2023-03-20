@@ -1,7 +1,0 @@
-#!/bin/bash
-
-git log \
-  `git tag | tail -n1`...`git rev-parse --abbrev-ref HEAD`\
-  --pretty='%s%x09%b'\
-  --grep '^Merge pull request' |\
-  sed 's/^[^\t]\+\t/- /'
