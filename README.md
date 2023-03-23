@@ -60,7 +60,7 @@ For example, I have installed the following packages.
 
 - noto-fonts{,-cjk,-emoji,-extra}
 - otf-ipamjfont
-- ttf-hack
+- ttf-hack-nerd
 
 ## Setup
 

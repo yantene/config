@@ -38,13 +38,6 @@
 !/mako
 
 !/nvim
-/nvim/*
-!/nvim/dein.toml
-!/nvim/dein_coc.toml
-!/nvim/dein_lazy.toml
-!/nvim/coc-settings.json
-!/nvim/init.vim
-!/nvim/plugins
 
 !/sway
 /sway/*
