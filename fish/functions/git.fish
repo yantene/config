@@ -9,6 +9,4 @@ if type -q git
       command git $argv
     end
   end
-
-  abbr -a g git
 end
