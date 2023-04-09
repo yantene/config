@@ -41,6 +41,7 @@
 
 !/sway
 /sway/*
+!/sway/bin
 !/sway/config
 !/sway/config.d
 

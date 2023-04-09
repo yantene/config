@@ -1,0 +1,13 @@
+#!/bin/bash
+
+case "$1" in
+  selection)
+    grim -g "$(slurp)" - | wl-copy
+    ;;
+  focused)
+    grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" - | wl-copy
+    ;;
+  *)
+    echo "Usage: $0 {selection|focused}"
+    exit 1
+esac
