@@ -5,13 +5,8 @@
   "height": 30, // Waybar height (to be removed for auto height)
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
-  "modules-left": [
-    "sway/workspaces",
-    "sway/mode"
-  ],
-  "modules-center": [
-    "sway/window"
-  ],
+  "modules-left": ["wlr/workspaces"],
+  "modules-center": ["hyprland/window"],
   "modules-right": [
     "idle_inhibitor",
     "pulseaudio",
@@ -23,8 +18,16 @@
     "clock",
     "tray"
   ],
-  "sway/mode": {
-    "format": "<span style=\"italic\">{}</span>"
+  "wlr/workspaces": {
+    "format": "{icon} {name}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    }
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    "tooltip": false
   },
   "idle_inhibitor": {
     "format": "{icon}",
@@ -54,11 +57,7 @@
     "critical-threshold": 80,
     // "format-critical": "{temperatureC}°C {icon}",
     "format": "{temperatureC}°C {icon}",
-    "format-icons": [
-      "",
-      "",
-      ""
-    ]
+    "format-icons": ["", "", "", "", ""]
   },
   "battery": {
     "states": {
@@ -67,25 +66,19 @@
       "critical": 15
     },
     "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
+    "format-charging": "{capacity}% 󰂄",
     "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
+    "format-icons": ["", "", "", "", ""]
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰈀",
+    "tooltip-format": "{ifname} via {gwaddr} 󱕜",
+    "format-linked": "{ifname} (No IP) ⚠",
     "format-disconnected": "Disconnected ⚠",
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
@@ -93,22 +86,18 @@
     // "scroll-step": 1, // %, can be a float
     "format": "{volume}% {icon} {format_source}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
+    "format-bluetooth-muted": "󰗿 {icon} {format_source}",
+    "format-muted": " {format_source}",
     "format-source": "{volume}% ",
     "format-source-muted": "",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
+      "headphone": "󰋋",
+      "hands-free": "󰋍",
+      "headset": "󰋎",
       "phone": "",
       "portable": "",
       "car": "",
-      "default": [
-        "",
-        "",
-        ""
-      ]
+      "default": ["", "", ""]
     },
     "on-click": "pavucontrol"
   }

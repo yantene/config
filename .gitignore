@@ -27,6 +27,12 @@
 /git/*
 !/git/config
 
+!/hypr
+/hypr/*
+!/hypr/bin
+!/hypr/hyprland.conf
+!/hypr/conf.d
+
 !/ideavim
 /ideavim/*
 !/ideavim/ideavimrc
