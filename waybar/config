@@ -23,7 +23,8 @@
     "format-icons": {
       "active": "",
       "default": ""
-    }
+    },
+    "on-click": "activate"
   },
   "hyprland/window": {
     "format": "{title}",
