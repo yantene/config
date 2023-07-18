@@ -1,0 +1,16 @@
+#!/bin/bash
+
+case `echo -e "Lock\\nLogout\\nHybrid Sleep\\nSuspend\\nHibernate\\nReboot\\nShutdown" | wofi --dmenu --insensitive` in \
+  "Lock") \
+    swaylock -i /usr/share/backgrounds/archlinux/split.png;; \
+  "Hybrid Sleep") \
+    systemctl hybrid-sleep;; \
+  "Suspend") \
+    systemctl suspend;; \
+  "Hibernate") \
+    systemctl hibernate;; \
+  "Reboot") \
+    systemctl reboot;; \
+  "Shutdown") \
+    systemctl poweroff;; \
+esac
