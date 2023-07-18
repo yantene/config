@@ -2,7 +2,7 @@
 
 case `echo -e "Lock\\nLogout\\nHybrid Sleep\\nSuspend\\nHibernate\\nReboot\\nShutdown" | wofi --dmenu --insensitive` in \
   "Lock") \
-    swaylock -i /usr/share/backgrounds/archlinux/split.png;; \
+    ${XDG_CONFIG_HOME}/hypr/bin/screenlock now;; \
   "Hybrid Sleep") \
     systemctl hybrid-sleep;; \
   "Suspend") \
