@@ -6,7 +6,7 @@ case "$1" in
   idle)
     swayidle -w \
       timeout 1800 "swaylock -f -i ${wallpaper}" \
-      timeout 2400 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+      timeout 2400 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' \
       before-sleep "swaylock -f -i ${wallpaper}"
     ;;
   now)
