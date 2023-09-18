@@ -31,6 +31,7 @@
 /hypr/*
 !/hypr/bin
 !/hypr/hyprland.conf
+!/hypr/hyprpaper.conf
 !/hypr/conf.d
 
 !/ideavim
