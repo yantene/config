@@ -1,0 +1,126 @@
+<%
+def hsl2rgb(h, s, l)
+  min, max = [-1, 1].map { |pol|
+    l + pol * (50 - (l - 50).abs) * s / 100.0
+  }
+  mid = (60 - (h % 120.0 - 60).abs).fdiv(60) * (max - min) + min
+
+  format(
+    '0x%02x%02x%02x',
+    *[
+      [max, mid, min], [mid, max, min], [min, max, mid],
+      [min, mid, max], [mid, min, max], [max, min, mid],
+    ][h % 360 / 60].map { |c| (c * 255 / 100).round },
+  )
+end
+
+rot = -15
+nsat, nlit =  65, 55
+bsat, blit =  75, 65
+%>
+
+live_config_reload = true
+
+[colors.primary]
+background = "0x242424"
+foreground = "0xeaeaea"
+
+[colors.normal]
+black   = "<%= hsl2rgb(0, 0, 0) %>"
+white   = "<%= hsl2rgb(0, 0, 85) %>"
+red     = "<%= hsl2rgb(60 * 0 + rot, nsat, nlit) %>"
+yellow  = "<%= hsl2rgb(60 * 1 + rot, nsat, nlit) %>"
+green   = "<%= hsl2rgb(60 * 2 + rot, nsat, nlit) %>"
+cyan    = "<%= hsl2rgb(60 * 3 + rot, nsat, nlit) %>"
+blue    = "<%= hsl2rgb(60 * 4 + rot, nsat, nlit) %>"
+magenta = "<%= hsl2rgb(60 * 5 + rot, nsat, nlit) %>"
+
+[colors.bright]
+black   = "<%= hsl2rgb(0, 0, 35) %>"
+white   = "<%= hsl2rgb(0, 0, 90) %>"
+red     = "<%= hsl2rgb(60 * 0 + rot, bsat, blit) %>"
+yellow  = "<%= hsl2rgb(60 * 1 + rot, bsat, blit) %>"
+green   = "<%= hsl2rgb(60 * 2 + rot, bsat, blit) %>"
+cyan    = "<%= hsl2rgb(60 * 3 + rot, bsat, blit) %>"
+blue    = "<%= hsl2rgb(60 * 4 + rot, bsat, blit) %>"
+magenta = "<%= hsl2rgb(60 * 5 + rot, bsat, blit) %>"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 10.0
+
+[font.bold]
+family = "monospace"
+
+[font.italic]
+family = "monospace"
+
+[font.normal]
+family = "monospace"
+
+[[keyboard.bindings]]
+chars = "\u001B[D"
+key = "Left"
+mode = "~AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001BOD"
+key = "Left"
+mode = "AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001B[C"
+key = "Right"
+mode = "~AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001BOC"
+key = "Right"
+mode = "AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001B[A"
+key = "Up"
+mode = "~AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001BOA"
+key = "Up"
+mode = "AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001B[B"
+key = "Down"
+mode = "~AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001BOB"
+key = "Down"
+mode = "AppCursor"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[scrolling]
+history = 100000
+
+[window]
+decorations = "none"
+dynamic_title = true
+
+[window.dimensions]
+columns = 0
+lines = 0
+
+[window.padding]
+x = 0
+y = 0

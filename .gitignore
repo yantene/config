@@ -61,8 +61,8 @@
 
 !/alacritty
 /alacritty/*
-!/alacritty/alacritty.yml
-!/alacritty/alacritty.yml.erb
+!/alacritty/alacritty.toml
+!/alacritty/alacritty.toml.erb
 
 !/tmux
 /tmux/*

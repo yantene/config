@@ -1,0 +1,107 @@
+
+
+live_config_reload = true
+
+[colors.primary]
+background = "0x242424"
+foreground = "0xeaeaea"
+
+[colors.normal]
+black   = "0x000000"
+white   = "0xd9d9d9"
+red     = "0xd74267"
+yellow  = "0xd7b242"
+green   = "0x67d742"
+cyan    = "0x42d7b2"
+blue    = "0x4267d7"
+magenta = "0xb242d7"
+
+[colors.bright]
+black   = "0x595959"
+white   = "0xe6e6e6"
+red     = "0xe96384"
+yellow  = "0xe9c763"
+green   = "0x84e963"
+cyan    = "0x63e9c7"
+blue    = "0x6384e9"
+magenta = "0xc763e9"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 10.0
+
+[font.bold]
+family = "monospace"
+
+[font.italic]
+family = "monospace"
+
+[font.normal]
+family = "monospace"
+
+[[keyboard.bindings]]
+chars = "\u001B[D"
+key = "Left"
+mode = "~AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001BOD"
+key = "Left"
+mode = "AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001B[C"
+key = "Right"
+mode = "~AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001BOC"
+key = "Right"
+mode = "AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001B[A"
+key = "Up"
+mode = "~AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001BOA"
+key = "Up"
+mode = "AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001B[B"
+key = "Down"
+mode = "~AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001BOB"
+key = "Down"
+mode = "AppCursor"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[scrolling]
+history = 100000
+
+[window]
+decorations = "none"
+dynamic_title = true
+
+[window.dimensions]
+columns = 0
+lines = 0
+
+[window.padding]
+x = 0
+y = 0
