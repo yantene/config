@@ -5,6 +5,8 @@
 # white list
 !/.gitignore
 
+!/chromium-flags.conf
+
 !/environment.d
 /environment.d/*
 !/environment.d/*.conf
