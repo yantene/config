@@ -38,59 +38,13 @@
       "deactivated": ""
     }
   },
-  "tray": {
-    // "icon-size": 21,
-    "spacing": 10
-  },
-  "clock": {
-    "format": "{:%Y-%m-%d (%a) %H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-  },
-  "cpu": {
-    "format": "{usage}% ",
-    "tooltip": false
-  },
-  "memory": {
-    "format": "{}% "
-  },
-  "temperature": {
-    // "thermal-zone": 2,
-    "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
-    "critical-threshold": 80,
-    // "format-critical": "{temperatureC}°C {icon}",
-    "format": "{temperatureC}°C {icon}",
-    "format-icons": ["", "", "", "", ""]
-  },
-  "battery": {
-    "states": {
-      "good": 70,
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% 󰂄",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": ["", "", "", "", ""]
-  },
-  "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": "{ipaddr}/{cidr} 󰈀",
-    "tooltip-format": "{ifname} via {gwaddr} 󱕜",
-    "format-linked": "{ifname} (No IP) ⚠",
-    "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
-  },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
-    "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": "󰗿 {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
+    "format": "{icon} {volume}%  {format_source}",
+    "format-bluetooth": "{icon} {volume}%  {format_source}",
+    "format-bluetooth-muted": "{icon} 󰗿  {format_source}",
+    "format-muted": "  {format_source}",
+    "format-source": " {volume}%",
     "format-source-muted": "",
     "format-icons": {
       "headphone": "󰋋",
@@ -102,5 +56,52 @@
       "default": ["", "", ""]
     },
     "on-click": "pavucontrol"
+  },
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+    "tooltip-format": "󱕜 {ifname} via {gwaddr}",
+    "format-linked": "⚠ {ifname} (No IP)",
+    "format-disconnected": "⚠ Disconnected ",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": false
+  },
+  "memory": {
+    "format": " {}%"
+  },
+  "temperature": {
+    // "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
+    "critical-threshold": 80,
+    // "format-critical": "{temperatureC}°C {icon}",
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "battery": {
+    "states": {
+      "good": 70,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}% ({time})",
+    "format-charging": "󰂄 {capacity}% ({time})",
+    "format-plugged": " {capacity}% ({time})",
+    "format-alt": "{icon} ({time})",
+    "format-time": "{H}:{M}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 10
+  },
+  "clock": {
+    "format": "{:%F (%a) %H:%M %Z}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   }
 }
