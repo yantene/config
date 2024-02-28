@@ -2,7 +2,7 @@
 
 case `echo -e "Lock\\nHybrid Sleep\\nSuspend\\nHibernate\\nReboot\\nShutdown" | wofi --dmenu --insensitive` in \
   "Lock") \
-    ${XDG_CONFIG_HOME}/hypr/bin/screenlock now;; \
+    hyprlock;; \
   "Hybrid Sleep") \
     systemctl hybrid-sleep;; \
   "Suspend") \
