@@ -11,7 +11,7 @@ if type -q ssh
 
       test -z $target_host && return
 
-      command ssh $target_host
+      commandline "ssh $target_host"
     else
       command ssh $argv
     end
