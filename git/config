@@ -21,18 +21,8 @@
   awidf = diff --cached --word-diff --ignore-space-change
   rewind = reset --soft HEAD~
 
-[core]
-  quotepath = false
-  pager = delta
-
 [pull]
   rebase = false
-
-[interactive]
-  diffFilter = delta --color-only
-
-[delta]
-  features = line-numbers decorations
 
 [gpg]
   program = gpg2
