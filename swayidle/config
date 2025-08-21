@@ -1,0 +1,8 @@
+# 30 分放置したら画面ロック
+timeout 1800 'swaylock -f'
+
+# 1 時間放置したらサスペンド
+timeout 3600 'systemctl suspend'
+
+# サスペンドに入る直前にもロック
+before-sleep 'swaylock -f'

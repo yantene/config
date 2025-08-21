@@ -55,6 +55,14 @@
 !/sway/config
 !/sway/config.d
 
+!/swayidle
+/swayidle/*
+!/swayidle/config
+
+!/swaylock
+/swaylock/*
+!/swaylock/config
+
 !/systemd
 /systemd/*
 !/systemd/user

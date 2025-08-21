@@ -1,0 +1,15 @@
+# 背景画像
+image=/usr/share/backgrounds/archlinux/split.png
+
+# フルスクリーンでロック
+daemonize=no
+
+# 入力時に失敗回数を表示
+show-failed-attempts
+
+# 入力フィールドの色（枠・文字色など）
+inside-color=00000099
+ring-color=24b9d8
+text-color=ffffff
+key-hl-color=d81b60
+bs-hl-color=d32f2f
